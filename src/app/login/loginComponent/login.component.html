@@ -1,1 +1,31 @@
-<p>login works!</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="login.component.css"/>
+</head>
+
+<body>
+    <div class="p-grid p-fluid">
+        <form>
+            <fieldset class="loginBox">
+                <h1>Login</h1>
+                <div style="width: 150px;">
+                    <span>CPF</span>
+                    <p-inputMask mask="999.999.999-99" placeholder="999.999.999-99"></p-inputMask>
+                    <!-- [(ngModel)]="val1" -->
+                </div>
+                <div style="width: 150px;">
+                    <span>Senha</span>
+                    <p-password [toggleMask]="true"></p-password>
+                    <!-- [(ngModel)]="value3" -->
+                </div>
+                <button pButton pRipple type="button" label="Primary" class="p-button-raised"></button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>

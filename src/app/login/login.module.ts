@@ -4,14 +4,19 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './loginComponent';
 import { LoginService } from './services/Index';
 
-
+import {InputMaskModule} from 'primeng/inputmask';
+import {PasswordModule} from 'primeng/password';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
     LoginComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    InputMaskModule,
+    PasswordModule,
+    ButtonModule
   ],
   exports: [
     LoginComponent
