@@ -4,25 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="login.component.css"/>
+    <link rel="stylesheet" type="text/css" href="login.component.css" />
 </head>
 
 <body>
-    <div class="p-grid p-fluid">
+    <div class="p-grid p-fluid loginBox">
         <form>
-            <fieldset class="loginBox">
-                <h1>Login</h1>
-                <div style="width: 150px;">
+            <fieldset class="fieldsetLogin">
+                <h1>LOGIN</h1>
+                <div>
                     <span>CPF</span>
                     <p-inputMask mask="999.999.999-99" placeholder="999.999.999-99"></p-inputMask>
                     <!-- [(ngModel)]="val1" -->
                 </div>
-                <div style="width: 150px;">
+                <br>
+                <div>
                     <span>Senha</span>
                     <p-password [toggleMask]="true"></p-password>
                     <!-- [(ngModel)]="value3" -->
                 </div>
-                <button pButton pRipple type="button" label="Primary" class="p-button-raised"></button>
+                <br>
+                <button pButton pRipple type="button" label="Login" class="p-button-sm"></button>
             </fieldset>
         </form>
     </div>
