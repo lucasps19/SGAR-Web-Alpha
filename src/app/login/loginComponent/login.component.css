@@ -12,8 +12,8 @@
 }
 
 .fieldsetLogin{
-    width: 200px;
-    height: 350px;
+    width: 300px;
+    height: 370px;
     border: none;
     display: flex;
     flex-direction: column;
@@ -22,5 +22,24 @@
 
 .p-button-sm{
     width: 100px;
+    height: 40px;
+    font-size: 20px;
     align-self: flex-end;
 }
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+span{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+a{
+    align-self: flex-start;
+}
+
