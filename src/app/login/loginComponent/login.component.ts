@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { LoginService } from '../services/Index';
+import { LoginService } from '../shared';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
