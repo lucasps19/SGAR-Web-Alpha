@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModules } from './app-routing.modules';
 import { LoginModule } from './login/Index';
 
 @NgModule({
@@ -9,6 +10,7 @@ import { LoginModule } from './login/Index';
     AppComponent
   ],
   imports: [
+    AppRoutingModules,
     BrowserModule,
     LoginModule
   ],
