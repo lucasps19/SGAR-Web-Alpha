@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { LoginService } from '../shared';
+import { LoginService, Pessoa } from '../shared';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,10 +8,16 @@ import { LoginService } from '../shared';
 })
 export class LoginComponent implements OnInit {
 
+  pessoa: Pessoa;
+
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
 
   }
+
+  // efetuarLogin(cpf: string, senha: string){
+  //   return this.loginService.efetuarLogin(cpf, senha);
+  // }
 
 }

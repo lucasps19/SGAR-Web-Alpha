@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { LoginComponent } from './loginComponent';
 import { LoginService } from './shared';
@@ -14,6 +16,8 @@ import {ButtonModule} from 'primeng/button';
   ],
   imports: [
     CommonModule,
+    RouterModule,
+    FormsModule,
     InputMaskModule,
     PasswordModule,
     ButtonModule

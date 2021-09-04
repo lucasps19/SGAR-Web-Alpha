@@ -15,20 +15,19 @@
                 <br>
                 <div style="width: 300px;">
                     <span>CPF</span>
-                    <p-inputMask mask="999.999.999-99" placeholder="999.999.999-99"></p-inputMask>
-                    <!-- [(ngModel)]="val1" -->
+                    <p-inputMask mask="999.999.999-99" placeholder="999.999.999-99" [(ngModel)]="pessoa.cpf"></p-inputMask>
                 </div>
                 <br>
                 <div style="width: 300px;" > 
                     <span>Senha</span>
-                    <p-password [toggleMask]="true"></p-password>
-                    <!-- [(ngModel)]="value3" -->
+                    <p-password [toggleMask]="true" [(ngModel)]="pessoa.senha"></p-password>
                 </div>
                 <br>
                 <a href="">Esqueceu sua senha? Clique aqui.</a>
                 <a href="">Não possui um acesso? Cadastre-se aqui.</a>
                 <br>
-                <button pButton pRipple type="button" label="Entrar" class="p-button-sm"></button>
+                <button pButton pRipple type="button" label="Entrar" class="p-button-sm" ></button>  
+                <!-- (click)="efetuarLogin(pessoa.cpf, pessoa.senha)" -->
             </fieldset>
         </form>
     </div>
