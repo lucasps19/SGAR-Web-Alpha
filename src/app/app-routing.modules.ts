@@ -4,6 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginRoutes } from './login/login-routing.module';
 
 export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: '/login/loginComponent',
+        pathMatch: 'full'
+    },
     ...LoginRoutes
 ];
 

@@ -15,12 +15,17 @@
                 <br>
                 <div style="width: 300px;">
                     <span>CPF</span>
-                    <p-inputMask mask="999.999.999-99" placeholder="999.999.999-99" [(ngModel)]="pessoa.cpf"></p-inputMask>
+                    <p-inputMask 
+                        mask="999.999.999-99" 
+                        placeholder="999.999.999-99" 
+                        [(ngModel)]="pessoa.cpf"></p-inputMask>
                 </div>
                 <br>
                 <div style="width: 300px;" > 
                     <span>Senha</span>
-                    <p-password [toggleMask]="true" [(ngModel)]="pessoa.senha"></p-password>
+                    <p-password 
+                    [toggleMask]="true" 
+                    [(ngModel)]="pessoa.senha"></p-password>
                 </div>
                 <br>
                 <a href="">Esqueceu sua senha? Clique aqui.</a>

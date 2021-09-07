@@ -5,7 +5,7 @@ import { LoginComponent } from './loginComponent';
 export const LoginRoutes: Routes = [
     {
         path: 'login',
-        redirectTo: 'login/loginComponent'
+        redirectTo: '/login/loginComponent'
     },
     {
         path: 'login/loginComponent',
