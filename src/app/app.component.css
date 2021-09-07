@@ -15,7 +15,7 @@
 
 fieldset{
     width: 500px;
-    height: 300px;
+    height: 400px;
     border: none;
     display: flex;
     flex-direction: column;
@@ -27,8 +27,6 @@ h1{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
-
-
 
 .componentesLoginHorizontal{
     width: 100%;
