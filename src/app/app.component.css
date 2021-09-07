@@ -1,0 +1,40 @@
+.Box{
+    width: 600px;
+    height: 600px;
+    border: 10px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #000000;
+    background-color: white;
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+fieldset{
+    width: 500px;
+    height: 300px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+
+
+.componentesLoginHorizontal{
+    width: 100%;
+    height: 100vh;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
