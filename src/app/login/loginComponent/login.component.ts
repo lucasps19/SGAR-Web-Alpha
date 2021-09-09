@@ -19,8 +19,11 @@ export class LoginComponent implements OnInit {
     this.pessoa = new Pessoa();
   }
 
-  /*efetuarLogin(cpf: string, senha: string){
-    return this.loginService.efetuarLogin(cpf, senha);
-  }*/
+  // efetuarLogin(): void {
+  //   const data = {
+  //     cpf: this.pessoa.cpf,
+  //     senha: this.pessoa.senha
+  //   }
+  //}
 
 }
