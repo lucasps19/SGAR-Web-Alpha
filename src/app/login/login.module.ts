@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { LoginComponent } from './loginComponent';
+import { cadastrarComponent } from './cadastrarComponent';
 import { LoginService } from './shared';
 
 import {InputMaskModule} from 'primeng/inputmask';
@@ -12,7 +13,8 @@ import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    cadastrarComponent
   ],
   imports: [
     CommonModule,
