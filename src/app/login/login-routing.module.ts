@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { LoginComponent } from './loginComponent';
-import { Component } from '@angular/core';
+import { CadastrarUsuarioComponent } from './cadastrar';
 
 export const LoginRoutes: Routes = [
     {
@@ -11,5 +11,9 @@ export const LoginRoutes: Routes = [
     {
         path: 'login/loginComponent',
         component: LoginComponent
+    },
+    {
+        path: 'login/cadastrar',
+        component: CadastrarUsuarioComponent
     }
 ];

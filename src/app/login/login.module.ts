@@ -9,10 +9,12 @@ import { LoginService } from './shared';
 import {InputMaskModule} from 'primeng/inputmask';
 import {PasswordModule} from 'primeng/password';
 import {ButtonModule} from 'primeng/button';
+import { CadastrarUsuarioComponent } from './cadastrar';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    CadastrarUsuarioComponent
   ],
   imports: [
     CommonModule,
