@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './loginComponent';
 import { LoginService } from './shared';
@@ -10,6 +10,8 @@ import {InputMaskModule} from 'primeng/inputmask';
 import {PasswordModule} from 'primeng/password';
 import {ButtonModule} from 'primeng/button';
 import { CadastrarUsuarioComponent } from './cadastrar';
+import { InputTextModule } from 'primeng/inputtext';
+import { LoginRouting } from './login-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,10 +24,10 @@ import { CadastrarUsuarioComponent } from './cadastrar';
     FormsModule,
     InputMaskModule,
     PasswordModule,
-    ButtonModule
-  ],
-  exports: [
-    LoginComponent
+    ButtonModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    LoginRouting
   ],
   providers: [
     LoginService

@@ -1,5 +1,4 @@
-<div class="p-grid p-fluid loginBox">
-    <form>
+<div class="p-grid p-fluid loginBox" [formGroup]="formularioLogin">
         <fieldset class="fieldsetLogin">
             <h1>ACESSO AO SISTEMA</h1>
             <br>
@@ -9,16 +8,18 @@
                     id="cpf"
                     mask="999.999.999-99" 
                     placeholder="999.999.999-99"
+                    formControlName="cpf"
+                    [(ngModel)]="pessoa.cpf"
                 ></p-inputMask>
-                <!-- [(ngModel)]="pessoa.cpf" -->
             </div>
             <br>
             <div style="width: 300px;">
                 <span>Senha</span>
                 <p-password 
                     [toggleMask]="true"
+                    formControlName="senha"
+                    [(ngModel)]="pessoa.senha"
                 ></p-password>
-                <!-- [(ngModel)]="pessoa.senha" -->
             </div>
             <br>
             <a
@@ -26,7 +27,7 @@
             >Esqueceu sua senha?</a>
             <br>
             <a 
-                [routerLink] = "['/login/cadastrar']" 
+                [routerLink] = "['/cadastrar']" 
             >Não possui acesso?</a>
             <br>
             <button 
@@ -35,8 +36,7 @@
                 type="button" 
                 label="Entrar" 
                 class="p-button-sm"
-                onClick=""
+                (click)="efetuarLogin()"
             ></button>
         </fieldset>
-    </form>
 </div>

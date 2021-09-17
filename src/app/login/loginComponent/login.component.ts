@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { LoginService, Pessoa } from '../shared';
@@ -9,21 +10,30 @@ import { LoginService, Pessoa } from '../shared';
 })
 export class LoginComponent implements OnInit {
 
-  pessoa: Pessoa;
+  public pessoa = new Pessoa();
+  public formularioLogin: FormGroup;
 
   constructor(
-    private loginService: LoginService,
-    private router: Router) { }
+    protected loginService: LoginService,
+    protected router: Router,
+    protected formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.pessoa = new Pessoa();
+    this.criarFormulario();
   }
 
-  // efetuarLogin(): void {
-  //   const data = {
-  //     cpf: this.pessoa.cpf,
-  //     senha: this.pessoa.senha
-  //   }
-  //}
+  protected criarFormulario() {
+    this.formularioLogin = this.formBuilder.group({
+      cpf: [this.pessoa.cpf],
+      senha: [this.pessoa.senha]
+    });
+  }
+
+  public efetuarLogin(){
+    const teste = this.pessoa;
+    this.formularioLogin.controls.cpf.disable();
+
+    debugger;
+  }
 
 }
