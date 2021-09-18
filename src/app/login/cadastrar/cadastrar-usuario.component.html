@@ -52,8 +52,17 @@
             <span>Senha</span>
                 <p-password 
                 [toggleMask]="true"
+                [feedback]="true"
                 formControlName="senha"
                 [(ngModel)]="pessoa.senha"
+            ></p-password>
+        </div>
+        <br>
+        <div style="width: 400px;">
+            <span>Digite a senha novamente</span>
+                <p-password 
+                [toggleMask]="true"
+                [feedback]="false"
             ></p-password>
         </div>
         <br>

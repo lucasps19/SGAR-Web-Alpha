@@ -1,6 +1,6 @@
 .box{
     width: 600px;
-    height: 600px;
+    height: 700px;
     border: 10px;
     border-width: 5px;
     border-style: solid;
@@ -15,7 +15,7 @@
 
 .fieldsetCadastro{
     width: 400px;
-    height: 600px;
+    height: 650px;
     border: none;
     display: flex;
     flex-direction: column;
