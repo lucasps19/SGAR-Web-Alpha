@@ -37,13 +37,31 @@
             >
         </div>
         <br>
-            <div style="width: 400px;">
-                <span>Senha</span>
+        <div style="width: 400px;">
+            <span>Senha</span>
                 <p-password 
-                    [toggleMask]="true"
-                    formControlName="senha"
-                    [(ngModel)]="pessoa.senha"
-                ></p-password>
-            </div>
+                [toggleMask]="true"
+                formControlName="senha"
+                [(ngModel)]="pessoa.senha"
+            ></p-password>
+        </div>
+        <br>
+        <div class="div-botoes">
+            <button 
+                pButton 
+                pRipple 
+                type="button" 
+                label="Voltar" 
+                class="p-button-sm button-voltar"
+                [routerLink] = "['/login']" 
+            ></button>
+            <button 
+                pButton 
+                pRipple 
+                type="button" 
+                label="Cadastrar" 
+                class="p-button-sm button-cadastrar"
+            ></button>
+        </div>
     </fieldset>
 </div>
