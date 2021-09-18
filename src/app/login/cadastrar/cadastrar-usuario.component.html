@@ -1,7 +1,40 @@
-<div class="p-grid p-fluid box">
-    <form>
-        <fieldset class="fieldsetCadastro">
-            <p>cadastrar-usuario works!</p>
-        </fieldset>
-    </form>
+<div class="p-grid p-fluid box" [formGroup]="formularioCadastroUsuario">
+    <fieldset class="fieldsetCadastro">
+        <h1>CADASTRAR USUÁRIO</h1>
+        <br>
+        <div style="width: 400px;">
+            <span>Nome</span>
+            <input 
+                id="nome" 
+                type="text" 
+                pInputText 
+                formControlName="nome" 
+                placeholder="Nome"
+                [(ngModel)]="pessoa.nome"
+            >
+        </div>
+        <br>
+        <div style="width: 400px;">
+            <span>CPF</span>
+            <p-inputMask 
+                id="cpf" 
+                mask="999.999.999-99" 
+                placeholder="999.999.999-99" 
+                formControlName="cpf"
+                [(ngModel)]="pessoa.cpf"
+            ></p-inputMask>
+        </div>
+        <br>
+        <div style="width: 400px;">
+            <span>Email</span>
+            <input 
+                id="email" 
+                type="text" 
+                pInputText 
+                formControlName="email" 
+                placeholder="exemplo@email.com"
+                [(ngModel)]="pessoa.email"
+            >
+        </div>
+    </fieldset>
 </div>
