@@ -26,8 +26,8 @@ export class CadastrarUsuarioComponent implements OnInit {
     this.formularioCadastroUsuario = this.formBuilder.group({
       nome: [this.pessoa.nome],
       cpf: [this.pessoa.cpf],
-      email: [this.pessoa.email]
-      //senha: [this.pessoa.senha]
+      email: [this.pessoa.email],
+      senha: [this.pessoa.senha]
     });
   }
 
