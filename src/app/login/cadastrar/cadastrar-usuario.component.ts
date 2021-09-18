@@ -27,6 +27,7 @@ export class CadastrarUsuarioComponent implements OnInit {
       nome: [this.pessoa.nome],
       cpf: [this.pessoa.cpf],
       email: [this.pessoa.email],
+      empresa: [this.pessoa.empresa],
       senha: [this.pessoa.senha]
     });
   }

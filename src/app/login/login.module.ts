@@ -12,6 +12,7 @@ import {ButtonModule} from 'primeng/button';
 import { CadastrarUsuarioComponent } from './cadastrar';
 import { InputTextModule } from 'primeng/inputtext';
 import { LoginRouting } from './login-routing.module';
+import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { LoginRouting } from './login-routing.module';
     PasswordModule,
     ButtonModule,
     InputTextModule,
+    DropdownModule,
     ReactiveFormsModule,
     LoginRouting
   ],

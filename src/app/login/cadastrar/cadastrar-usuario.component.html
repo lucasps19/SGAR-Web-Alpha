@@ -38,6 +38,17 @@
         </div>
         <br>
         <div style="width: 400px;">
+            <span>Empresa</span>
+            <p-dropdown 
+                optionLabel="empresa"
+                formControlName="empresa"
+                placeholder="Selecione a Empresa"
+                [(ngModel)]="pessoa.empresa" 
+            ></p-dropdown>
+            <!-- [options]="cities" -->
+        </div>
+        <br>
+        <div style="width: 400px;">
             <span>Senha</span>
                 <p-password 
                 [toggleMask]="true"
