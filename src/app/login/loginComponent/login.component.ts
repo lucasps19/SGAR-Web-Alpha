@@ -30,10 +30,18 @@ export class LoginComponent implements OnInit {
   }
 
   public efetuarLogin(){
-    const teste = this.pessoa;
-    this.formularioLogin.controls.cpf.disable();
-
     debugger;
+
+    this.pessoa.cpf = this.pessoa.cpf.replace(".", "").replace(".", "").replace("-", "");
+
+    this.loginService.efetuarLogin(this.pessoa).subscribe(
+      response => {
+        alert("Deu Certo!")
+      },
+      error => {
+        alert("Erro!")
+      }
+    )
   }
 
 }

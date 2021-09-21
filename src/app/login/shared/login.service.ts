@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 import { Pessoa } from '.';
 
-const baseURL = 'https://localhost:44392/swagger/index.html'
+const baseURL = 'https://localhost:44392'
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +17,8 @@ export class LoginService {
   }
 
   efetuarLogin(data: { cpf: string; senha: string; }) : Observable<any> {
-    return this.httpClient.get('${baseURL}/${data}');
+    debugger;
+
+    return this.httpClient.get<Pessoa>(`${baseURL}/EfetuarLogin?cpf=${data.cpf}&senha=${data.senha}`);
   }
 }
