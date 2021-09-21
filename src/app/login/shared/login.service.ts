@@ -19,6 +19,6 @@ export class LoginService {
   efetuarLogin(data: { cpf: string; senha: string; }) : Observable<any> {
     debugger;
 
-    return this.httpClient.get<Pessoa>(`${baseURL}/EfetuarLogin?cpf=${data.cpf}&senha=${data.senha}`);
+    return this.httpClient.get(`${baseURL}/EfetuarLogin?cpf=${data.cpf}&senha=${data.senha}`);
   }
 }
