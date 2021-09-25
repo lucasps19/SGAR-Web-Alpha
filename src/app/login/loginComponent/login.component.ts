@@ -30,12 +30,12 @@ export class LoginComponent implements OnInit {
   }
 
   public efetuarLogin(){
-    debugger;
-
     this.pessoa.cpf = this.pessoa.cpf.replace(".", "").replace(".", "").replace("-", "");
 
     this.loginService.efetuarLogin(this.pessoa).subscribe(
       response => {
+        this.pessoa = response;
+        console.log(response);
         alert("Deu Certo!")
       },
       error => {

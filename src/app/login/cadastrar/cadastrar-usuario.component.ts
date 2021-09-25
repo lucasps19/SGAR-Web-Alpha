@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Pessoa } from '../shared';
+import { LoginService, Pessoa } from '../shared';
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -14,7 +14,7 @@ export class CadastrarUsuarioComponent implements OnInit {
   public formularioCadastroUsuario: FormGroup;
 
   constructor(
-    //protected loginService: LoginService,
+    protected loginService: LoginService,
     protected router: Router,
     protected formBuilder: FormBuilder) { }
 
@@ -30,6 +30,21 @@ export class CadastrarUsuarioComponent implements OnInit {
       empresa: [this.pessoa.empresa],
       senha: [this.pessoa.senha]
     });
+  }
+
+  public cadastrarUsuario(){
+    this.pessoa.cpf = this.pessoa.cpf.replace(".", "").replace(".", "").replace("-", "");
+
+    this.loginService.cadastrarUsuario(this.pessoa).subscribe(
+      response => {
+        console.log(response);
+        alert("Deu Certo!");
+      },
+      error => {
+        console.log(error);
+        alert("Erro!");
+      }
+    )
   }
 
 }
