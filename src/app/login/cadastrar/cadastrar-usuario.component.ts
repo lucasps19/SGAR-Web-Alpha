@@ -38,7 +38,7 @@ export class CadastrarUsuarioComponent implements OnInit {
     this.loginService.cadastrarUsuario(this.pessoa).subscribe(
       response => {
         console.log(response);
-        alert("Deu Certo!");
+        alert("Cadastro realizado com Sucesso");
       },
       error => {
         console.log(error);
