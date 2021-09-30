@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Pessoa } from '.';
+import { Empresa, Pessoa } from '.';
 
 const baseURL = 'https://localhost:44392'
 
@@ -20,9 +20,11 @@ export class LoginService {
     return this.httpClient.get<Pessoa>(`${baseURL}/EfetuarLogin?cpf=${data.cpf}&senha=${data.senha}`);
   }
 
-  cadastrarUsuario(data: Pessoa) : Observable<any> {
-    debugger;
+  buscarEmpresasCadastradas() : Observable<any> {
+    return this.httpClient.get<Empresa>(`${baseURL}/BuscarEmpresasCadastradas`)
+  }
 
+  cadastrarUsuario(data: Pessoa) : Observable<any> {
     return this.httpClient.post<any>(`${baseURL}/CadastrarUsuario`, data);
   }
 }

@@ -5,7 +5,7 @@ export class Pessoa {
     public email: string;
     public cpf: string;
     public senha: string;
-    public empresa?: number;
+    public idEmpresa?: number;
 
     // constructor(cpf: string) { 
     //     this.cpf = cpf;
