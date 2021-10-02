@@ -20,8 +20,8 @@ export class CadastrarUsuarioComponent implements OnInit {
     protected formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.criarFormulario();
     this.buscarEmpresasCadastradas();
+    this.criarFormulario();
   }
 
   protected criarFormulario() {
@@ -35,21 +35,14 @@ export class CadastrarUsuarioComponent implements OnInit {
   }
 
   protected buscarEmpresasCadastradas(){
-    debugger;
-    this.loginService.buscarEmpresasCadastradas().subscribe(
-      response => {
-        this.listaEmpresasCadastradas = response;
-      },
-      error => {
-        console.log(error);
-        alert("Erro!");
-      }
-    )
+    this.loginService.buscarEmpresasCadastradas().then(dados => {
+      this.listaEmpresasCadastradas = dados;
+    })
   }
 
   public cadastrarUsuario(){
     this.pessoa.cpf = this.pessoa.cpf.replace(".", "").replace(".", "").replace("-", "");
-
+    debugger;
     this.loginService.cadastrarUsuario(this.pessoa).subscribe(
       response => {
         console.log(response);

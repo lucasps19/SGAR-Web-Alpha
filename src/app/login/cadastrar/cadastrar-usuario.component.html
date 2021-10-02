@@ -40,9 +40,13 @@
         <div style="width: 400px;">
             <span>Empresa</span>
             <p-dropdown 
-                optionLabel="empresa"
+                optionLabel="nome"
+                optionValue="id"
                 formControlName="empresa"
                 placeholder="Selecione a Empresa"
+                [virtualScroll]="true"
+                [filter]="true" 
+                filterBy="nome"
                 [options]="listaEmpresasCadastradas"
                 [(ngModel)]="pessoa.idEmpresa" 
             ></p-dropdown>

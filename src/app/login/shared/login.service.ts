@@ -20,8 +20,8 @@ export class LoginService {
     return this.httpClient.get<Pessoa>(`${baseURL}/EfetuarLogin?cpf=${data.cpf}&senha=${data.senha}`);
   }
 
-  buscarEmpresasCadastradas() : Observable<any> {
-    return this.httpClient.get<Empresa>(`${baseURL}/BuscarEmpresasCadastradas`)
+  public async buscarEmpresasCadastradas() : Promise<Empresa[]> {
+    return await this.httpClient.get<Empresa[]>(`${baseURL}/BuscarEmpresasCadastradas`).toPromise();
   }
 
   cadastrarUsuario(data: Pessoa) : Observable<any> {
