@@ -38,6 +38,7 @@
                 label="Entrar" 
                 class="p-button-sm"
                 (click)="efetuarLogin()"
+                [disabled]="!formularioLogin.valid"
             ></button>
         </fieldset>
 </div>

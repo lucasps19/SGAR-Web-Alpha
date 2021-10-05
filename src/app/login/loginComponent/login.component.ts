@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { LoginService, Pessoa } from '../shared';
@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
 
   protected criarFormulario() {
     this.formularioLogin = this.formBuilder.group({
-      cpf: [this.pessoa.cpf],
-      senha: [this.pessoa.senha]
+      cpf: [this.pessoa.cpf, Validators.required],
+      senha: [this.pessoa.senha, Validators.required]
     });
   }
 
