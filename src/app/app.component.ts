@@ -16,7 +16,7 @@ export class AppComponent {
           icon: 'pi pi-pw pi-bars',
           items: [
             {label: 'Nova Apreciação', icon: 'pi pi-fw pi-plus'},
-            {label: 'Lista de Apreciações', icon: 'pi pi-fw pi-list'},
+            {label: 'Lista de Apreciações', icon: 'pi pi-fw pi-list', routerLink: 'listarApreciacoes'},
             {label: 'Configurações', icon: 'pi pi-fw pi-cog'}
           ]
       }
