@@ -10,6 +10,8 @@ import { AppRoutingModules } from './app-routing.modules';
 import { LoginModule } from './login/Index';
 import { RouterModule } from '@angular/router';
 
+import {AvatarModule} from 'primeng/avatar';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,6 +21,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     HttpClientModule,
     FormsModule,
+    AvatarModule,
     BrowserAnimationsModule,
     AppRoutingModules
   ],
