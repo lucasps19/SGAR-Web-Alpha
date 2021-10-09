@@ -1,13 +1,26 @@
-<div class="p-grid p-fluid loginBox" [formGroup]="formularioLogin">
+<div class="componentesLoginHorizontal">
+    <div class="loginBox">
+        <form>
+            <fieldset>
+                <figure>
+                    <img src="/assets/NR12.png" width=300 height=250>
+                </figure>
+                <div>
+                    <h1 class="h1BoxLogo">SISTEMA DE GESTÃO DE APRECIAÇÃO DE RISCOS</h1>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="p-grid p-fluid loginBox" [formGroup]="formularioLogin">
         <fieldset class="fieldsetLogin">
             <h1>ACESSO AO SISTEMA</h1>
             <br>
             <div style="width: 400px;">
                 <span>CPF</span>
                 <p-inputMask 
-                    id="cpf"
+                    id="cpf" 
                     mask="999.999.999-99" 
-                    placeholder="999.999.999-99"
+                    placeholder="999.999.999-99" 
                     formControlName="cpf"
                     [(ngModel)]="pessoa.cpf"
                 ></p-inputMask>
@@ -16,29 +29,25 @@
             <div style="width: 400px;">
                 <span>Senha</span>
                 <p-password 
-                    [toggleMask]="true"
-                    [feedback]="false"
-                    formControlName="senha"
-                    [(ngModel)]="pessoa.senha"
-                ></p-password>
+                    [toggleMask]="true" 
+                    [feedback]="false" 
+                    formControlName="senha" 
+                    [(ngModel)]="pessoa.senha">
+                </p-password>
             </div>
             <br>
-            <a
-                [routerLink] = "" 
-            >Esqueceu sua senha?</a>
+            <a [routerLink]="">Esqueceu sua senha?</a>
             <br>
-            <a 
-                [routerLink] = "['/cadastrar']" 
-            >Não possui acesso?</a>
+            <a [routerLink]="['/cadastrar']">Não possui acesso?</a>
             <br>
             <button 
                 pButton 
-                pRipple 
-                type="button" 
+                pRipple type="button" 
                 label="Entrar" 
-                class="p-button-sm"
+                class="p-button-sm" 
                 (click)="efetuarLogin()"
                 [disabled]="!formularioLogin.valid"
             ></button>
         </fieldset>
+    </div>
 </div>

@@ -1,84 +1,98 @@
-<div class="p-grid p-fluid box" [formGroup]="formularioCadastroUsuario">
-    <fieldset class="fieldsetCadastro">
-        <h1>CADASTRAR USUÁRIO</h1>
-        <br>
-        <div style="width: 400px;">
-            <span>Nome</span>
-            <input 
-                id="nome" 
-                type="text" 
-                pInputText 
-                formControlName="nome" 
-                placeholder="Nome"
-                [(ngModel)]="pessoa.nome"
-            >
-        </div>
-        <br>
-        <div style="width: 400px;">
-            <span>CPF</span>
-            <p-inputMask 
-                id="cpf" 
-                mask="999.999.999-99" 
-                placeholder="999.999.999-99" 
-                formControlName="cpf"
-                [(ngModel)]="pessoa.cpf"
-            ></p-inputMask>
-        </div>
-        <br>
-        <div style="width: 400px;">
-            <span>Email</span>
-            <input 
-                id="email" 
-                type="text" 
-                pInputText 
-                formControlName="email" 
-                placeholder="exemplo@email.com"
-                [(ngModel)]="pessoa.email"
-            >
-        </div>
-        <br>
-        <div style="width: 400px;">
-            <span>Empresa</span>
-            <p-dropdown 
-                optionLabel="nome"
-                optionValue="id"
-                formControlName="empresa"
-                placeholder="Selecione a Empresa"
-                [virtualScroll]="true"
-                [filter]="true" 
-                filterBy="nome"
-                [options]="listaEmpresasCadastradas"
-                [(ngModel)]="pessoa.idEmpresa" 
-            ></p-dropdown>
-        </div>
-        <br>
-        <div style="width: 400px;">
-            <span>Senha</span>
-                <p-password 
-                [toggleMask]="true"
-                [feedback]="true"
-                formControlName="senha"
-                [(ngModel)]="pessoa.senha"
-            ></p-password>
-        </div>
-        <br>
-        <div class="div-botoes">
-            <button 
-                pButton 
-                pRipple 
-                type="button" 
-                label="Voltar" 
-                class="p-button-sm button-voltar"
-                [routerLink] = "['/login']" 
-            ></button>
-            <button 
-                pButton 
-                pRipple 
-                type="button" 
-                label="Cadastrar" 
-                class="p-button-sm button-cadastrar"
-                (click)="cadastrarUsuario()"
-            ></button>
-        </div>
-    </fieldset>
+<div class="componentesLoginHorizontal">
+    <div class="box">
+        <form>
+            <fieldset>
+                <figure>
+                    <img src="/assets/NR12.png" width=300 height=250>
+                </figure>
+                <div>
+                    <h1 class="h1BoxLogo">SISTEMA DE GESTÃO DE APRECIAÇÃO DE RISCOS</h1>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="p-grid p-fluid box" [formGroup]="formularioCadastroUsuario">
+        <fieldset class="fieldsetCadastro">
+            <h1>CADASTRAR USUÁRIO</h1>
+            <br>
+            <div style="width: 400px;">
+                <span>Nome</span>
+                <input 
+                    id="nome" 
+                    type="text" 
+                    pInputText 
+                    formControlName="nome" 
+                    placeholder="Nome"
+                    [(ngModel)]="pessoa.nome"
+                >
+            </div>
+            <br>
+            <div style="width: 400px;">
+                <span>CPF</span>
+                <p-inputMask 
+                    id="cpf" 
+                    mask="999.999.999-99" 
+                    placeholder="999.999.999-99" 
+                    formControlName="cpf"
+                    [(ngModel)]="pessoa.cpf"
+                ></p-inputMask>
+            </div>
+            <br>
+            <div style="width: 400px;">
+                <span>Email</span>
+                <input 
+                    id="email" 
+                    type="text" 
+                    pInputText 
+                    formControlName="email" 
+                    placeholder="exemplo@email.com"
+                    [(ngModel)]="pessoa.email"
+                >
+            </div>
+            <br>
+            <div style="width: 400px;">
+                <span>Empresa</span>
+                <p-dropdown 
+                    optionLabel="nome"
+                    optionValue="id"
+                    formControlName="empresa"
+                    placeholder="Selecione a Empresa"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="nome"
+                    [options]="listaEmpresasCadastradas"
+                    [(ngModel)]="pessoa.idEmpresa" 
+                ></p-dropdown>
+            </div>
+            <br>
+            <div style="width: 400px;">
+                <span>Senha</span>
+                    <p-password 
+                    [toggleMask]="true"
+                    [feedback]="true"
+                    formControlName="senha"
+                    [(ngModel)]="pessoa.senha"
+                ></p-password>
+            </div>
+            <br>
+            <div class="div-botoes">
+                <button 
+                    pButton 
+                    pRipple 
+                    type="button" 
+                    label="Voltar" 
+                    class="p-button-sm button-voltar"
+                    [routerLink] = "['/login']" 
+                ></button>
+                <button 
+                    pButton 
+                    pRipple 
+                    type="button" 
+                    label="Cadastrar" 
+                    class="p-button-sm button-cadastrar"
+                    (click)="cadastrarUsuario()"
+                ></button>
+            </div>
+        </fieldset>
+    </div>
 </div>
