@@ -11,6 +11,8 @@ import { LoginModule } from './login/Index';
 import { RouterModule } from '@angular/router';
 
 import {AvatarModule} from 'primeng/avatar';
+import {PanelMenuModule} from 'primeng/panelmenu';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import {AvatarModule} from 'primeng/avatar';
     HttpClientModule,
     FormsModule,
     AvatarModule,
+    PanelMenuModule,
     BrowserAnimationsModule,
     AppRoutingModules
   ],

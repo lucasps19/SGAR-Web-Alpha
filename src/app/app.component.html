@@ -1,14 +1,22 @@
 <html>
-    <div class="cabecalho">
-        <figure class="figure">
-            <img src="/assets/NR12.png" width=100px; height=100px;>
-        </figure>
-        <div class="tituloCabecalho">
-            <h1>SISTEMA DE GESTÃO DE APRECIAÇÃO DE RISCOS</h1>
-        </div>
-        <div class="avatar">
-            <p-avatar icon="pi pi-user" styleClass="p-mr-2" size="xlarge" shape="circle"></p-avatar>
-        </div>
+<div class="cabecalho">
+    <figure class="figure">
+        <img src="/assets/NR12.png" width=100px; height=100px;>
+    </figure>
+    <div class="tituloCabecalho">
+        <h1>SISTEMA DE GESTÃO DE APRECIAÇÃO DE RISCOS</h1>
     </div>
-    <router-outlet></router-outlet>
+    <div class="avatar">
+        <p-avatar icon="pi pi-user" styleClass="p-mr-2" size="xlarge" shape="circle"></p-avatar>
+    </div>
+</div>
+<div class="pagina">
+    <div>
+        <p-panelMenu [model]="items" [style]="{'width':'300px'}"></p-panelMenu>
+    </div>
+    <div style="width: 90%;">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
 </html>
