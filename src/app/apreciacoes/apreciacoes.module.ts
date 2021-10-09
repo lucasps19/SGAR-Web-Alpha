@@ -4,10 +4,13 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ApreciacaoService } from './shared';
-import { ApreciacaoRouting } from './apreciacao-routing.module'
+import { ApreciacaoRouting } from './apreciacao-routing.module';
+import { ListarApreciacoesComponent } from './listar-apreciacoes'
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ListarApreciacoesComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
