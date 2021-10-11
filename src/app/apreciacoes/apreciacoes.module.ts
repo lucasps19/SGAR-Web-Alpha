@@ -5,7 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ApreciacaoService } from './shared';
 import { ApreciacaoRouting } from './apreciacao-routing.module';
-import { ListarApreciacoesComponent } from './listar-apreciacoes'
+import { ListarApreciacoesComponent } from './listar-apreciacoes';
+
+import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { ListarApreciacoesComponent } from './listar-apreciacoes'
     CommonModule,
     RouterModule,
     FormsModule,
+    DropdownModule,
     ReactiveFormsModule,
     ApreciacaoRouting  
   ],
