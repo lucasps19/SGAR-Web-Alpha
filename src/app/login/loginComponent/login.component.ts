@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       response => {
         this.pessoa = response;
         console.log(response);
-        alert("Deu Certo!")
+        this.router.navigate(['/listarApreciacoes']);
       },
       error => {
         alert("Erro!")
