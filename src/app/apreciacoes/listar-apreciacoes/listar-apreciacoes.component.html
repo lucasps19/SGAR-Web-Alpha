@@ -3,8 +3,17 @@
         <fieldset class="fieldsetFiltrar">
             <h1>Filtrar Apreciações</h1>
             <br>
-            <div>
+            <div style="width: 400px;">
                 <span>Tipo Equipamento</span>
+                <p-dropdown 
+                    optionLabel="nome"
+                    optionValue="id"
+                    placeholder="Selecione o tipo do equipamento"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="nome"
+                    [options]="listaTipoEquipamentos"
+                ></p-dropdown>
             </div>
         </fieldset>
     </div>

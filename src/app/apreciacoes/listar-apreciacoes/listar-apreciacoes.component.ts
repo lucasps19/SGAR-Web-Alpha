@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class ListarApreciacoesComponent implements OnInit {
 
   public formularioFiltro: FormGroup;
+  public listaTipoEquipamentos: string[];
 
   constructor(
     protected formBuilder: FormBuilder
