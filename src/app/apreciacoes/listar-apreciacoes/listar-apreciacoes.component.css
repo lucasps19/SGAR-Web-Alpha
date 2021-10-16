@@ -7,7 +7,6 @@
     border-radius: 25px;
     border-color: #000000;
     background-color: white;
-    display: flex;
 }
 
 .componentes{
@@ -17,8 +16,6 @@
 
 .fieldsetFiltrar{
     border: none;
-    display: flex;
-    flex-direction: column;
 }
 
 h1{
@@ -36,6 +33,13 @@ span{
 }
 
 .TipoEquipamento{
-    width: 430px;
+    float: left;
+    width: 470px;
+    margin: 5px;
+}
+
+.FaixaHRN{
+    float: right;
+    width: 470px;
     margin: 5px;
 }

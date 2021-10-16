@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { TipoEquipamento, ApreciacaoService, FiltroListarApreciacoes } from '../shared';
+import { FaixaHRN, TipoEquipamento, ApreciacaoService, FiltroListarApreciacoes } from '../shared';
 
 @Component({
   selector: 'app-listar-apreciacoes',
@@ -12,6 +12,7 @@ export class ListarApreciacoesComponent implements OnInit {
   public filtroListarApreciacoes = new FiltroListarApreciacoes();
   public formularioFiltro: FormGroup;
   public listaTiposEquipamentos: TipoEquipamento[];
+  public listaFaixaHRN: FaixaHRN[];
 
   constructor(
     protected apreciacaoService: ApreciacaoService,
@@ -20,18 +21,26 @@ export class ListarApreciacoesComponent implements OnInit {
 
   ngOnInit(): void {
     this.buscarTiposEquipamentos();
+    this.buscarFaixasHRN();
     this.criarFormulario();
   }
 
   protected criarFormulario() {
     this.formularioFiltro = this.formBuilder.group({
-      tipoEquipamento: [this.filtroListarApreciacoes.idTipoEquipamento]
+      tipoEquipamento: [this.filtroListarApreciacoes.idTipoEquipamento],
+      faixaHRN: [this.filtroListarApreciacoes.faixaHRN]
     });
   }
 
   protected buscarTiposEquipamentos() {
     this.apreciacaoService.buscarTiposEquipamentos().then(dados => {
       this.listaTiposEquipamentos = dados;
+    })
+  }
+
+  protected buscarFaixasHRN(){
+    this.apreciacaoService.buscarFaixasHRN().then(dados => {
+      this.listaFaixaHRN = dados;
     })
   }
 

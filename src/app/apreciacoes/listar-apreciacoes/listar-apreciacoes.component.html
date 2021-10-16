@@ -18,6 +18,21 @@
                     [(ngModel)]="filtroListarApreciacoes.idTipoEquipamento" 
                 ></p-dropdown>
             </div>
+            <div class="FaixaHRN">
+                <span>Faixa HRN</span>
+                <br>
+                <p-dropdown
+                    optionLabel="descricao"
+                    optionValue="id"
+                    formControlName="faixaHRN"
+                    placeholder="Selecione a faixa do HRN"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaFaixaHRN"
+                    [(ngModel)]="filtroListarApreciacoes.faixaHRN" 
+                ></p-dropdown>
+            </div>
         </fieldset>
     </div>
 </div>
