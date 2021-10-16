@@ -16,6 +16,8 @@
                     filterBy="descricao"
                     [options]="listaTiposEquipamentos"
                     [(ngModel)]="filtroListarApreciacoes.idTipoEquipamento" 
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
                 ></p-dropdown>
             </div>
             <div class="FaixaHRN">
@@ -31,6 +33,8 @@
                     filterBy="descricao"
                     [options]="listaFaixaHRN"
                     [(ngModel)]="filtroListarApreciacoes.faixaHRN" 
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
                 ></p-dropdown>
             </div>
         </fieldset>

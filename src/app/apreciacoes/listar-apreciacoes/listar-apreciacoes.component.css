@@ -16,6 +16,7 @@
 
 .fieldsetFiltrar{
     border: none;
+    width: 950px;
 }
 
 h1{
@@ -34,12 +35,12 @@ span{
 
 .TipoEquipamento{
     float: left;
-    width: 470px;
+    width: 450px;
     margin: 5px;
 }
 
 .FaixaHRN{
     float: right;
-    width: 470px;
+    width: 450px;
     margin: 5px;
 }
