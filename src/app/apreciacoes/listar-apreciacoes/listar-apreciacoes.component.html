@@ -1,11 +1,12 @@
 <div class="boxFiltro">
-    <div class="p-grid p-fluid" [formGroup]="formularioFiltro">
+    <div class="componentes" [formGroup]="formularioFiltro">
         <fieldset class="fieldsetFiltrar">
             <h1>Filtrar Apreciações</h1>
             <br>
-            <div class="TipoEquipamento" style="width: 400px;">
+            <div class="TipoEquipamento">
                 <span>Tipo Equipamento</span>
-                <p-dropdown 
+                <br>
+                <p-dropdown
                     optionLabel="descricao"
                     optionValue="id"
                     formControlName="tipoEquipamento"
