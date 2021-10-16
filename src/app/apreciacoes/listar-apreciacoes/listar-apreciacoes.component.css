@@ -1,5 +1,5 @@
 .boxFiltro{
-    width: 100%;
+    width: 1000px;
     height: 500px;
     border: 10px;
     border-width: 5px;
@@ -16,7 +16,6 @@
     border: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 h1{
@@ -29,4 +28,8 @@ span{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 20px;
+}
+
+.TipoEquipamento{
+    float: left;
 }
