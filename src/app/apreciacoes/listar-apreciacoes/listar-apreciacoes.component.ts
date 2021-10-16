@@ -28,7 +28,9 @@ export class ListarApreciacoesComponent implements OnInit {
   protected criarFormulario() {
     this.formularioFiltro = this.formBuilder.group({
       tipoEquipamento: [this.filtroListarApreciacoes.idTipoEquipamento],
-      faixaHRN: [this.filtroListarApreciacoes.faixaHRN]
+      faixaHRN: [this.filtroListarApreciacoes.faixaHRN],
+      dataInicio: [this.filtroListarApreciacoes.dataInicio],
+      dataFim: [this.filtroListarApreciacoes.dataFim]
     });
   }
 

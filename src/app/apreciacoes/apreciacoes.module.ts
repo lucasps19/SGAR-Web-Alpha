@@ -8,6 +8,7 @@ import { ApreciacaoRouting } from './apreciacao-routing.module';
 import { ListarApreciacoesComponent } from './listar-apreciacoes';
 
 import {DropdownModule} from 'primeng/dropdown';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {DropdownModule} from 'primeng/dropdown';
     RouterModule,
     FormsModule,
     DropdownModule,
+    CalendarModule,
     ReactiveFormsModule,
     ApreciacaoRouting  
   ],

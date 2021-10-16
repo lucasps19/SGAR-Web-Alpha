@@ -37,6 +37,42 @@
                     [style]="{'width':'100%'}"
                 ></p-dropdown>
             </div>
+            <br>
+            <div class="PorData">
+                <span>Por Data</span>
+                <br>
+                <p-calendar 
+                    formControlName="dataInicio"
+                    placeholder="__/__/____"
+                    dateFormat="dd/mm/yy"
+                    [showButtonBar]="true"
+                    [showWeek]="true"
+                    [showIcon]="true"
+                    [monthNavigator]="true" 
+                    [yearNavigator]="true"
+                    yearRange="2000:2030"
+                    [inline]="false"
+                    [(ngModel)]="filtroListarApreciacoes.dataInicio"
+                    autoWidth="false" 
+                    [style]="{'width':'150px'}"
+                ></p-calendar>
+                <span> à </span>
+                <p-calendar 
+                    formControlName="dataFim"
+                    placeholder="__/__/____"
+                    dateFormat="dd/mm/yy"
+                    [showButtonBar]="true"
+                    [showWeek]="true"
+                    [showIcon]="true"
+                    [monthNavigator]="true" 
+                    [yearNavigator]="true"
+                    yearRange="2000:2030"
+                    [inline]="false"
+                    [(ngModel)]="filtroListarApreciacoes.dataFim"
+                    autoWidth="false" 
+                    [style]="{'width':'150px'}"
+                ></p-calendar>
+            </div>
         </fieldset>
     </div>
 </div>
