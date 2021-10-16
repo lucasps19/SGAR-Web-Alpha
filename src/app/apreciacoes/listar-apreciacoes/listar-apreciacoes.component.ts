@@ -46,4 +46,8 @@ export class ListarApreciacoesComponent implements OnInit {
     })
   }
 
+  public limparCamposFormulario(){
+    this.formularioFiltro.reset();
+  }
+
 }
