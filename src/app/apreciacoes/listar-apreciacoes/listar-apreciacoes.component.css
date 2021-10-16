@@ -1,6 +1,6 @@
 .boxFiltro{
     width: 1000px;
-    height: 500px;
+    height: 300px;
     border: 10px;
     border-width: 5px;
     border-style: solid;
@@ -49,4 +49,23 @@ span{
     float: left;
     width: 450px;
     margin: 5px;
+}
+
+.Botoes{
+    float: right;
+    width: 450px;
+    margin: 5px;
+    position: relative;
+}
+
+.BotaoFiltrar{
+    position: absolute;
+    bottom: -60px;
+    right: 0;
+}
+
+.BotaoLimpar{
+    position: absolute;
+    bottom: -60px;
+    right: 110px;
 }
