@@ -10,6 +10,7 @@ import { ListarApreciacoesComponent } from './listar-apreciacoes';
 import {DropdownModule} from 'primeng/dropdown';
 import {CalendarModule} from 'primeng/calendar';
 import {ButtonModule} from 'primeng/button'
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {ButtonModule} from 'primeng/button'
     DropdownModule,
     CalendarModule,
     ButtonModule,
+    TableModule,
     ReactiveFormsModule,
     ApreciacaoRouting  
   ],

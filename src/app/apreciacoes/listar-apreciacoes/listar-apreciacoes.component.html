@@ -92,5 +92,27 @@
     </div>
 </div>
 <div class="boxTabelaApreciacoes">
-
+    <p-table 
+        [value]="listaApreciacoes" styleClass="p-datatable-gridlines p-datatable-striped" responsiveLayout="scroll"
+        [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando de {first} a {last} de {totalRecords} apreciações" [rowsPerPageOptions]="[10,25,50]"
+    >
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">Código da Apreciação <p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="equipamento">Nome do Equipamento <p-sortIcon field="equipamento"></p-sortIcon></th>
+                <th pSortableColumn="dataApr">Data da Apreciação <p-sortIcon field="dataApr"></p-sortIcon></th>
+                <th pSortableColumn="maiorHRN">Maior HRN <p-sortIcon field="maiorHRN"></p-sortIcon></th>
+                <th>Ações</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-apreciacao>
+            <tr>
+                <td>{{apreciacao.id}}</td>
+                <td>{{apreciacao.equipamento}}</td>
+                <td>{{apreciacao.dataApr}}</td>
+                <td>{{apreciacao.maiorHRN}}</td>
+                <td></td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>

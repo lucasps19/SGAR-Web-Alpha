@@ -73,11 +73,11 @@ span{
 
 .boxTabelaApreciacoes{
     width: 1000px;
-    height: 500px;
     border: 10px;
     border-width: 5px;
     border-style: solid;
     border-radius: 25px;
     border-color: #000000;
     background-color: white;
+    padding: 10px;
 }
