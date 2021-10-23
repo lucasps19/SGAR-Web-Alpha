@@ -7,11 +7,29 @@
     >
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="id">Código <p-sortIcon field="id"></p-sortIcon> <p-columnFilter type="text" field="id" display="menu"></p-columnFilter></th>
-                <th pSortableColumn="equipamento">Equipamento <p-sortIcon field="equipamento"></p-sortIcon> <p-columnFilter type="text" field="equipamento" display="menu"></p-columnFilter></th>
-                <th pSortableColumn="dataApr">Data <p-sortIcon field="dataApr"></p-sortIcon> <p-columnFilter type="text" field="dataApr" display="menu"></p-columnFilter></th>
-                <th pSortableColumn="maiorHRN">Maior HRN <p-sortIcon field="maiorHRN"></p-sortIcon> <p-columnFilter type="text" field="maiorHRN" display="menu"></p-columnFilter></th>
-                <th [width]="130" >Ações</th>
+                <th pSortableColumn="id" class="cabecalhoTabela">
+                    Código 
+                    <p-sortIcon field="id"></p-sortIcon> 
+                    <p-columnFilter type="text" field="id" display="menu"></p-columnFilter>
+                </th>
+                <th pSortableColumn="equipamento" class="cabecalhoTabela">
+                    Equipamento 
+                    <p-sortIcon field="equipamento"></p-sortIcon> 
+                    <p-columnFilter type="text" field="equipamento" display="menu"></p-columnFilter>
+                </th>
+                <th pSortableColumn="dataApr" class="cabecalhoTabela">
+                    Data 
+                    <p-sortIcon field="dataApr"  style="color: black !important;"></p-sortIcon> 
+                    <p-columnFilter type="text" field="dataApr" display="menu"></p-columnFilter>
+                </th>
+                <th pSortableColumn="maiorHRN" class="cabecalhoTabela">
+                    Maior HRN 
+                    <p-sortIcon field="maiorHRN"></p-sortIcon> 
+                    <p-columnFilter type="text" field="maiorHRN" display="menu"></p-columnFilter>
+                </th>
+                <th [width]="130" class="cabecalhoTabela">
+                    Ações
+                </th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-apreciacao>

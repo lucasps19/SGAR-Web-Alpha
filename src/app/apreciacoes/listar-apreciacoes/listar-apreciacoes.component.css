@@ -17,11 +17,10 @@ h1{
 }
 
 .cabecalhoTabela{
-    background-color: #0d89ec !important;
-    color: #ffffff;
+    background-color: #C0C0C0 !important;
 }
 
 .botaoTabela{
     margin: 5px;
-    color: black;
+    color: black !important;
 }
