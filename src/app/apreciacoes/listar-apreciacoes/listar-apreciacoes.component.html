@@ -1,30 +1,17 @@
 <div class="boxTabelaApreciacoes">
+    <h1>Lista de Apreciações</h1>
+    <br>
     <p-table 
         [value]="listaApreciacoes" styleClass="p-datatable-gridlines p-datatable-striped" responsiveLayout="scroll"
         [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando de {first} a {last} de {totalRecords} apreciações" [rowsPerPageOptions]="[10,25,50]"
     >
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="id">Código <p-sortIcon field="id"></p-sortIcon></th>
-                <th pSortableColumn="equipamento">Equipamento <p-sortIcon field="equipamento"></p-sortIcon></th>
-                <th pSortableColumn="dataApr">Data <p-sortIcon field="dataApr"></p-sortIcon></th>
-                <th pSortableColumn="maiorHRN">Maior HRN <p-sortIcon field="maiorHRN"></p-sortIcon></th>
+                <th pSortableColumn="id">Código <p-sortIcon field="id"></p-sortIcon> <p-columnFilter type="text" field="id" display="menu"></p-columnFilter></th>
+                <th pSortableColumn="equipamento">Equipamento <p-sortIcon field="equipamento"></p-sortIcon> <p-columnFilter type="text" field="equipamento" display="menu"></p-columnFilter></th>
+                <th pSortableColumn="dataApr">Data <p-sortIcon field="dataApr"></p-sortIcon> <p-columnFilter type="text" field="dataApr" display="menu"></p-columnFilter></th>
+                <th pSortableColumn="maiorHRN">Maior HRN <p-sortIcon field="maiorHRN"></p-sortIcon> <p-columnFilter type="text" field="maiorHRN" display="menu"></p-columnFilter></th>
                 <th [width]="130" >Ações</th>
-            </tr>
-            <tr>
-                <th>
-                    <p-columnFilter type="text" field="id"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="equipamento"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="dataApr"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="maiorHRN"></p-columnFilter>
-                </th>
-                <th></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-apreciacao>
