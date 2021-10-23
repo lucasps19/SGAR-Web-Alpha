@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { FaixaHRN, TipoEquipamento, ApreciacaoService, FiltroListarApreciacoes, ApreciacaoRisco } from '../shared';
+import { ApreciacaoService, ApreciacaoRisco } from '../shared';
 
 @Component({
   selector: 'app-listar-apreciacoes',
@@ -8,23 +8,14 @@ import { FaixaHRN, TipoEquipamento, ApreciacaoService, FiltroListarApreciacoes, 
   styleUrls: ['./listar-apreciacoes.component.css']
 })
 export class ListarApreciacoesComponent implements OnInit {
-
-  public filtroListarApreciacoes = new FiltroListarApreciacoes();
-  public formularioFiltro: FormGroup;
-  public listaTiposEquipamentos: TipoEquipamento[];
-  public listaFaixaHRN: FaixaHRN[];
+  
   public listaApreciacoes: ApreciacaoRisco[];
 
   constructor(
-    protected apreciacaoService: ApreciacaoService,
-    protected formBuilder: FormBuilder
+    protected apreciacaoService: ApreciacaoService
   ) { }
 
   ngOnInit(): void {
-    this.buscarTiposEquipamentos();
-    this.buscarFaixasHRN();
-    this.criarFormulario();
-
     this.listaApreciacoes = [
       {id: 1001, equipamento: 'Prensa Hidráulica', dataApr: '15/01/2021', maiorHRN: 360 },
       {id: 1002, equipamento: 'Desempenadeira MSA', dataApr: '19/03/2021', maiorHRN: 350 },
@@ -89,29 +80,5 @@ export class ListarApreciacoesComponent implements OnInit {
     ]
   }
 
-  protected criarFormulario() {
-    this.formularioFiltro = this.formBuilder.group({
-      tipoEquipamento: [this.filtroListarApreciacoes.idTipoEquipamento],
-      faixaHRN: [this.filtroListarApreciacoes.faixaHRN],
-      dataInicio: [this.filtroListarApreciacoes.dataInicio],
-      dataFim: [this.filtroListarApreciacoes.dataFim]
-    });
-  }
-
-  protected buscarTiposEquipamentos() {
-    this.apreciacaoService.buscarTiposEquipamentos().then(dados => {
-      this.listaTiposEquipamentos = dados;
-    })
-  }
-
-  protected buscarFaixasHRN(){
-    this.apreciacaoService.buscarFaixasHRN().then(dados => {
-      this.listaFaixaHRN = dados;
-    })
-  }
-
-  public limparCamposFormulario(){
-    this.formularioFiltro.reset();
-  }
 
 }

@@ -1,108 +1,30 @@
-<div class="boxFiltro">
-    <div class="componentes" [formGroup]="formularioFiltro">
-        <fieldset class="fieldsetFiltrar">
-            <h1>Filtrar Apreciações</h1>
-            <br>
-            <div class="TipoEquipamento">
-                <span>Tipo Equipamento</span>
-                <br>
-                <p-dropdown
-                    optionLabel="descricao"
-                    optionValue="id"
-                    formControlName="tipoEquipamento"
-                    placeholder="Selecione o tipo do equipamento"
-                    [virtualScroll]="true"
-                    [filter]="true" 
-                    filterBy="descricao"
-                    [options]="listaTiposEquipamentos"
-                    [(ngModel)]="filtroListarApreciacoes.idTipoEquipamento" 
-                    autoWidth="false" 
-                    [style]="{'width':'100%'}"
-                ></p-dropdown>
-            </div>
-            <div class="FaixaHRN">
-                <span>Faixa HRN</span>
-                <br>
-                <p-dropdown
-                    optionLabel="descricao"
-                    optionValue="id"
-                    formControlName="faixaHRN"
-                    placeholder="Selecione a faixa do HRN"
-                    [virtualScroll]="true"
-                    [filter]="true" 
-                    filterBy="descricao"
-                    [options]="listaFaixaHRN"
-                    [(ngModel)]="filtroListarApreciacoes.faixaHRN" 
-                    autoWidth="false" 
-                    [style]="{'width':'100%'}"
-                ></p-dropdown>
-            </div>
-            <br>
-            <div class="PorData">
-                <span>Por Data</span>
-                <br>
-                <p-calendar 
-                    formControlName="dataInicio"
-                    placeholder="__/__/____"
-                    dateFormat="dd/mm/yy"
-                    [showButtonBar]="true"
-                    [showWeek]="true"
-                    [showIcon]="true"
-                    [monthNavigator]="true" 
-                    [yearNavigator]="true"
-                    yearRange="2000:2030"
-                    [inline]="false"
-                    [(ngModel)]="filtroListarApreciacoes.dataInicio"
-                    autoWidth="false" 
-                    [style]="{'width':'150px'}"
-                ></p-calendar>
-                <span> à </span>
-                <p-calendar 
-                    formControlName="dataFim"
-                    placeholder="__/__/____"
-                    dateFormat="dd/mm/yy"
-                    [showButtonBar]="true"
-                    [showWeek]="true"
-                    [showIcon]="true"
-                    [monthNavigator]="true" 
-                    [yearNavigator]="true"
-                    yearRange="2000:2030"
-                    [inline]="false"
-                    [(ngModel)]="filtroListarApreciacoes.dataFim"
-                    autoWidth="false" 
-                    [style]="{'width':'150px'}"
-                ></p-calendar>
-            </div>
-            <div class="Botoes">
-                <p-button 
-                    class="BotaoLimpar"
-                    label="Limpar" 
-                    icon="pi pi-filter-slash"  
-                    iconPos="right"
-                    (click)="limparCamposFormulario()"
-                ></p-button>
-                <p-button 
-                    class="BotaoFiltrar"
-                    label="Filtrar" 
-                    icon="pi pi-filter"  
-                    iconPos="right"
-                ></p-button>
-            </div>
-        </fieldset>
-    </div>
-</div>
 <div class="boxTabelaApreciacoes">
     <p-table 
         [value]="listaApreciacoes" styleClass="p-datatable-gridlines p-datatable-striped" responsiveLayout="scroll"
         [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando de {first} a {last} de {totalRecords} apreciações" [rowsPerPageOptions]="[10,25,50]"
     >
         <ng-template pTemplate="header">
-            <tr>
-                <th pSortableColumn="id">Código da Apreciação <p-sortIcon field="id"></p-sortIcon></th>
-                <th pSortableColumn="equipamento">Nome do Equipamento <p-sortIcon field="equipamento"></p-sortIcon></th>
-                <th pSortableColumn="dataApr">Data da Apreciação <p-sortIcon field="dataApr"></p-sortIcon></th>
+            <tr tableStyle="cabecalhoTabela">
+                <th pSortableColumn="id">Código <p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="equipamento">Equipamento <p-sortIcon field="equipamento"></p-sortIcon></th>
+                <th pSortableColumn="dataApr">Data <p-sortIcon field="dataApr"></p-sortIcon></th>
                 <th pSortableColumn="maiorHRN">Maior HRN <p-sortIcon field="maiorHRN"></p-sortIcon></th>
                 <th>Ações</th>
+            </tr>
+            <tr>
+                <th>
+                    <p-columnFilter type="text" field="id"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="equipamento"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="dataApr"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="maiorHRN"></p-columnFilter>
+                </th>
+                <th></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-apreciacao>
