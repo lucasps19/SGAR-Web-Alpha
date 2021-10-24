@@ -1,5 +1,15 @@
 <div class="boxTabelaApreciacoes">
     <h1>Lista de Apreciações</h1>
+    <div>
+        <p-button 
+            class="botaoNovaApreciacao"
+            label="Nova Apreciacao" 
+            icon="pi pi-plus"
+            [routerLink]="['/novaApreciacao']"
+        ></p-button>
+    </div>
+    <br>
+    <br>
     <br>
     <p-table 
         [value]="listaApreciacoes" styleClass="p-datatable-gridlines p-datatable-striped" responsiveLayout="scroll"

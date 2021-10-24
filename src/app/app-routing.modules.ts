@@ -25,7 +25,7 @@ const routes: Routes = [
         component: ListarApreciacoesComponent
     },
     {
-        path: 'novaApreciacoes',
+        path: 'novaApreciacao',
         component: NovaApreciacaoComponent
     }
 ];

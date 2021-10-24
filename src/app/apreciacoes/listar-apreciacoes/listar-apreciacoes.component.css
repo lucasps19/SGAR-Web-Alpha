@@ -24,3 +24,8 @@ h1{
     margin: 5px;
     color: black !important;
 }
+
+.botaoNovaApreciacao{
+    font-size: 20px;
+    float: right;
+}
