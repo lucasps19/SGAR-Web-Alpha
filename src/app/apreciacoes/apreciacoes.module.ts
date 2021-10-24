@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApreciacaoService } from './shared';
 import { ApreciacaoRouting } from './apreciacao-routing.module';
 import { ListarApreciacoesComponent } from './listar-apreciacoes';
+import { NovaApreciacaoComponent } from './nova-apreciacao';
 
 import {DropdownModule} from 'primeng/dropdown';
 import {CalendarModule} from 'primeng/calendar';
@@ -14,7 +15,8 @@ import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
-    ListarApreciacoesComponent
+    ListarApreciacoesComponent,
+    NovaApreciacaoComponent
   ],
   imports: [
     CommonModule,
