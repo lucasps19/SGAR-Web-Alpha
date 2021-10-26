@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NovaApreciacaoRisco } from '..';
+import { Equipamento, NovaApreciacaoRisco, ApreciacaoService } from '..';
 
 @Component({
   selector: 'app-nova-apreciacao',
@@ -11,13 +11,16 @@ export class NovaApreciacaoComponent implements OnInit {
 
   public formularioNovaApreciacao: FormGroup;
   public novaApreciacao = new NovaApreciacaoRisco();
+  public listaEquipamentos: Equipamento[];
 
   constructor(
+    protected apreciacaoService: ApreciacaoService,
     protected formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
     this.criarFormulario();
+    this.buscarEquipamentosCadastrados();
   }
 
   protected criarFormulario() {
@@ -29,6 +32,12 @@ export class NovaApreciacaoComponent implements OnInit {
       limiteEspaco: [this.novaApreciacao.limiteEspaco],
       limiteTempo: [this.novaApreciacao.limiteTempo]
     });
+  }
+
+  protected buscarEquipamentosCadastrados(){
+    this.apreciacaoService.buscarEquipamentosCadastrados().then(dados => {
+      this.listaEquipamentos = dados;
+    })
   }
 
 }
