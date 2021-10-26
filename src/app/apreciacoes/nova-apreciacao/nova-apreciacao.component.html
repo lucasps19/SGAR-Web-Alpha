@@ -1,8 +1,8 @@
-<div class="boxNovaApreciacao" [formGroup]="formularioNovaApreciacao">
+<div class="boxNovaApreciacao">
     <fieldset class="fieldsetNovaApreciacao">
         <h1>Nova Apreciação de Risco</h1>
         <br>
-        <div class="formulario">
+        <div class="formulario" [formGroup]="formularioNovaApreciacao">
             <div class="codigo">
                 <span>Código</span>
                 <br>
@@ -32,6 +32,21 @@
                     [options]=""
                     [(ngModel)]="novaApreciacao.idEquipamento" 
                 ></p-dropdown>
+            </div>
+            <div class="data">
+                <span>Data</span>
+                <br>
+                <p-calendar 
+                    id="dataApr"
+                    formControlName="dataApreciacao"
+                    dateFormat="dd/mm/yy"
+                    [showIcon]="true"
+                    [showButtonBar]="true"
+                    [monthNavigator]="true" 
+                    [yearNavigator]="true" 
+                    yearRange="2000:2030"
+                    [(ngModel)]="novaApreciacao.dataApr"
+                ></p-calendar>
             </div>
         </div>
     </fieldset>

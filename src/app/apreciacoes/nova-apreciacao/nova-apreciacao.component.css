@@ -45,7 +45,12 @@ span{
 }
 
 .equipamento{
-    width: 400px;
+    width: 650px;
     margin-right: 10px;
+    margin-left: 10px;
+}
+
+.data{
+    width: 150px;
     margin-left: 10px;
 }
