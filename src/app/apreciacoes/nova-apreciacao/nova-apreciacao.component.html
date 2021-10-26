@@ -1,1 +1,38 @@
-<p>nova-apreciacao works!</p>
+<div class="boxNovaApreciacao" [formGroup]="formularioNovaApreciacao">
+    <fieldset class="fieldsetNovaApreciacao">
+        <h1>Nova Apreciação de Risco</h1>
+        <br>
+        <div class="formulario">
+            <div class="codigo">
+                <span>Código</span>
+                <br>
+                <input
+                    id="id" 
+                    type="text" 
+                    pInputText 
+                    formControlName="id"
+                    readonly="true"
+                    class="inputIdApr"
+                    [(ngModel)]="novaApreciacao.id"
+                >
+            </div>
+            <div class="equipamento">
+                <span>Equipamento</span>
+                <br>
+                <p-dropdown 
+                    optionLabel="nome"
+                    optionValue="id"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="idEquipamento"
+                    placeholder="Selecione o Equipamento"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="nome"
+                    [options]=""
+                    [(ngModel)]="novaApreciacao.idEquipamento" 
+                ></p-dropdown>
+            </div>
+        </div>
+    </fieldset>
+</div>

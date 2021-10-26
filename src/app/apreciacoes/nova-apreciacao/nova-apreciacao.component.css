@@ -1,0 +1,51 @@
+.boxNovaApreciacao{
+    width: 1000px;
+    border: 10px;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #000000;
+    background-color: white;
+    padding: 10px;
+}
+
+.fieldsetNovaApreciacao{
+    width: 100%;
+    border: none;
+}
+
+.formulario{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+h1{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+span{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.codigo{
+    width: 100px;
+    margin-right: 10px;
+}
+
+.inputIdApr{
+    width: 100%;
+    background-color: #C0C0C0;
+    border-color: black;
+}
+
+.equipamento{
+    width: 400px;
+    margin-right: 10px;
+    margin-left: 10px;
+}

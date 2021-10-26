@@ -8,6 +8,7 @@ import { ApreciacaoRouting } from './apreciacao-routing.module';
 import { ListarApreciacoesComponent } from './listar-apreciacoes';
 import { NovaApreciacaoComponent } from './nova-apreciacao';
 
+import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import {CalendarModule} from 'primeng/calendar';
 import {ButtonModule} from 'primeng/button'
@@ -23,6 +24,7 @@ import {TableModule} from 'primeng/table';
     RouterModule,
     FormsModule,
     DropdownModule,
+    InputTextModule,
     CalendarModule,
     ButtonModule,
     TableModule,

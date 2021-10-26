@@ -1,2 +1,3 @@
 export * from './apreciacao.service';
-export * from './apreciacaoRisco.model';
+export * from './tabelaApreciacaoRisco.model';
+export * from './novaApreciacaoRisco.model';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ApreciacaoService, ApreciacaoRisco } from '../shared';
+import { ApreciacaoService, TabelaApreciacaoRisco } from '../shared';
 
 @Component({
   selector: 'app-listar-apreciacoes',
@@ -9,7 +9,7 @@ import { ApreciacaoService, ApreciacaoRisco } from '../shared';
 })
 export class ListarApreciacoesComponent implements OnInit {
   
-  public listaApreciacoes: ApreciacaoRisco[];
+  public listaApreciacoes: TabelaApreciacaoRisco[];
 
   constructor(
     protected apreciacaoService: ApreciacaoService
