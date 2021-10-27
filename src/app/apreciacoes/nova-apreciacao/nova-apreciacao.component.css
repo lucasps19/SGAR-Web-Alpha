@@ -17,7 +17,7 @@
 .formulario{
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 h1{
@@ -53,4 +53,20 @@ span{
 .data{
     width: 150px;
     margin-left: 10px;
+}
+
+.limiteUso{
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.limiteEspaco{
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.limiteTempo{
+    margin-left: 10px;
+    margin-top: 20px;
 }

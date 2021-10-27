@@ -1,7 +1,6 @@
 <div class="boxNovaApreciacao">
     <fieldset class="fieldsetNovaApreciacao">
         <h1>Nova Apreciação de Risco</h1>
-        <br>
         <div class="formulario" [formGroup]="formularioNovaApreciacao">
             <div class="codigo">
                 <span>Código</span>
@@ -47,6 +46,45 @@
                     yearRange="2000:2030"
                     [(ngModel)]="novaApreciacao.dataApr"
                 ></p-calendar>
+            </div>
+            <div class="limiteUso">
+                <span>Limites de Uso</span>
+                <br>
+                <textarea 
+                    id="limiteUso"
+                    formControlName="limiteUso"
+                    [rows]="5" 
+                    [cols]="36" 
+                    pInputTextarea 
+                    [autoResize]="true"
+                    [(ngModel)]="novaApreciacao.limiteUso"
+                ></textarea>
+            </div>
+            <div class="limiteEspaco">
+                <span>Limites de Espaço</span>
+                <br>
+                <textarea 
+                    id="limiteEspaco"
+                    formControlName="limiteEspaco"
+                    [rows]="5" 
+                    [cols]="36" 
+                    pInputTextarea 
+                    [autoResize]="true"
+                    [(ngModel)]="novaApreciacao.limiteEspaco"
+                ></textarea>
+            </div>
+            <div class="limiteTempo">
+                <span>Limites de Tempo</span>
+                <br>
+                <textarea 
+                    id="limiteTempo"
+                    formControlName="limiteTempo"
+                    [rows]="5" 
+                    [cols]="36" 
+                    pInputTextarea 
+                    [autoResize]="true"
+                    [(ngModel)]="novaApreciacao.limiteTempo"
+                ></textarea>
             </div>
         </div>
     </fieldset>
