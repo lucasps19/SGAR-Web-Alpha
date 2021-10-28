@@ -19,6 +19,7 @@
                 <span>Equipamento</span>
                 <br>
                 <p-dropdown 
+                    id="equipamento"
                     optionLabel="nome"
                     optionValue="id"
                     autoWidth="false" 
@@ -85,6 +86,22 @@
                     [autoResize]="true"
                     [(ngModel)]="novaApreciacao.limiteTempo"
                 ></textarea>
+            </div>
+            <div class="participantes">
+                <span>Participantes</span>
+                <br>
+                <p-multiSelect 
+                    id="participantes"
+                    defaultLabel="Selecione os Participantes"
+                    optionLabel="nome"
+                    optionValue="id"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="participantes"
+                    display="chip"
+                    [options]="listaPessoasPorEmpresa" 
+                    [(ngModel)]="this.listaParticipantes" 
+                ></p-multiSelect>
             </div>
         </div>
     </fieldset>

@@ -11,6 +11,7 @@ import { NovaApreciacaoComponent } from './nova-apreciacao';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {DropdownModule} from 'primeng/dropdown';
+import {MultiSelectModule} from 'primeng/multiselect';
 import {CalendarModule} from 'primeng/calendar';
 import {ButtonModule} from 'primeng/button'
 import {TableModule} from 'primeng/table';
@@ -25,6 +26,7 @@ import {TableModule} from 'primeng/table';
     RouterModule,
     FormsModule,
     DropdownModule,
+    MultiSelectModule,
     InputTextModule,
     InputTextareaModule,
     CalendarModule,
