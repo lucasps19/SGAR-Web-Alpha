@@ -45,9 +45,19 @@ span{
 }
 
 .equipamento{
-    width: 650px;
+    width: 600px;
     margin-right: 10px;
     margin-left: 10px;
+}
+
+.cadastrarEquipamento{
+    width: 37.7px;
+    margin-right: 10px;
+}
+
+.botaoNovoEquipamento{
+    position: relative;
+    bottom: -25.1px;
 }
 
 .data{

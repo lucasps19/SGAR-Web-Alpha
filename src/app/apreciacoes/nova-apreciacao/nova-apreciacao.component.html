@@ -33,6 +33,16 @@
                     [(ngModel)]="novaApreciacao.idEquipamento" 
                 ></p-dropdown>
             </div>
+            <div class="cadastrarEquipamento">
+                <button 
+                    id="cadastrarEquipamento"
+                    pButton 
+                    pRipple 
+                    title="Cadastrar Equipamento"
+                    icon="pi pi-plus" 
+                    class="p-button-rounded botaoNovoEquipamento"
+                ></button>
+            </div>
             <div class="data">
                 <span>Data</span>
                 <br>
@@ -105,6 +115,8 @@
             </div>
             <div class="div-botoes">
                 <button 
+                    id="Salvar"
+                    title="Criar Apreciação"
                     pButton 
                     pRipple 
                     type="button" 
