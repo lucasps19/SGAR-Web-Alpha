@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Equipamento } from '.';
-import { Pessoa } from 'src/app/login/shared';
+import { Empresa, Pessoa } from 'src/app/login/shared';
+import { TipoEquipamento } from './tipoEquipamento.model';
 
 const baseURL = 'https://localhost:44392'
 
@@ -23,6 +24,14 @@ export class ApreciacaoService {
 
   public async buscarPessoasPorEmpresa() : Promise<Pessoa[]> {
     return await this.httpClient.get<Pessoa[]>(`${baseURL}/BuscarPessoasPorEmpresa`).toPromise();
+  }
+
+  public async buscarEmpresas() : Promise<Empresa[]> {
+    return await this.httpClient.get<Empresa[]>(`${baseURL}/BuscarEmpresas`).toPromise();
+  }
+
+  public async buscarTiposEquipamentos() : Promise<TipoEquipamento[]> {
+    return await this.httpClient.get<TipoEquipamento[]>(`${baseURL}/BuscarTiposEquipamentos`).toPromise();
   }
   
 }

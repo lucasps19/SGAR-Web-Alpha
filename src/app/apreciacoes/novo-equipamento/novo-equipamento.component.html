@@ -1,1 +1,53 @@
-<p>novo-equipamento works!</p>
+<div class="formulario" [formGroup]="formularioNovoEquipamento">
+    <fieldset class="fieldsetNovoEquipamento">
+        <div>
+            <span>Equipamento</span>
+            <br>
+            <input 
+                id="nome"  
+                type="text" 
+                pInputText
+                formControlName="nome"
+                class="nomeEquipamento"
+                placeholder="Digite o nome do equipamento" 
+                [(ngModel)]="equipamento.nome"
+            >
+        </div>
+        <div class="tipoEquipamento">
+            <span>Tipo Equipamento</span>
+            <br>
+            <p-dropdown 
+                id="tipoEquipamento"
+                optionLabel="descricao"
+                optionValue="id"
+                autoWidth="false" 
+                [style]="{'width':'100%'}"
+                formControlName="tipoEquipamento"
+                placeholder="Selecione o Tipo do Equipamento"
+                [virtualScroll]="true"
+                [filter]="true" 
+                filterBy="nome"
+                [options]="listaTiposEquipamento"
+                [(ngModel)]="equipamento.idTipoEquipamento" 
+            ></p-dropdown>
+        </div>
+        <div class="empresa">
+            <span>Empresa</span>
+            <br>
+            <p-dropdown 
+                id="empresa"
+                optionLabel="nome"
+                optionValue="id"
+                autoWidth="false" 
+                [style]="{'width':'100%'}"
+                formControlName="empresa"
+                placeholder="Selecione a Empresa"
+                [virtualScroll]="true"
+                [filter]="true" 
+                filterBy="nome"
+                [options]="listaEmpresas"
+                [(ngModel)]="equipamento.idEmpresa" 
+            ></p-dropdown>
+        </div>
+    </fieldset>
+</div>

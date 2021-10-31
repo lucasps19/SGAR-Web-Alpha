@@ -39,6 +39,9 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
     ReactiveFormsModule,
     ApreciacaoRouting  
   ],
+  entryComponents: [
+    NovoEquipamentoComponent
+  ],
   providers: [
     ApreciacaoService
   ]

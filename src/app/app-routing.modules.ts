@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NovaApreciacaoComponent } from './apreciacoes';
+import { NovaApreciacaoComponent, NovoEquipamentoComponent } from './apreciacoes';
 import { ListarApreciacoesComponent } from './apreciacoes/listar-apreciacoes';
 import { CadastrarUsuarioComponent } from './login/cadastrar';
 

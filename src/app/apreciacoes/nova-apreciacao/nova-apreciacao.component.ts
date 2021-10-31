@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Equipamento, NovaApreciacaoRisco, ApreciacaoService } from '..';
+import { Equipamento, NovaApreciacaoRisco, ApreciacaoService, NovoEquipamentoComponent } from '..';
 import { Pessoa } from 'src/app/login/shared';
+import { DialogService } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-nova-apreciacao',
   templateUrl: './nova-apreciacao.component.html',
-  styleUrls: ['./nova-apreciacao.component.css']
+  styleUrls: ['./nova-apreciacao.component.css'],
+  providers: [DialogService]
 })
 export class NovaApreciacaoComponent implements OnInit {
 
@@ -18,7 +20,8 @@ export class NovaApreciacaoComponent implements OnInit {
 
   constructor(
     protected apreciacaoService: ApreciacaoService,
-    protected formBuilder: FormBuilder
+    protected formBuilder: FormBuilder,
+    public dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
@@ -50,5 +53,12 @@ export class NovaApreciacaoComponent implements OnInit {
       this.listaPessoasPorEmpresa = dados;
     })
   }
+
+  NovoEquipamento() {
+    const ref = this.dialogService.open(NovoEquipamentoComponent, {
+        header: 'Adicionar um novo equipamento',
+        width: '500px'
+    });
+}
 
 }
