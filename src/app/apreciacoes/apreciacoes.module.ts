@@ -7,6 +7,7 @@ import { ApreciacaoService } from './shared';
 import { ApreciacaoRouting } from './apreciacao-routing.module';
 import { ListarApreciacoesComponent } from './listar-apreciacoes';
 import { NovaApreciacaoComponent } from './nova-apreciacao';
+import { NovoEquipamentoComponent } from './novo-equipamento';
 
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
@@ -15,11 +16,13 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import {CalendarModule} from 'primeng/calendar';
 import {ButtonModule} from 'primeng/button'
 import {TableModule} from 'primeng/table';
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
 
 @NgModule({
   declarations: [
     ListarApreciacoesComponent,
-    NovaApreciacaoComponent
+    NovaApreciacaoComponent,
+    NovoEquipamentoComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +35,7 @@ import {TableModule} from 'primeng/table';
     CalendarModule,
     ButtonModule,
     TableModule,
+    DynamicDialogModule,
     ReactiveFormsModule,
     ApreciacaoRouting  
   ],
