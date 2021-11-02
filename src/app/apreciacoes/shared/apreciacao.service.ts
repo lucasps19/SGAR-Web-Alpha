@@ -37,5 +37,9 @@ export class ApreciacaoService {
   cadastrarEquipamento(data: Equipamento) : Observable<any> {
     return this.httpClient.post<any>(`${baseURL}/CadastrarEquipamento`, data);
   }
+
+  cadastrarTipoEquipamento(data: TipoEquipamento) : Observable<any> {
+    return this.httpClient.post<any>(`${baseURL}/CadastrarTipoEquipamento`, data);
+  }
   
 }

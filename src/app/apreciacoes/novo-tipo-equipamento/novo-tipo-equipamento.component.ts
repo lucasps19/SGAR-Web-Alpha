@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
-import { TipoEquipamento } from '..';
+import { ApreciacaoService, TipoEquipamento } from '..';
 
 @Component({
   selector: 'app-novo-tipo-equipamento',
@@ -15,6 +15,7 @@ export class NovoTipoEquipamentoComponent implements OnInit {
 
   constructor(
     protected formBuilder: FormBuilder,
+    protected apreciacaoService: ApreciacaoService,
     public ref: DynamicDialogRef
   ) { }
 
@@ -34,7 +35,16 @@ export class NovoTipoEquipamentoComponent implements OnInit {
 
   public CadastrarTipoEquipamento() {
     if (this.formularioNovoTipoEquipamento.valid) {
-
+      this.apreciacaoService.cadastrarTipoEquipamento(this.tipoEquipamento).subscribe(
+        response => {
+          console.log(response);
+          alert("Cadastro realizado com Sucesso");
+        },
+        error => {
+          console.log(error);
+          alert("Erro!");
+        }
+      )
     }else{
       Object.keys(this.formularioNovoTipoEquipamento.controls).forEach(campo => {
         const controle = this.formularioNovoTipoEquipamento.get(campo);
