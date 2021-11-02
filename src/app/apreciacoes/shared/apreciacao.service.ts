@@ -33,5 +33,9 @@ export class ApreciacaoService {
   public async buscarTiposEquipamentos() : Promise<TipoEquipamento[]> {
     return await this.httpClient.get<TipoEquipamento[]>(`${baseURL}/BuscarTiposEquipamentos`).toPromise();
   }
+
+  cadastrarEquipamento(data: Equipamento) : Observable<any> {
+    return this.httpClient.post<any>(`${baseURL}/CadastrarEquipamento`, data);
+  }
   
 }

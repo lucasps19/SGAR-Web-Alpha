@@ -52,4 +52,24 @@ export class NovoEquipamentoComponent implements OnInit {
     this.ref.close();
   }
 
+  public CadastrarEquipamento() {
+    if (this.formularioNovoEquipamento.valid) {
+      this.apreciacaoService.cadastrarEquipamento(this.equipamento).subscribe(
+        response => {
+          console.log(response);
+          alert("Cadastro realizado com Sucesso");
+        },
+        error => {
+          console.log(error);
+          alert("Erro!");
+        }
+      )
+    }else{
+      Object.keys(this.formularioNovoEquipamento.controls).forEach(campo => {
+        const controle = this.formularioNovoEquipamento.get(campo);
+        controle.markAsDirty();
+      });
+    }
+  }
+
 }
