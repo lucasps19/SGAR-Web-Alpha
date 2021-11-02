@@ -11,7 +11,7 @@ import { ApreciacaoService, Equipamento, TipoEquipamento } from '..';
 export class NovoEquipamentoComponent implements OnInit {
 
   public formularioNovoEquipamento: FormGroup;
-  public equipamento: Equipamento;
+  public equipamento = new Equipamento();
   public listaTiposEquipamento: TipoEquipamento[];
   public listaEmpresas: Empresa[];
   
