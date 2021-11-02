@@ -1,1 +1,35 @@
-<p>novo-tipo-equipamento works!</p>
+<div class="formulario" [formGroup]="formularioNovoTipoEquipamento">
+    <fieldset class="fieldsetNovoTipoEquipamento">
+        <div>
+            <span>Tipo Equipamento</span>
+            <br>
+            <input 
+                id="descricao"  
+                type="text" 
+                pInputText
+                formControlName="descricao"
+                class="tipoEquipamento"
+                placeholder="Digite o tipo do equipamento" 
+                [(ngModel)]="tipoEquipamento.descricao"
+            >
+        </div>
+        <div class="botoes">
+            <button 
+                pButton 
+                pRipple 
+                type="button" 
+                label="Cancelar" 
+                class="p-button-sm button-cancelar"
+                (click)="Cancelar()"
+            ></button>
+            <button 
+                pButton 
+                pRipple 
+                type="button" 
+                label="Salvar" 
+                class="p-button-sm button-salvar"
+                (click)="CadastrarTipoEquipamento()"
+            ></button>
+        </div>
+    </fieldset>
+</div>
