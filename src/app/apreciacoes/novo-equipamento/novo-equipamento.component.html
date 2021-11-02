@@ -49,5 +49,22 @@
                 [(ngModel)]="equipamento.idEmpresa" 
             ></p-dropdown>
         </div>
+        <div class="botoes">
+            <button 
+                pButton 
+                pRipple 
+                type="button" 
+                label="Cancelar" 
+                class="p-button-sm button-cancelar"
+                (click)="Cancelar()"
+            ></button>
+            <button 
+                pButton 
+                pRipple 
+                type="button" 
+                label="Salvar" 
+                class="p-button-sm button-salvar"
+            ></button>
+        </div>
     </fieldset>
 </div>

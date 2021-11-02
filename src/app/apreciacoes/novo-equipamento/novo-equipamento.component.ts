@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Empresa } from 'src/app/login/shared';
 import { ApreciacaoService, Equipamento, TipoEquipamento } from '..';
 
@@ -17,7 +18,8 @@ export class NovoEquipamentoComponent implements OnInit {
   
   constructor(
     protected apreciacaoService: ApreciacaoService,
-    protected formBuilder: FormBuilder
+    protected formBuilder: FormBuilder,
+    public ref: DynamicDialogRef
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +46,10 @@ export class NovoEquipamentoComponent implements OnInit {
     this.apreciacaoService.buscarTiposEquipamentos().then(dados => {
       this.listaTiposEquipamento = dados;
     })
+  }
+
+  public Cancelar(){
+    this.ref.close();
   }
 
 }
