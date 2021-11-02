@@ -3,11 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Empresa } from 'src/app/login/shared';
 import { ApreciacaoService, Equipamento, TipoEquipamento } from '..';
+import { DialogService } from 'primeng/dynamicdialog';
+import { NovoTipoEquipamentoComponent } from '../novo-tipo-equipamento';
 
 @Component({
   selector: 'app-novo-equipamento',
   templateUrl: './novo-equipamento.component.html',
-  styleUrls: ['./novo-equipamento.component.css']
+  styleUrls: ['./novo-equipamento.component.css'],
+  providers: [DialogService]
 })
 export class NovoEquipamentoComponent implements OnInit {
 
@@ -19,7 +22,8 @@ export class NovoEquipamentoComponent implements OnInit {
   constructor(
     protected apreciacaoService: ApreciacaoService,
     protected formBuilder: FormBuilder,
-    public ref: DynamicDialogRef
+    public ref: DynamicDialogRef,
+    public dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
@@ -50,6 +54,13 @@ export class NovoEquipamentoComponent implements OnInit {
 
   public Cancelar(){
     this.ref.close();
+  }
+
+  public NovoTipoEquipamento() {
+    const ref = this.dialogService.open(NovoTipoEquipamentoComponent, {
+        header: 'Adicionar um novo tipo de equipamento',
+        width: '500px'
+    });
   }
 
   public CadastrarEquipamento() {

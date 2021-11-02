@@ -8,6 +8,7 @@ import { ApreciacaoRouting } from './apreciacao-routing.module';
 import { ListarApreciacoesComponent } from './listar-apreciacoes';
 import { NovaApreciacaoComponent } from './nova-apreciacao';
 import { NovoEquipamentoComponent } from './novo-equipamento';
+import { NovoTipoEquipamentoComponent } from './novo-tipo-equipamento';
 
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
@@ -22,7 +23,8 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
   declarations: [
     ListarApreciacoesComponent,
     NovaApreciacaoComponent,
-    NovoEquipamentoComponent
+    NovoEquipamentoComponent,
+    NovoTipoEquipamentoComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +42,8 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
     ApreciacaoRouting  
   ],
   entryComponents: [
-    NovoEquipamentoComponent
+    NovoEquipamentoComponent,
+    NovoTipoEquipamentoComponent
   ],
   providers: [
     ApreciacaoService

@@ -54,11 +54,11 @@ export class NovaApreciacaoComponent implements OnInit {
     })
   }
 
-  NovoEquipamento() {
+  public NovoEquipamento() {
     const ref = this.dialogService.open(NovoEquipamentoComponent, {
         header: 'Adicionar um novo equipamento',
         width: '500px'
     });
-}
+  }
 
 }
