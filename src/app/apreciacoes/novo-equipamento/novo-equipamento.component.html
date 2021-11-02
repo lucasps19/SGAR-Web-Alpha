@@ -21,7 +21,7 @@
                 optionLabel="descricao"
                 optionValue="id"
                 autoWidth="false" 
-                [style]="{'width':'100%'}"
+                [style]="{'width':'90%'}"
                 formControlName="tipoEquipamento"
                 placeholder="Selecione o Tipo do Equipamento"
                 [virtualScroll]="true"
@@ -30,6 +30,13 @@
                 [options]="listaTiposEquipamento"
                 [(ngModel)]="equipamento.idTipoEquipamento" 
             ></p-dropdown>
+            <button 
+                id="cadastrarTipoEquipamento"
+                pButton 
+                pRipple 
+                title="Cadastrar Tipo Equipamento"
+                icon="pi pi-plus"
+            ></button>
         </div>
         <div class="empresa">
             <span>Empresa</span>
