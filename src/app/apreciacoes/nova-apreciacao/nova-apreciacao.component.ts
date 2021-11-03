@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Equipamento, NovaApreciacaoRisco, ApreciacaoService, NovoEquipamentoComponent } from '..';
 import { Pessoa } from 'src/app/login/shared';
 import { DialogService } from 'primeng/dynamicdialog';
+import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-nova-apreciacao',
@@ -17,6 +18,8 @@ export class NovaApreciacaoComponent implements OnInit {
   public listaEquipamentos: Equipamento[];
   public listaPessoasPorEmpresa: Pessoa[];
   public listaParticipantes: number[];
+
+  public teste = new Equipamento();
 
   constructor(
     protected apreciacaoService: ApreciacaoService,
@@ -59,6 +62,11 @@ export class NovaApreciacaoComponent implements OnInit {
         header: 'Adicionar um novo equipamento',
         width: '500px'
     });
+
+    ref.onClose.subscribe(function(){
+      location.reload();
+    });
   }
 
 }
+

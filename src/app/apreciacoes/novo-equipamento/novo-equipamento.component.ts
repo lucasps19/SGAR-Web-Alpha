@@ -47,7 +47,6 @@ export class NovoEquipamentoComponent implements OnInit {
   }
 
   protected buscarTiposEquipamento(){
-    debugger;
     this.apreciacaoService.buscarTiposEquipamentos().then(dados => {
       this.listaTiposEquipamento = dados;
     })
@@ -63,7 +62,9 @@ export class NovoEquipamentoComponent implements OnInit {
         width: '500px'
     });
 
-    //this.ref.onClose.subscribe();
+    ref.onClose.subscribe(function(){
+      location.reload();
+    });
   }
 
   public CadastrarEquipamento() {
