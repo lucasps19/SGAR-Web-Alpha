@@ -47,6 +47,7 @@ export class NovoEquipamentoComponent implements OnInit {
   }
 
   protected buscarTiposEquipamento(){
+    debugger;
     this.apreciacaoService.buscarTiposEquipamentos().then(dados => {
       this.listaTiposEquipamento = dados;
     })
@@ -61,6 +62,8 @@ export class NovoEquipamentoComponent implements OnInit {
         header: 'Adicionar um novo tipo de equipamento',
         width: '500px'
     });
+
+    //this.ref.onClose.subscribe();
   }
 
   public CadastrarEquipamento() {
@@ -69,6 +72,8 @@ export class NovoEquipamentoComponent implements OnInit {
         response => {
           console.log(response);
           alert("Cadastro realizado com Sucesso");
+
+          this.ref.close();
         },
         error => {
           console.log(error);

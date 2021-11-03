@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
-import { ApreciacaoService, TipoEquipamento } from '..';
+import { ApreciacaoService, NovoEquipamentoComponent, TipoEquipamento } from '..';
 
 @Component({
   selector: 'app-novo-tipo-equipamento',
@@ -39,6 +39,8 @@ export class NovoTipoEquipamentoComponent implements OnInit {
         response => {
           console.log(response);
           alert("Cadastro realizado com Sucesso");
+
+          this.ref.close();
         },
         error => {
           console.log(error);
