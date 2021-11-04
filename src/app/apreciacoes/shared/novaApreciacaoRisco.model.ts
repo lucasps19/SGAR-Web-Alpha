@@ -1,3 +1,5 @@
+import { Pessoa } from "src/app/login/shared";
+
 export class NovaApreciacaoRisco{
     public id: number;
     public dataApr: Date;
@@ -5,4 +7,5 @@ export class NovaApreciacaoRisco{
     public limiteEspaco: string;
     public limiteTempo: string;
     public idEquipamento: number;
+    public pessoas: Pessoa[];
 }

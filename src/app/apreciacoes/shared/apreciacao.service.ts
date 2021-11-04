@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Equipamento } from '.';
+import { Equipamento, NovaApreciacaoRisco } from '.';
 import { Empresa, Pessoa } from 'src/app/login/shared';
 import { TipoEquipamento } from './tipoEquipamento.model';
+import { NovaApreciacaoComponent } from '..';
 
 const baseURL = 'https://localhost:44392'
 
@@ -40,6 +41,10 @@ export class ApreciacaoService {
 
   cadastrarTipoEquipamento(data: TipoEquipamento) : Observable<any> {
     return this.httpClient.post<any>(`${baseURL}/CadastrarTipoEquipamento`, data);
+  }
+
+  incluirNovaApreciacaoRisco(data: NovaApreciacaoRisco) : Observable<NovaApreciacaoRisco> {
+    return this.httpClient.post<NovaApreciacaoRisco>(`${baseURL}/IncluirNovaApreciacao`, data);
   }
   
 }

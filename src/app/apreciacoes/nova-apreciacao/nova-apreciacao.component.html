@@ -105,13 +105,12 @@
                     id="participantes"
                     defaultLabel="Selecione os Participantes"
                     optionLabel="nome"
-                    optionValue="id"
                     autoWidth="false" 
                     [style]="{'width':'100%'}"
                     formControlName="participantes"
                     display="chip"
                     [options]="listaPessoasPorEmpresa" 
-                    [(ngModel)]="this.listaParticipantes" 
+                    [(ngModel)]="novaApreciacao.pessoas" 
                 ></p-multiSelect>
             </div>
             <div class="div-botoes">
@@ -123,6 +122,7 @@
                     type="button" 
                     label="Salvar" 
                     class="p-button-sm botaoSalvar"
+                    (click)="IncluirNovaApreciacaoRisco()"
                 ></button>
                 <button 
                     id="cancelar"

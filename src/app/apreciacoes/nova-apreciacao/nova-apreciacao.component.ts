@@ -17,7 +17,6 @@ export class NovaApreciacaoComponent implements OnInit {
   public novaApreciacao = new NovaApreciacaoRisco();
   public listaEquipamentos: Equipamento[];
   public listaPessoasPorEmpresa: Pessoa[];
-  public listaParticipantes: number[];
 
   public teste = new Equipamento();
 
@@ -36,12 +35,12 @@ export class NovaApreciacaoComponent implements OnInit {
   protected criarFormulario() {
     this.formularioNovaApreciacao = this.formBuilder.group({
       id: [this.novaApreciacao.id],
-      idEquipamento: [this.novaApreciacao.idEquipamento],
-      dataApreciacao: [this.novaApreciacao.dataApr],
-      limiteUso: [this.novaApreciacao.limiteUso],
-      limiteEspaco: [this.novaApreciacao.limiteEspaco],
-      limiteTempo: [this.novaApreciacao.limiteTempo],
-      participantes: [this.listaParticipantes]
+      idEquipamento: [this.novaApreciacao.idEquipamento, Validators.required],
+      dataApreciacao: [this.novaApreciacao.dataApr, Validators.required],
+      limiteUso: [this.novaApreciacao.limiteUso, Validators.required],
+      limiteEspaco: [this.novaApreciacao.limiteEspaco, Validators.required],
+      limiteTempo: [this.novaApreciacao.limiteTempo, Validators.required],
+      participantes: [this.novaApreciacao.pessoas, Validators.required]
     });
   }
 
@@ -66,6 +65,25 @@ export class NovaApreciacaoComponent implements OnInit {
     ref.onClose.subscribe(function(){
       location.reload();
     });
+  }
+
+  public IncluirNovaApreciacaoRisco(){
+    if (this.formularioNovaApreciacao.valid) {
+      this.apreciacaoService.incluirNovaApreciacaoRisco(this.novaApreciacao).subscribe(
+        response => {
+          this.novaApreciacao = response;
+          console.log(response);
+        },
+        error => {
+          alert("Erro!")
+        }
+      )
+    }else{
+      Object.keys(this.formularioNovaApreciacao.controls).forEach(campo => {
+        const controle = this.formularioNovaApreciacao.get(campo);
+        controle.markAsDirty();
+      });
+    }
   }
 
 }
