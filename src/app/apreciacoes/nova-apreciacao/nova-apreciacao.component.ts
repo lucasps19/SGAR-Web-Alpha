@@ -18,8 +18,6 @@ export class NovaApreciacaoComponent implements OnInit {
   public listaEquipamentos: Equipamento[];
   public listaPessoasPorEmpresa: Pessoa[];
 
-  public teste = new Equipamento();
-
   constructor(
     protected apreciacaoService: ApreciacaoService,
     protected formBuilder: FormBuilder,
