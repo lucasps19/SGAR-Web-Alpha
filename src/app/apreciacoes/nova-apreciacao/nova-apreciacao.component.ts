@@ -34,7 +34,7 @@ export class NovaApreciacaoComponent implements OnInit {
     this.formularioNovaApreciacao = this.formBuilder.group({
       id: [this.novaApreciacao.id],
       idEquipamento: [this.novaApreciacao.idEquipamento, Validators.required],
-      dataApreciacao: [this.novaApreciacao.dataApr, Validators.required],
+      dataApreciacao: [this.novaApreciacao.dataApreciacao, Validators.required],
       limiteUso: [this.novaApreciacao.limiteUso, Validators.required],
       limiteEspaco: [this.novaApreciacao.limiteEspaco, Validators.required],
       limiteTempo: [this.novaApreciacao.limiteTempo, Validators.required],

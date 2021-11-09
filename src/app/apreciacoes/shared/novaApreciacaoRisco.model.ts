@@ -2,7 +2,7 @@ import { Pessoa } from "src/app/login/shared";
 
 export class NovaApreciacaoRisco{
     public id: number;
-    public dataApr: Date;
+    public dataApreciacao: Date;
     public limiteUso: string;
     public limiteEspaco: string;
     public limiteTempo: string;
