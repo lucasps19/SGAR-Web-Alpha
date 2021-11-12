@@ -46,7 +46,6 @@ span{
 
 .equipamento{
     width: 600px;
-    margin-right: 10px;
     margin-left: 10px;
 }
 
@@ -57,7 +56,7 @@ span{
 
 .botaoNovoEquipamento{
     position: relative;
-    bottom: -25.1px;
+    bottom: -23px;
 }
 
 .data{
