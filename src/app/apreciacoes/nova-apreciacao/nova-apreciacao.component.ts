@@ -28,6 +28,7 @@ export class NovaApreciacaoComponent implements OnInit {
     this.criarFormulario();
     this.buscarEquipamentosCadastrados();
     this.buscarPessoasPorEmpresa();
+    this.novaApreciacao.dataApreciacao = new Date();
   }
 
   protected criarFormulario() {
