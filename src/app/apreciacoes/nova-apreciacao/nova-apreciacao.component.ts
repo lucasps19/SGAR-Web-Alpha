@@ -72,6 +72,7 @@ export class NovaApreciacaoComponent implements OnInit {
         response => {
           this.novaApreciacao = response;
           console.log(response);
+          alert("Apreciação criada com sucesso!");
         },
         error => {
           alert("Erro!")
