@@ -23,8 +23,8 @@ export class ApreciacaoService {
     return await this.httpClient.get<Equipamento[]>(`${baseURL}/BuscarEquipamentos`).toPromise();
   }
 
-  public async buscarPessoasPorEmpresa() : Promise<Pessoa[]> {
-    return await this.httpClient.get<Pessoa[]>(`${baseURL}/BuscarPessoasPorEmpresa`).toPromise();
+  public async buscarPessoasPorEmpresa(idEmpresaUsuarioLogado: string) : Promise<Pessoa[]> {
+    return await this.httpClient.get<Pessoa[]>(`${baseURL}/BuscarPessoasPorEmpresa?idEmpresaUsuarioLogado=${idEmpresaUsuarioLogado}`).toPromise();
   }
 
   public async buscarEmpresas() : Promise<Empresa[]> {

@@ -50,7 +50,7 @@ export class NovaApreciacaoComponent implements OnInit {
   }
 
   protected buscarPessoasPorEmpresa(){
-    this.apreciacaoService.buscarPessoasPorEmpresa().then(dados => {
+    this.apreciacaoService.buscarPessoasPorEmpresa(localStorage.getItem("idEmpresaUsuarioLogado")).then(dados => {
       this.listaPessoasPorEmpresa = dados;
     })
   }
