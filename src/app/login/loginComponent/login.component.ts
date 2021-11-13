@@ -35,7 +35,11 @@ export class LoginComponent implements OnInit {
     this.loginService.efetuarLogin(this.pessoa).subscribe(
       response => {
         this.pessoa = response;
-        console.log(response);
+        localStorage.setItem("nomeUsuarioLogado", this.pessoa.nome);
+        localStorage.setItem("cpfUsuarioLogado", this.pessoa.cpf);
+        localStorage.setItem("emailUsuarioLogado", this.pessoa.email);
+        localStorage.setItem("idUsuarioLogado", this.pessoa.id.toString());
+        localStorage.setItem("idEmpresaUsuarioLogado", this.pessoa.idEmpresa.toString());
         this.router.navigate(['/listarApreciacoes']);
       },
       error => {
