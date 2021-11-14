@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Equipamento, NovaApreciacaoRisco, ApreciacaoService, NovoEquipamentoComponent } from '..';
+import { Equipamento, ApreciacaoRisco, ApreciacaoService, NovoEquipamentoComponent } from '..';
 import { Pessoa } from 'src/app/login/shared';
 import { DialogService } from 'primeng/dynamicdialog';
 import { TestBed } from '@angular/core/testing';
@@ -14,7 +14,7 @@ import { TestBed } from '@angular/core/testing';
 export class NovaApreciacaoComponent implements OnInit {
 
   public formularioNovaApreciacao: FormGroup;
-  public novaApreciacao = new NovaApreciacaoRisco();
+  public novaApreciacao = new ApreciacaoRisco();
   public listaEquipamentos: Equipamento[];
   public listaPessoasPorEmpresa: Pessoa[];
 
@@ -34,7 +34,7 @@ export class NovaApreciacaoComponent implements OnInit {
   protected criarFormulario() {
     this.formularioNovaApreciacao = this.formBuilder.group({
       id: [this.novaApreciacao.id],
-      idEquipamento: [this.novaApreciacao.idEquipamento, Validators.required],
+      equipamento: [this.novaApreciacao.equipamento, Validators.required],
       dataApreciacao: [this.novaApreciacao.dataApreciacao, Validators.required],
       limiteUso: [this.novaApreciacao.limiteUso, Validators.required],
       limiteEspaco: [this.novaApreciacao.limiteEspaco, Validators.required],

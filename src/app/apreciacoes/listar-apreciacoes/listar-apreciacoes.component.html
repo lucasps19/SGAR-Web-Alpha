@@ -32,11 +32,6 @@
                     <p-sortIcon field="dataApr"  style="color: black !important;"></p-sortIcon> 
                     <p-columnFilter type="text" field="dataApr" display="menu"></p-columnFilter>
                 </th>
-                <th pSortableColumn="maiorHRN" class="cabecalhoTabela">
-                    Maior HRN 
-                    <p-sortIcon field="maiorHRN"></p-sortIcon> 
-                    <p-columnFilter type="text" field="maiorHRN" display="menu"></p-columnFilter>
-                </th>
                 <th [width]="130" class="cabecalhoTabela">
                     Ações
                 </th>
@@ -45,9 +40,8 @@
         <ng-template pTemplate="body" let-apreciacao>
             <tr>
                 <td>{{apreciacao.id}}</td>
-                <td>{{apreciacao.equipamento}}</td>
-                <td>{{apreciacao.dataApr}}</td>
-                <td>{{apreciacao.maiorHRN}}</td>
+                <td>{{apreciacao.equipamento.nome}}</td>
+                <td>{{apreciacao.dataApreciacao}}</td>
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded botaoTabela"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning botaoTabela"></button>

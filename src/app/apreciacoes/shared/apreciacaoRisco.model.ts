@@ -1,11 +1,12 @@
 import { Pessoa } from "src/app/login/shared";
+import { Equipamento } from ".";
 
-export class NovaApreciacaoRisco{
+export class ApreciacaoRisco{
     public id: number;
     public dataApreciacao: Date;
     public limiteUso: string;
     public limiteEspaco: string;
     public limiteTempo: string;
-    public idEquipamento: number;
+    public equipamento: Equipamento;
     public pessoas: Pessoa[];
 }

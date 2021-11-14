@@ -21,16 +21,15 @@
                 <p-dropdown 
                     id="equipamento"
                     optionLabel="nome"
-                    optionValue="id"
                     autoWidth="false" 
                     [style]="{'width':'100%'}"
-                    formControlName="idEquipamento"
+                    formControlName="equipamento"
                     placeholder="Selecione o Equipamento"
                     [virtualScroll]="true"
                     [filter]="true" 
                     filterBy="nome"
                     [options]="listaEquipamentos"
-                    [(ngModel)]="novaApreciacao.idEquipamento" 
+                    [(ngModel)]="novaApreciacao.equipamento" 
                 ></p-dropdown>
             </div>
             <div class="cadastrarEquipamento">

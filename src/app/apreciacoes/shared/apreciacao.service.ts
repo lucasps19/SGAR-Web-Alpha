@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Equipamento, NovaApreciacaoRisco } from '.';
+import { Equipamento, ApreciacaoRisco } from '.';
 import { Empresa, Pessoa } from 'src/app/login/shared';
 import { TipoEquipamento } from './tipoEquipamento.model';
 import { NovaApreciacaoComponent } from '..';
@@ -43,8 +43,12 @@ export class ApreciacaoService {
     return this.httpClient.post<any>(`${baseURL}/CadastrarTipoEquipamento`, data);
   }
 
-  incluirNovaApreciacaoRisco(data: NovaApreciacaoRisco) : Observable<NovaApreciacaoRisco> {
-    return this.httpClient.post<NovaApreciacaoRisco>(`${baseURL}/IncluirNovaApreciacao`, data);
+  incluirNovaApreciacaoRisco(data: ApreciacaoRisco) : Observable<ApreciacaoRisco> {
+    return this.httpClient.post<ApreciacaoRisco>(`${baseURL}/IncluirNovaApreciacao`, data);
+  }
+
+  public async buscarApreciacoesUsuarioLogado(idUsuarioLogado: string) : Promise<ApreciacaoRisco[]>{
+    return await this.httpClient.get<ApreciacaoRisco[]>(`${baseURL}/BuscarApreciacoes?idUsuarioLogado=${idUsuarioLogado}`).toPromise();
   }
   
 }
