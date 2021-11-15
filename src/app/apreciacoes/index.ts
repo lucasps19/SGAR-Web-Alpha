@@ -4,4 +4,5 @@ export * from './listar-apreciacoes';
 export * from './nova-apreciacao';
 export * from './novo-equipamento';
 export * from './novo-tipo-equipamento';
+export * from './editar-apreciacoes';
 export * from './shared';

@@ -9,6 +9,7 @@ import { ListarApreciacoesComponent } from './listar-apreciacoes';
 import { NovaApreciacaoComponent } from './nova-apreciacao';
 import { NovoEquipamentoComponent } from './novo-equipamento';
 import { NovoTipoEquipamentoComponent } from './novo-tipo-equipamento';
+import { EditarApreciacoesComponent } from './editar-apreciacoes';
 
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
@@ -24,7 +25,8 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
     ListarApreciacoesComponent,
     NovaApreciacaoComponent,
     NovoEquipamentoComponent,
-    NovoTipoEquipamentoComponent
+    NovoTipoEquipamentoComponent,
+    EditarApreciacoesComponent
   ],
   imports: [
     CommonModule,
