@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Equipamento, ApreciacaoRisco, ApreciacaoService, NovoEquipamentoComponent } from '..';
 import { Pessoa } from 'src/app/login/shared';
 import { DialogService } from 'primeng/dynamicdialog';
-import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-nova-apreciacao',

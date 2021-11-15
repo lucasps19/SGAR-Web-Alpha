@@ -1,1 +1,137 @@
-<p>editar-apreciacoes works!</p>
+<div class="boxEditarApreciacao">
+    <fieldset class="fieldsetEditarApreciacao">
+        <h1>Editar Apreciação de Risco</h1>
+        <div class="formulario" [formGroup]="formularioEditarApreciacao">
+            <div class="codigo">
+                <span>Código</span>
+                <br>
+                <input
+                    id="id" 
+                    type="text" 
+                    pInputText 
+                    formControlName="id"
+                    readonly="true"
+                    class="inputIdApr"
+                    [(ngModel)]="editarApreciacao.id"
+                >
+            </div>
+            <div class="equipamento">
+                <span>Equipamento</span>
+                <br>
+                <p-dropdown 
+                    id="equipamento"
+                    optionLabel="nome"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="equipamento"
+                    placeholder="Selecione o Equipamento"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="nome"
+                    [options]="listaEquipamentos"
+                    [(ngModel)]="editarApreciacao.equipamento" 
+                ></p-dropdown>
+            </div>
+            <div class="cadastrarEquipamento">
+                <button 
+                    id="cadastrarEquipamento"
+                    pButton 
+                    pRipple 
+                    title="Cadastrar Equipamento"
+                    icon="pi pi-plus" 
+                    class="p-button botaoNovoEquipamento"
+                    (click)="NovoEquipamento()"
+                ></button>
+            </div>
+            <div class="data">
+                <span>Data</span>
+                <br>
+                <p-calendar 
+                    id="dataApr"
+                    formControlName="dataApreciacao"
+                    dateFormat="dd/mm/yy"
+                    [showIcon]="true"
+                    [showButtonBar]="true"
+                    [monthNavigator]="true" 
+                    [yearNavigator]="true" 
+                    yearRange="2000:2030"
+                    [(ngModel)]="editarApreciacao.dataApreciacao"
+                ></p-calendar>
+            </div>
+            <div class="limiteUso">
+                <span>Limites de Uso</span>
+                <br>
+                <textarea 
+                    id="limiteUso"
+                    formControlName="limiteUso"
+                    [rows]="5" 
+                    [cols]="36" 
+                    pInputTextarea 
+                    [autoResize]="true"
+                    [(ngModel)]="editarApreciacao.limiteUso"
+                ></textarea>
+            </div>
+            <div class="limiteEspaco">
+                <span>Limites de Espaço</span>
+                <br>
+                <textarea 
+                    id="limiteEspaco"
+                    formControlName="limiteEspaco"
+                    [rows]="5" 
+                    [cols]="36" 
+                    pInputTextarea 
+                    [autoResize]="true"
+                    [(ngModel)]="editarApreciacao.limiteEspaco"
+                ></textarea>
+            </div>
+            <div class="limiteTempo">
+                <span>Limites de Tempo</span>
+                <br>
+                <textarea 
+                    id="limiteTempo"
+                    formControlName="limiteTempo"
+                    [rows]="5" 
+                    [cols]="36" 
+                    pInputTextarea 
+                    [autoResize]="true"
+                    [(ngModel)]="editarApreciacao.limiteTempo"
+                ></textarea>
+            </div>
+            <div class="participantes">
+                <span>Participantes</span>
+                <br>
+                <p-multiSelect 
+                    id="participantes"
+                    defaultLabel="Selecione os Participantes"
+                    optionLabel="nome"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="participantes"
+                    display="chip"
+                    [options]="listaPessoasPorEmpresa" 
+                    [(ngModel)]="editarApreciacao.pessoas" 
+                ></p-multiSelect>
+            </div>
+            <div class="div-botoes">
+                <button 
+                    id="salvar"
+                    title="Criar Apreciação"
+                    pButton 
+                    pRipple 
+                    type="button" 
+                    label="Salvar" 
+                    class="p-button-sm botaoSalvar"
+                ></button>
+                <button 
+                    id="cancelar"
+                    title="Cancelar"
+                    pButton 
+                    pRipple 
+                    type="button" 
+                    label="Cancelar" 
+                    class="p-button-sm botaoCancelar"
+                ></button>
+            </div>
+        </div>
+    </fieldset>
+</div>
