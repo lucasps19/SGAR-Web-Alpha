@@ -44,7 +44,7 @@ export class NovaApreciacaoComponent implements OnInit {
   }
 
   protected buscarEquipamentosCadastrados(){
-    this.apreciacaoService.buscarEquipamentosCadastrados().then(dados => {
+    this.apreciacaoService.buscarEquipamentosCadastrados(localStorage.getItem("idEmpresaUsuarioLogado")).then(dados => {
       this.listaEquipamentos = dados;
     })
   }

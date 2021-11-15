@@ -19,8 +19,8 @@ export class ApreciacaoService {
     return this.httpClient.get(baseURL);
   }
 
-  public async buscarEquipamentosCadastrados() : Promise<Equipamento[]> {
-    return await this.httpClient.get<Equipamento[]>(`${baseURL}/BuscarEquipamentos`).toPromise();
+  public async buscarEquipamentosCadastrados(idEmpresaUsuarioLogado: string) : Promise<Equipamento[]> {
+    return await this.httpClient.get<Equipamento[]>(`${baseURL}/BuscarEquipamentos?idEmpresaUsuarioLogado=${idEmpresaUsuarioLogado}`).toPromise();
   }
 
   public async buscarPessoasPorEmpresa(idEmpresaUsuarioLogado: string) : Promise<Pessoa[]> {
