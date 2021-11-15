@@ -21,7 +21,6 @@ export class ListarApreciacoesComponent implements OnInit {
   
   buscarApreciacoesUsuarioLogado(){
     this.apreciacaoService.buscarApreciacoesUsuarioLogado(localStorage.getItem("idEmpresaUsuarioLogado")).then(dados =>{
-      debugger;
       this.listaApreciacoes = dados;
     })
   }
