@@ -27,10 +27,10 @@
                     <p-sortIcon field="equipamento"></p-sortIcon> 
                     <p-columnFilter type="text" field="equipamento" display="menu"></p-columnFilter>
                 </th>
-                <th pSortableColumn="dataApr" class="cabecalhoTabela">
+                <th pSortableColumn="dataApreciacao" class="cabecalhoTabela">
                     Data 
-                    <p-sortIcon field="dataApr"  style="color: black !important;"></p-sortIcon> 
-                    <p-columnFilter type="text" field="dataApr" display="menu"></p-columnFilter>
+                    <p-sortIcon field="dataApreciacao"  style="color: black !important;"></p-sortIcon> 
+                    <p-columnFilter type="text" field="dataApreciacao" display="menu"></p-columnFilter>
                 </th>
                 <th [width]="130" class="cabecalhoTabela">
                     Ações
@@ -41,10 +41,10 @@
             <tr>
                 <td>{{apreciacao.id}}</td>
                 <td>{{apreciacao.equipamento.nome}}</td>
-                <td>{{apreciacao.dataApreciacao}}</td>
+                <td>{{apreciacao.dataApreciacao | date: 'dd/MM/yyyy'}}</td>
                 <td>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded botaoTabela"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning botaoTabela"></button>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button botaoTabela"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button p-button-warning botaoTabela"></button>
                 </td>
             </tr>
         </ng-template>
