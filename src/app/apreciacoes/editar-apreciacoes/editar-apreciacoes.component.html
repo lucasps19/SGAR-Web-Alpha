@@ -166,6 +166,10 @@
                 <td *ngFor="let col of columns">
                     {{rowData[col.field]}}
                 </td>
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button botaoTabela"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button p-button-warning botaoTabela"></button>
+                </td>
             </tr>
         </ng-template>
     
