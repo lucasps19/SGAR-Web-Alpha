@@ -148,9 +148,14 @@
     <br>
     <br>
     <p-table 
-        styleClass="p-datatable-gridlines p-datatable-striped" [columns]="colunas" [value]="listaRiscos" responsiveLayout="scroll"
+        styleClass="p-datatable-gridlines p-datatable-striped" [columns]="colunasSelecionadas" [value]="listaRiscos" responsiveLayout="scroll"
         [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando de {first} a {last} de {totalRecords} Riscos" [rowsPerPageOptions]="[10,25,50]"
     >
+        <ng-template pTemplate="caption">
+            <p-multiSelect [options]="colunas" [(ngModel)]="colunasSelecionadas" optionLabel="header"
+                selectedItemsLabel="{0} colunas selecionadas" [style]="{minWidth: '200px'}" placeholder="Selecione as Colunas">
+            </p-multiSelect>
+        </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>
                 <th *ngFor="let col of columns" class="cabecalhoTabela"> 

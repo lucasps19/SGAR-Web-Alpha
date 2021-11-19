@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Equipamento, ApreciacaoRisco, ApreciacaoService, NovoEquipamentoComponent, Risco } from '..';
 import { Pessoa } from 'src/app/login/shared';
@@ -18,6 +18,7 @@ export class EditarApreciacoesComponent implements OnInit {
   public listaPessoasPorEmpresa: Pessoa[];
   public listaRiscos: Risco[];
   public colunas: any[];
+  public _colunasSelecionadas: any[];
 
   constructor(
     protected apreciacaoService: ApreciacaoService,
@@ -47,7 +48,7 @@ export class EditarApreciacoesComponent implements OnInit {
       { field: 'hrnDepois.valorCalculado', header: 'Estimativa HRN'}
     ]
 
-    this.listaRiscos[0].hrnDepois.valorCalculado
+    this._colunasSelecionadas = this.colunas;
   }
 
   protected criarFormulario() {
@@ -83,6 +84,14 @@ export class EditarApreciacoesComponent implements OnInit {
     ref.onClose.subscribe(function(){
       location.reload();
     });
+  }
+
+  @Input() get colunasSelecionadas(): any[]{
+    return this._colunasSelecionadas;
+  }
+
+  set colunasSelecionadas(val: any[]){
+    this._colunasSelecionadas = this.colunas.filter(coluna => val.includes(coluna));
   }
 
 }
