@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Equipamento, ApreciacaoRisco, ApreciacaoService, NovoEquipamentoComponent, Risco } from '..';
 import { Pessoa } from 'src/app/login/shared';
 import { DialogService } from 'primeng/dynamicdialog';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-editar-apreciacoes',
@@ -14,6 +15,7 @@ export class EditarApreciacoesComponent implements OnInit {
 
   public formularioEditarApreciacao: FormGroup;
   public editarApreciacao = new ApreciacaoRisco();
+  public idApreciacao: string;
   public listaEquipamentos: Equipamento[];
   public listaPessoasPorEmpresa: Pessoa[];
   public listaRiscos: Risco[];
@@ -23,13 +25,16 @@ export class EditarApreciacoesComponent implements OnInit {
   constructor(
     protected apreciacaoService: ApreciacaoService,
     protected formBuilder: FormBuilder,
-    public dialogService: DialogService
+    public dialogService: DialogService,
+    protected _route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.criarFormulario();
     this.buscarEquipamentosCadastrados();
     this.buscarPessoasPorEmpresa();
+    this.idApreciacao = (this._route.snapshot.paramMap.get('idApreciacao'));
+    this.buscarApreciacao();
 
     this.colunas = [
       { field: 'id', header: 'Código'},
@@ -72,6 +77,12 @@ export class EditarApreciacoesComponent implements OnInit {
   protected buscarPessoasPorEmpresa(){
     this.apreciacaoService.buscarPessoasPorEmpresa(localStorage.getItem("idEmpresaUsuarioLogado")).then(dados => {
       this.listaPessoasPorEmpresa = dados;
+    })
+  }
+
+  protected buscarApreciacao(){
+    this.apreciacaoService.buscarApreciacao(this.idApreciacao).then(dados => {
+      this.editarApreciacao = dados;
     })
   }
 

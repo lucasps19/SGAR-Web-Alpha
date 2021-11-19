@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 import { ApreciacaoRisco, ApreciacaoService } from '../shared';
 
 @Component({
@@ -12,7 +13,8 @@ export class ListarApreciacoesComponent implements OnInit {
   public listaApreciacoes: ApreciacaoRisco[];
 
   constructor(
-    protected apreciacaoService: ApreciacaoService
+    protected apreciacaoService: ApreciacaoService,
+    protected _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +25,10 @@ export class ListarApreciacoesComponent implements OnInit {
     this.apreciacaoService.buscarApreciacoesUsuarioLogado(localStorage.getItem("idEmpresaUsuarioLogado")).then(dados =>{
       this.listaApreciacoes = dados;
     })
+  }
+
+  public editarApreciacao(idApreciacao: Number){
+    this._router.navigate(['editarApreciacao', idApreciacao]);
   }
 
 }

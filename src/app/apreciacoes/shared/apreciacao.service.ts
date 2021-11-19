@@ -47,6 +47,10 @@ export class ApreciacaoService {
     return this.httpClient.post<ApreciacaoRisco>(`${baseURL}/IncluirNovaApreciacao`, data);
   }
 
+  public async buscarApreciacao(idApreciacao: string): Promise<ApreciacaoRisco> {
+    return await this.httpClient.get<ApreciacaoRisco>(`${baseURL}/BuscarApreciacaoRisco?idApreciacao=${idApreciacao}`).toPromise();
+  }
+
   public async buscarApreciacoesUsuarioLogado(idUsuarioLogado: string) : Promise<ApreciacaoRisco[]>{
     return await this.httpClient.get<ApreciacaoRisco[]>(`${baseURL}/BuscarApreciacoes?idUsuarioLogado=${idUsuarioLogado}`).toPromise();
   }

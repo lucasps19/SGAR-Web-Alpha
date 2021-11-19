@@ -29,7 +29,7 @@ const routes: Routes = [
         component: NovaApreciacaoComponent
     },
     {
-        path: 'editarApreciacao',
+        path: 'editarApreciacao/:idApreciacao',
         component: EditarApreciacoesComponent
     }
 ];

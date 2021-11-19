@@ -43,7 +43,7 @@
                 <td>{{apreciacao.equipamento.nome}}</td>
                 <td>{{apreciacao.dataApreciacao | date: 'dd/MM/yyyy'}}</td>
                 <td>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button botaoTabela"></button>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button botaoTabela" (click)="editarApreciacao(apreciacao.id)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button p-button-warning botaoTabela"></button>
                 </td>
             </tr>
