@@ -147,44 +147,28 @@
     <br>
     <br>
     <br>
-    <!-- [value]="listaRiscosApreciacao" -->
     <p-table 
-        styleClass="p-datatable-gridlines p-datatable-striped" responsiveLayout="scroll"
+        styleClass="p-datatable-gridlines p-datatable-striped" [columns]="colunas" [value]="listaRiscos" responsiveLayout="scroll"
         [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando de {first} a {last} de {totalRecords} Riscos" [rowsPerPageOptions]="[10,25,50]"
     >
-        <ng-template pTemplate="header">
+        <ng-template pTemplate="header" let-columns>
             <tr>
-                <th pSortableColumn="id" class="cabecalhoTabela">
-                    Código 
-                    <p-sortIcon field="id"></p-sortIcon> 
-                    <p-columnFilter type="text" field="id" display="menu"></p-columnFilter>
-                </th>
-                <th pSortableColumn="cicloVida" class="cabecalhoTabela">
-                    Ciclo de Vida 
-                    <p-sortIcon field="cicloVida"></p-sortIcon> 
-                    <p-columnFilter type="text" field="cicloVida" display="menu"></p-columnFilter>
-                </th>
-                <th pSortableColumn="dataApreciacao" class="cabecalhoTabela">
-                    Data 
-                    <p-sortIcon field="dataApreciacao"  style="color: black !important;"></p-sortIcon> 
-                    <p-columnFilter type="text" field="dataApreciacao" display="menu"></p-columnFilter>
+                <th *ngFor="let col of columns" class="cabecalhoTabela"> 
+                    {{col.header}}
                 </th>
                 <th [width]="130" class="cabecalhoTabela">
                     Ações
                 </th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-apreciacao>
+        <ng-template pTemplate="body" let-rowData let-columns="colunas">
             <tr>
-                <td>{{apreciacao.id}}</td>
-                <td>{{apreciacao.equipamento.nome}}</td>
-                <td>{{apreciacao.dataApreciacao | date: 'dd/MM/yyyy'}}</td>
-                <td>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button botaoTabela"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button p-button-warning botaoTabela"></button>
+                <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
                 </td>
             </tr>
         </ng-template>
+    
     </p-table>
 </div>
 
