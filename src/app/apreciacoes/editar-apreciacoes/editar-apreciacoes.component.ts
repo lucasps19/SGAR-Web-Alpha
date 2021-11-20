@@ -98,6 +98,27 @@ export class EditarApreciacoesComponent implements OnInit {
     });
   }
 
+  public atualizarApreciacaoRisco(){
+    if (this.formularioEditarApreciacao.valid) {
+      this.apreciacaoService.atualizarApreciacaoRisco(this.editarApreciacao).subscribe(
+        response => {
+          this.editarApreciacao = response;
+          this.editarApreciacao.dataApreciacao = new Date(response.dataApreciacao);
+          console.log(response);
+          alert("Apreciação editada com sucesso!");
+        },
+        error => {
+          alert("Erro!")
+        }
+      )
+    }else{
+      Object.keys(this.formularioEditarApreciacao.controls).forEach(campo => {
+        const controle = this.formularioEditarApreciacao.get(campo);
+        controle.markAsDirty();
+      });
+    }
+  }
+
   @Input() get colunasSelecionadas(): any[]{
     return this._colunasSelecionadas;
   }
