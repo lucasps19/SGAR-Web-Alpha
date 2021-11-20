@@ -58,7 +58,7 @@ export class EditarApreciacoesComponent implements OnInit {
 
   protected criarFormulario() {
     this.formularioEditarApreciacao = this.formBuilder.group({
-      id: [this.editarApreciacao.id],
+      id: [this.editarApreciacao.id, Validators.required],
       equipamento: [this.editarApreciacao.equipamento, Validators.required],
       dataApreciacao: [this.editarApreciacao.dataApreciacao, Validators.required],
       limiteUso: [this.editarApreciacao.limiteUso, Validators.required],
@@ -83,6 +83,7 @@ export class EditarApreciacoesComponent implements OnInit {
   protected buscarApreciacao(){
     this.apreciacaoService.buscarApreciacao(this.idApreciacao).then(dados => {
       this.editarApreciacao = dados;
+      this.editarApreciacao.dataApreciacao = new Date(dados.dataApreciacao);
     })
   }
 
