@@ -5,5 +5,5 @@ export * from './nova-apreciacao';
 export * from './novo-equipamento';
 export * from './novo-tipo-equipamento';
 export * from './editar-apreciacoes';
-export * from './riscos';
+export * from './novo-riscos';
 export * from './shared';
