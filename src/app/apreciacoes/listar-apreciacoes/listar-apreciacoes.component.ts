@@ -22,7 +22,7 @@ export class ListarApreciacoesComponent implements OnInit {
   }
   
   buscarApreciacoesUsuarioLogado(){
-    this.apreciacaoService.buscarApreciacoesUsuarioLogado(localStorage.getItem("idEmpresaUsuarioLogado")).then(dados =>{
+    this.apreciacaoService.buscarApreciacoesUsuarioLogado(localStorage.getItem("idUsuarioLogado")).then(dados =>{
       this.listaApreciacoes = dados;
     })
   }
