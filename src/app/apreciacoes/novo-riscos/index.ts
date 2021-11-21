@@ -1,1 +1,1 @@
-export * from './riscos.component';
+export * from './novo-riscos.component';
