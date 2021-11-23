@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { Equipamento, ApreciacaoRisco } from '.';
 import { Empresa, Pessoa } from 'src/app/login/shared';
 import { TipoEquipamento } from './tipoEquipamento.model';
-import { NovaApreciacaoComponent } from '..';
 
 const baseURL = 'https://localhost:44392'
 
