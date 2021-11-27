@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa, TipoGrupoPerigo } from '.';
+import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa, TipoGrupoPerigo, Dano } from '.';
 import { Empresa, Pessoa } from 'src/app/login/shared';
 import { TipoEquipamento } from './tipoEquipamento.model';
 
@@ -68,6 +68,10 @@ export class ApreciacaoService {
 
   public async buscarTipoGrupoPerigo() : Promise<TipoGrupoPerigo[]> {
     return await this.httpClient.get<TipoGrupoPerigo[]>(`${baseURL}/BuscarTipoGrupoPerigo`).toPromise();
+  }
+
+  public async buscarDanos(idTipoGrupoPerigo: number) : Promise<Dano[]> {
+    return await this.httpClient.get<Dano[]>(`${baseURL}/BuscarDano?idTipoGrupoPerigo=${idTipoGrupoPerigo}`).toPromise();
   }
   
 }

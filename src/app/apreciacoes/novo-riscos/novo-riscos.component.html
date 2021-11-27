@@ -79,6 +79,24 @@
                     filterBy="descricao"
                     [options]="listaTipoGrupoPerigo "
                     [(ngModel)]="novoRisco.tipoGrupoPerigo" 
+                    (onChange)="buscarDanos(novoRisco.tipoGrupoPerigo.id)"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Dano</span>
+                <br>
+                <p-dropdown 
+                    id="dano"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="dano"
+                    placeholder="Selecione o Dano"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaDano "
+                    [(ngModel)]="novoRisco.dano" 
                 ></p-dropdown>
             </div>
         </div>
