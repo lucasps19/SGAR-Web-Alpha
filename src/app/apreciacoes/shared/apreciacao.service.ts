@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Equipamento, ApreciacaoRisco } from '.';
+import { Equipamento, ApreciacaoRisco, CicloVida } from '.';
 import { Empresa, Pessoa } from 'src/app/login/shared';
 import { TipoEquipamento } from './tipoEquipamento.model';
 
@@ -56,6 +56,10 @@ export class ApreciacaoService {
 
   atualizarApreciacaoRisco(data: ApreciacaoRisco) : Observable<ApreciacaoRisco> {
     return this.httpClient.post<ApreciacaoRisco>(`${baseURL}/AtualizarApreciacaoRisco`, data);
+  }
+
+  public async buscarCiclosVida() : Promise<CicloVida[]> {
+    return await this.httpClient.get<CicloVida[]>(`${baseURL}/BuscarCicloVida`).toPromise();
   }
   
 }
