@@ -28,7 +28,8 @@ export class NovoRiscosComponent implements OnInit {
     this.formularioNovoRisco = this.formBuilder.group({
       id: [this.novoRisco.id],
       cicloVida: [this.novoRisco.cicloVida, Validators.required],
-      tarefa: [this.novoRisco.tarefa, Validators.required]
+      tarefa: [this.novoRisco.tarefa, Validators.required],
+      atividade: [this.novoRisco.atividade, Validators.required]
     });
   }
 

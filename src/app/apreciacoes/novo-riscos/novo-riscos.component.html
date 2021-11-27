@@ -51,6 +51,19 @@
                     [(ngModel)]="novoRisco.tarefa" 
                 ></p-dropdown>
             </div>
+            <div style="margin-top: 20px;">
+                <span>Tarefa</span>
+                <br>
+                <textarea 
+                    id="tarefa"
+                    formControlName="atividade"
+                    [rows]="3" 
+                    [cols]="124" 
+                    pInputTextarea 
+                    [autoResize]="true"
+                    [(ngModel)]="novoRisco.atividade"
+                ></textarea>
+            </div>
         </div>
     </fieldset>
 </div>
