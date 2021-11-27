@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa, TipoGrupoPerigo, Dano, RiscoABNT12100 } from '.';
+import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa, TipoGrupoPerigo, Dano, RiscoABNT12100, GrauPossivelLesao, PossibilidadeEvitarPerigo, FrequenciaExposicao, NumeroPessoas } from '.';
 import { Empresa, Pessoa } from 'src/app/login/shared';
 import { TipoEquipamento } from './tipoEquipamento.model';
 
@@ -77,5 +77,21 @@ export class ApreciacaoService {
   public async buscarRiscosABNT12100() : Promise<RiscoABNT12100[]> {
     return await this.httpClient.get<RiscoABNT12100[]>(`${baseURL}/BuscarRiscosABNT12100`).toPromise();
   } 
+
+  public async buscarGLPHRN() : Promise<GrauPossivelLesao[]> {
+    return await this.httpClient.get<GrauPossivelLesao[]>(`${baseURL}/BuscarGLP-HRN`).toPromise();
+  }
+
+  public async buscarPOHRN() : Promise<PossibilidadeEvitarPerigo[]> {
+    return await this.httpClient.get<PossibilidadeEvitarPerigo[]>(`${baseURL}/BuscarPO-HRN`).toPromise();
+  }
+
+  public async buscarFEHRN() : Promise<FrequenciaExposicao[]> {
+    return await this.httpClient.get<FrequenciaExposicao[]>(`${baseURL}/BuscarFE-HRN`).toPromise();
+  }
+
+  public async buscarNPHRN() : Promise<NumeroPessoas[]> {
+    return await this.httpClient.get<NumeroPessoas[]>(`${baseURL}/BuscarNP-HRN`).toPromise();
+  }
   
 }

@@ -134,6 +134,70 @@
             <p-divider align="center" type="dashed" class="divisor">
                 <h2 style="width: 100%;">Cálculo HRN Atual</h2>
             </p-divider>
+            <div style="width: 100%;">
+                <span>Grau Possivel Lesão</span>
+                <br>
+                <p-dropdown 
+                    id="glp"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    placeholder="Selecione o Grau de Possivel Lesão"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaGLP"
+                ></p-dropdown>
+                <!-- formControlName="riscoABNT12100" && [(ngModel)]="novoRisco.riscoABNT12100"  -->
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Frequência de Exposição</span>
+                <br>
+                <p-dropdown 
+                    id="fe"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    placeholder="Selecione a Frequência de Exposição"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaFE"
+                ></p-dropdown>
+                <!-- formControlName="riscoABNT12100" && [(ngModel)]="novoRisco.riscoABNT12100"  -->
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Probabilidade de Ocorrência do Dano</span>
+                <br>
+                <p-dropdown 
+                    id="po"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    placeholder="Selecione a Probabilidade de Ocorrência do Dano"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaPO"
+                ></p-dropdown>
+                <!-- formControlName="riscoABNT12100" && [(ngModel)]="novoRisco.riscoABNT12100"  -->
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Numero de Pessoas Expostas</span>
+                <br>
+                <p-dropdown 
+                    id="np"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    placeholder="Selecione o Numero de Pessoas Expostas"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaNP"
+                ></p-dropdown>
+                <!-- formControlName="riscoABNT12100" && [(ngModel)]="novoRisco.riscoABNT12100"  -->
+            </div>
         </div>
     </fieldset>
 </div>

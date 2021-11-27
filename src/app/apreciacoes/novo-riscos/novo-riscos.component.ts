@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApreciacaoService, CicloVida, Dano, Risco, RiscoABNT12100, Tarefa, TipoGrupoPerigo } from '..';
+import { ApreciacaoService, CicloVida, Dano, FrequenciaExposicao, GrauPossivelLesao, NumeroPessoas, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, Tarefa, TipoGrupoPerigo } from '..';
 
 @Component({
   selector: 'app-riscos',
@@ -15,6 +15,10 @@ export class NovoRiscosComponent implements OnInit {
   public listaTipoGrupoPerigo: TipoGrupoPerigo[];
   public listaDano: Dano[];
   public listaRiscosABNT12100: RiscoABNT12100[];
+  public listaGLP: GrauPossivelLesao[];
+  public listaPO: PossibilidadeEvitarPerigo[];
+  public listaFE: FrequenciaExposicao[];
+  public listaNP: NumeroPessoas[];
   public novoRisco = new Risco();
 
   constructor(
@@ -27,6 +31,10 @@ export class NovoRiscosComponent implements OnInit {
     this.buscarCiclosVida();
     this.buscarTipoGrupoPerigo();
     this.buscarRiscosABNT12100();
+    this.buscarGLPHRN();
+    this.buscarPOHRN();
+    this.buscarFEHRN();
+    this.buscarNPHRN();
   }
 
   protected criarFormulario() {
@@ -69,6 +77,30 @@ export class NovoRiscosComponent implements OnInit {
   public buscarRiscosABNT12100(){
     this.apreciacaoService.buscarRiscosABNT12100().then(dados => {
       this.listaRiscosABNT12100 = dados;  
+    })
+  }
+
+  public buscarGLPHRN(){
+    this.apreciacaoService.buscarGLPHRN().then(dados => {
+      this.listaGLP = dados;
+    })
+  }
+
+  public buscarPOHRN(){
+    this.apreciacaoService.buscarPOHRN().then(dados => {
+      this.listaPO = dados;
+    })
+  }
+
+  public buscarFEHRN(){
+    this.apreciacaoService.buscarFEHRN().then(dados => {
+      this.listaFE = dados;
+    })
+  }
+
+  public buscarNPHRN(){
+    this.apreciacaoService.buscarNPHRN().then(dados => {
+      this.listaNP = dados;
     })
   }
 
