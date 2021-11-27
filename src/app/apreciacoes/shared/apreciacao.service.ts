@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Equipamento, ApreciacaoRisco, CicloVida } from '.';
+import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa } from '.';
 import { Empresa, Pessoa } from 'src/app/login/shared';
 import { TipoEquipamento } from './tipoEquipamento.model';
 
@@ -60,6 +60,10 @@ export class ApreciacaoService {
 
   public async buscarCiclosVida() : Promise<CicloVida[]> {
     return await this.httpClient.get<CicloVida[]>(`${baseURL}/BuscarCicloVida`).toPromise();
+  }
+
+  public async buscarTarefas(idCicloVida: number) : Promise<Tarefa[]> {
+    return await this.httpClient.get<Tarefa[]>(`${baseURL}/BuscarTarefas?idCiclVida=${idCicloVida}`).toPromise();
   }
   
 }

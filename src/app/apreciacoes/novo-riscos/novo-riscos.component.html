@@ -31,6 +31,24 @@
                     filterBy="descricao"
                     [options]="listaCicloVida"
                     [(ngModel)]="novoRisco.cicloVida" 
+                    (onChange)="buscarTarefas(novoRisco.cicloVida.id)"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Tarefa</span>
+                <br>
+                <p-dropdown 
+                    id="tarefa"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="tarefa"
+                    placeholder="Selecione a Tarefa"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaTarefa "
+                    [(ngModel)]="novoRisco.tarefa" 
                 ></p-dropdown>
             </div>
         </div>
