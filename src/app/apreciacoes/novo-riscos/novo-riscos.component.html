@@ -95,7 +95,7 @@
                     [virtualScroll]="true"
                     [filter]="true" 
                     filterBy="descricao"
-                    [options]="listaDano "
+                    [options]="listaDano"
                     [(ngModel)]="novoRisco.dano" 
                 ></p-dropdown>
             </div>
@@ -111,6 +111,23 @@
                     [autoResize]="true"
                     [(ngModel)]="novoRisco.onde"
                 ></textarea>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Risco</span>
+                <br>
+                <p-dropdown 
+                    id="riscoABNT12100"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="riscoABNT12100"
+                    placeholder="Selecione o Risco"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaRiscosABNT12100"
+                    [(ngModel)]="novoRisco.riscoABNT12100" 
+                ></p-dropdown>
             </div>
         </div>
     </fieldset>
