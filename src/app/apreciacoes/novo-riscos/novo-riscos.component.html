@@ -99,6 +99,19 @@
                     [(ngModel)]="novoRisco.dano" 
                 ></p-dropdown>
             </div>
+            <div style="margin-top: 20px;">
+                <span>Onde</span>
+                <br>
+                <textarea 
+                    id="onde"
+                    formControlName="onde"
+                    [rows]="3" 
+                    [cols]="124" 
+                    pInputTextarea 
+                    [autoResize]="true"
+                    [(ngModel)]="novoRisco.onde"
+                ></textarea>
+            </div>
         </div>
     </fieldset>
 </div>

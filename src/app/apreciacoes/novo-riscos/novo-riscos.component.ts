@@ -34,7 +34,8 @@ export class NovoRiscosComponent implements OnInit {
       tarefa: [this.novoRisco.tarefa, Validators.required],
       atividade: [this.novoRisco.atividade, Validators.required],
       tipoGrupoPerigo: [this.novoRisco.tipoGrupoPerigo, Validators.required],
-      dano: [this.novoRisco.dano, Validators.required]
+      dano: [this.novoRisco.dano, Validators.required],
+      onde: [this.novoRisco.onde, Validators.required]
     });
   }
 
