@@ -1,8 +1,38 @@
 <div class="boxNovoRisco">
     <fieldset class="fieldsetNovoRisco">
         <h1>Novo Risco</h1>
-        <div class="formulario" [formGroup]="">
-            
+        <div class="formulario" [formGroup]="formularioNovoRisco">
+            <div class="codigo">
+                <span>Código</span>
+                <br>
+                <input
+                    id="id" 
+                    type="text" 
+                    pInputText 
+                    formControlName="id"
+                    readonly="true"
+                    class="inputIdRisco"
+                    [(ngModel)]="novoRisco.id"
+                >
+            </div>
+            <h2 style="width: 100%;">Informações ABNT NBR ISO 12100</h2>
+            <div>
+                <span>Ciclo de Vida</span>
+                <br>
+                <!-- <p-dropdown 
+                    id="equipamento"
+                    optionLabel="nome"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="equipamento"
+                    placeholder="Selecione o Equipamento"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="nome"
+                    [options]="listaEquipamentos"
+                    [(ngModel)]="novaApreciacao.equipamento" 
+                ></p-dropdown> -->
+            </div>
         </div>
     </fieldset>
 </div>
