@@ -20,6 +20,7 @@ import {CalendarModule} from 'primeng/calendar';
 import {ButtonModule} from 'primeng/button'
 import {TableModule} from 'primeng/table';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import {DividerModule} from 'primeng/divider';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
     ButtonModule,
     TableModule,
     DynamicDialogModule,
+    DividerModule,
     ReactiveFormsModule,
     ApreciacaoRouting  
   ],
