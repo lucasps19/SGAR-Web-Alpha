@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApreciacaoService, CicloVida, Risco, Tarefa } from '..';
+import { ApreciacaoService, CicloVida, Risco, Tarefa, TipoGrupoPerigo } from '..';
 
 @Component({
   selector: 'app-riscos',
@@ -12,6 +12,7 @@ export class NovoRiscosComponent implements OnInit {
   public formularioNovoRisco: FormGroup;
   public listaCicloVida: CicloVida[];
   public listaTarefa: Tarefa[];
+  public listaTipoGrupoPerigo: TipoGrupoPerigo[];
   public novoRisco = new Risco();
 
   constructor(
@@ -22,6 +23,7 @@ export class NovoRiscosComponent implements OnInit {
   ngOnInit(): void {
     this.criarFormulario();
     this.buscarCiclosVida();
+    this.buscarTipoGrupoPerigo();
   }
 
   protected criarFormulario() {
@@ -29,7 +31,8 @@ export class NovoRiscosComponent implements OnInit {
       id: [this.novoRisco.id],
       cicloVida: [this.novoRisco.cicloVida, Validators.required],
       tarefa: [this.novoRisco.tarefa, Validators.required],
-      atividade: [this.novoRisco.atividade, Validators.required]
+      atividade: [this.novoRisco.atividade, Validators.required],
+      tipoGrupoPerigo: [this.novoRisco.tipoGrupoPerigo, Validators.required]
     });
   }
 
@@ -42,6 +45,12 @@ export class NovoRiscosComponent implements OnInit {
   public buscarTarefas(idCicloVida){
     this.apreciacaoService.buscarTarefas(idCicloVida).then(dados => {
       this.listaTarefa = dados;
+    })
+  }
+
+  public buscarTipoGrupoPerigo(){
+    this.apreciacaoService.buscarTipoGrupoPerigo().then(dados => {
+      this.listaTipoGrupoPerigo = dados;
     })
   }
 

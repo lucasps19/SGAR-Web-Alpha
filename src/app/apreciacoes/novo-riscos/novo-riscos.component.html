@@ -64,6 +64,23 @@
                     [(ngModel)]="novoRisco.atividade"
                 ></textarea>
             </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Tipo/Grupo Perigo</span>
+                <br>
+                <p-dropdown 
+                    id="tipoGrupoPerigo"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="tipoGrupoPerigo"
+                    placeholder="Selecione o Tipo/Grupo Perigo"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaTipoGrupoPerigo "
+                    [(ngModel)]="novoRisco.tipoGrupoPerigo" 
+                ></p-dropdown>
+            </div>
         </div>
     </fieldset>
 </div>
