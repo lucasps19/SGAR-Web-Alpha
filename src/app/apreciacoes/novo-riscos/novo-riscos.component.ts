@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApreciacaoService, CicloVida, Dano, FaixaHRN, FrequenciaExposicao, FrequenciaExposicaoPerigo, GrauPossivelLesao, HRNAntes, NumeroPessoas, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, SeveridadeFerimento, Tarefa, TipoGrupoPerigo } from '..';
 
@@ -22,9 +23,13 @@ export class NovoRiscosComponent implements OnInit {
   public listaSeveridadesFerimento: SeveridadeFerimento[];
   public listaFrequenciaExposicaoPerigo: FrequenciaExposicaoPerigo[];
   public listaPossibilidadesEvitarPerigo: PossibilidadeEvitarPerigo[];
+  public eletricaOuFluidos: any[];
+  public envolveEletricaOuFluidos: boolean;
+  public displayCatPLr: any;
   public hrnAntes = new HRNAntes();
   public faixaHRN = new FaixaHRN();
   public novoRisco = new Risco();
+  
 
   constructor(
     protected apreciacaoService: ApreciacaoService,
@@ -43,6 +48,8 @@ export class NovoRiscosComponent implements OnInit {
     this.buscarSeveridadesFerimento();
     this.buscarFrequenciasExposicaoPerigo();
     this.buscarPossibilidadesEvitarPerigo();
+    this.eletricaOuFluidos = [{label: 'Não', value: false}, {label: 'Sim', value: true}];
+    this.displayCatPLr = 'none';
   }
 
   protected criarFormulario() {
@@ -61,7 +68,8 @@ export class NovoRiscosComponent implements OnInit {
       npHrnAntes: [this.hrnAntes.numeroPessoas, Validators.required],
       valorHrnAtual: [this.hrnAntes.valorCalculado, Validators.required],
       faixaHrnAtual: [this.faixaHRN.descricao, Validators.required],
-      medidasProtecaoSugeridas: [this.novoRisco.medidaProtecaoSugerida, Validators.required]
+      medidasProtecaoSugeridas: [this.novoRisco.medidaProtecaoSugerida, Validators.required],
+      envolveEletricaOuFluidos: [this.envolveEletricaOuFluidos, Validators.required]
     });
   }
 
@@ -148,6 +156,15 @@ export class NovoRiscosComponent implements OnInit {
     this.apreciacaoService.buscarPossibilidadesEvitarPerigo().then(dados => {
       this.listaPossibilidadesEvitarPerigo = dados;
     })
+  }
+
+  public SolucaoEnvolveEletricaOuFluidos(){
+    if(this.envolveEletricaOuFluidos){
+      this.displayCatPLr = 'inline';
+    }
+    else{
+      this.displayCatPLr = 'none';
+    }
   }
 
 }
