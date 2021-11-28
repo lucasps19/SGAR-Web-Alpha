@@ -258,6 +258,51 @@
             <p-divider align="center" type="dashed" class="divisor">
                 <h2 style="width: 100%;">Cálcular Categoria e PLr</h2>
             </p-divider>
+            <div style="width: 100%;">
+                <span>Severidade Ferimento</span>
+                <br>
+                <p-dropdown 
+                    id="severidadeFerimento"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    placeholder="Selecione a Severidade do Ferimento"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaSeveridadesFerimento"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Frequência de Exposição</span>
+                <br>
+                <p-dropdown 
+                    id="frequenciaExposicaoPerigo"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    placeholder="Selecione a Frequência de Exposição"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaFrequenciaExposicaoPerigo"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Possibilidade Evitar o Perigo</span>
+                <br>
+                <p-dropdown 
+                    id="possibilidadeEvitarPerigo"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    placeholder="Selecione a Possibilidade Evitar o Perigo"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaPossibilidadesEvitarPerigo"
+                ></p-dropdown>
+            </div>
         </div>
     </fieldset>
 </div>

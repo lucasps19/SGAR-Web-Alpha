@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa, TipoGrupoPerigo, Dano, RiscoABNT12100, GrauPossivelLesao, PossibilidadeEvitarPerigo, FrequenciaExposicao, NumeroPessoas, HRNAntes } from '.';
+import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa, TipoGrupoPerigo, Dano, RiscoABNT12100, GrauPossivelLesao, PossibilidadeEvitarPerigo, FrequenciaExposicao, NumeroPessoas, HRNAntes, SeveridadeFerimento, FrequenciaExposicaoPerigo } from '.';
 import { Empresa, Pessoa } from 'src/app/login/shared';
 import { TipoEquipamento } from './tipoEquipamento.model';
 import { ReturnStatement } from '@angular/compiler';
@@ -97,6 +97,18 @@ export class ApreciacaoService {
 
   public async buscarNPHRN() : Promise<NumeroPessoas[]> {
     return await this.httpClient.get<NumeroPessoas[]>(`${baseURL}/BuscarNP-HRN`).toPromise();
+  }
+
+  public async buscarSeveridadesFerimento() : Promise<SeveridadeFerimento[]> {
+    return await this.httpClient.get<SeveridadeFerimento[]>(`${baseURL}/BuscarSeveridadesFerimento`).toPromise();
+  }
+
+  public async buscarFrequenciasExposicaoPerigo() : Promise<FrequenciaExposicaoPerigo[]> {
+    return await this.httpClient.get<FrequenciaExposicaoPerigo[]>(`${baseURL}/BuscarFrequenciasExposicaoPerigo`).toPromise();
+  }
+
+  public async buscarPossibilidadesEvitarPerigo() : Promise<PossibilidadeEvitarPerigo[]> {
+    return await this.httpClient.get<PossibilidadeEvitarPerigo[]>(`${baseURL}/BuscarPossibilidadesEvitarPerigo`).toPromise();
   }
   
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApreciacaoService, CicloVida, Dano, FaixaHRN, FrequenciaExposicao, GrauPossivelLesao, HRNAntes, NumeroPessoas, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, Tarefa, TipoGrupoPerigo } from '..';
+import { ApreciacaoService, CicloVida, Dano, FaixaHRN, FrequenciaExposicao, FrequenciaExposicaoPerigo, GrauPossivelLesao, HRNAntes, NumeroPessoas, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, SeveridadeFerimento, Tarefa, TipoGrupoPerigo } from '..';
 
 @Component({
   selector: 'app-riscos',
@@ -19,6 +19,9 @@ export class NovoRiscosComponent implements OnInit {
   public listaPO: PossibilidadeEvitarPerigo[];
   public listaFE: FrequenciaExposicao[];
   public listaNP: NumeroPessoas[];
+  public listaSeveridadesFerimento: SeveridadeFerimento[];
+  public listaFrequenciaExposicaoPerigo: FrequenciaExposicaoPerigo[];
+  public listaPossibilidadesEvitarPerigo: PossibilidadeEvitarPerigo[];
   public hrnAntes = new HRNAntes();
   public faixaHRN = new FaixaHRN();
   public novoRisco = new Risco();
@@ -37,6 +40,9 @@ export class NovoRiscosComponent implements OnInit {
     this.buscarPOHRN();
     this.buscarFEHRN();
     this.buscarNPHRN();
+    this.buscarSeveridadesFerimento();
+    this.buscarFrequenciasExposicaoPerigo();
+    this.buscarPossibilidadesEvitarPerigo();
   }
 
   protected criarFormulario() {
@@ -124,7 +130,24 @@ export class NovoRiscosComponent implements OnInit {
     else{
       alert("Existem campos obrigatorios não preenchidos!");
     }
-    
+  }
+
+  public buscarSeveridadesFerimento(){
+    this.apreciacaoService.buscarSeveridadesFerimento().then(dados => {
+      this.listaSeveridadesFerimento = dados;
+    })
+  }
+
+  public buscarFrequenciasExposicaoPerigo(){
+    this.apreciacaoService.buscarFrequenciasExposicaoPerigo().then(dados => {
+      this.listaFrequenciaExposicaoPerigo = dados;
+    })
+  }
+
+  public buscarPossibilidadesEvitarPerigo(){
+    this.apreciacaoService.buscarPossibilidadesEvitarPerigo().then(dados => {
+      this.listaPossibilidadesEvitarPerigo = dados;
+    })
   }
 
 }
