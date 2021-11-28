@@ -25,7 +25,6 @@ export class NovoRiscosComponent implements OnInit {
   public listaPossibilidadesEvitarPerigo: PossibilidadeEvitarPerigo[];
   public eletricaOuFluidos: any[];
   public envolveEletricaOuFluidos: boolean;
-  public displayCatPLr: any;
   public hrnAntes = new HRNAntes();
   public faixaHRN = new FaixaHRN();
   public novoRisco = new Risco();
@@ -49,7 +48,6 @@ export class NovoRiscosComponent implements OnInit {
     this.buscarFrequenciasExposicaoPerigo();
     this.buscarPossibilidadesEvitarPerigo();
     this.eletricaOuFluidos = [{label: 'Não', value: false}, {label: 'Sim', value: true}];
-    this.displayCatPLr = 'none';
   }
 
   protected criarFormulario() {
