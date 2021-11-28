@@ -21,6 +21,7 @@ import {ButtonModule} from 'primeng/button'
 import {TableModule} from 'primeng/table';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {DividerModule} from 'primeng/divider';
+import {SelectButtonModule} from 'primeng/selectbutton';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {DividerModule} from 'primeng/divider';
     TableModule,
     DynamicDialogModule,
     DividerModule,
+    SelectButtonModule,
     ReactiveFormsModule,
     ApreciacaoRouting  
   ],
