@@ -142,13 +142,14 @@
                     optionLabel="descricao"
                     autoWidth="false" 
                     [style]="{'width':'100%'}"
+                    formControlName="glpHrnAntes"
                     placeholder="Selecione o Grau de Possivel Lesão"
                     [virtualScroll]="true"
                     [filter]="true" 
                     filterBy="descricao"
                     [options]="listaGLP"
+                    [(ngModel)]="hrnAntes.grauPossivelLesao"
                 ></p-dropdown>
-                <!-- formControlName="riscoABNT12100" && [(ngModel)]="novoRisco.riscoABNT12100"  -->
             </div>
             <div style="width: 100%; margin-top: 20px;">
                 <span>Frequência de Exposição</span>
@@ -158,13 +159,14 @@
                     optionLabel="descricao"
                     autoWidth="false" 
                     [style]="{'width':'100%'}"
+                    formControlName="feHrnAntes"
                     placeholder="Selecione a Frequência de Exposição"
                     [virtualScroll]="true"
                     [filter]="true" 
                     filterBy="descricao"
                     [options]="listaFE"
+                    [(ngModel)]="hrnAntes.frequenciaExposicao"
                 ></p-dropdown>
-                <!-- formControlName="riscoABNT12100" && [(ngModel)]="novoRisco.riscoABNT12100"  -->
             </div>
             <div style="width: 100%; margin-top: 20px;">
                 <span>Probabilidade de Ocorrência do Dano</span>
@@ -174,13 +176,14 @@
                     optionLabel="descricao"
                     autoWidth="false" 
                     [style]="{'width':'100%'}"
+                    formControlName="poHrnAntes"
                     placeholder="Selecione a Probabilidade de Ocorrência do Dano"
                     [virtualScroll]="true"
                     [filter]="true" 
                     filterBy="descricao"
                     [options]="listaPO"
+                    [(ngModel)]="hrnAntes.possibilidadeOcorrencia"
                 ></p-dropdown>
-                <!-- formControlName="riscoABNT12100" && [(ngModel)]="novoRisco.riscoABNT12100"  -->
             </div>
             <div style="width: 100%; margin-top: 20px;">
                 <span>Numero de Pessoas Expostas</span>
@@ -190,13 +193,14 @@
                     optionLabel="descricao"
                     autoWidth="false" 
                     [style]="{'width':'100%'}"
+                    formControlName="npHrnAntes"
                     placeholder="Selecione o Numero de Pessoas Expostas"
                     [virtualScroll]="true"
                     [filter]="true" 
                     filterBy="descricao"
                     [options]="listaNP"
+                    [(ngModel)]="hrnAntes.numeroPessoas"
                 ></p-dropdown>
-                <!-- formControlName="riscoABNT12100" && [(ngModel)]="novoRisco.riscoABNT12100"  -->
             </div>
         </div>
     </fieldset>
