@@ -113,11 +113,17 @@ export class NovoRiscosComponent implements OnInit {
   }
 
   public calcularHRN(){
-    this.apreciacaoService.calcularHrnAntes(this.hrnAntes).subscribe(dados => {
-      this.hrnAntes = dados;
-
-      this.faixaHRN = this.hrnAntes.faixaHRN;
-    })
+    if(this.hrnAntes.grauPossivelLesao != null && this.hrnAntes.possibilidadeOcorrencia != null && this.hrnAntes.frequenciaExposicao != null && this.hrnAntes.numeroPessoas != null){
+      this.apreciacaoService.calcularHrnAntes(this.hrnAntes).subscribe(dados => {
+        this.hrnAntes = dados;
+  
+        this.faixaHRN = this.hrnAntes.faixaHRN;
+      })
+    }
+    else{
+      alert("Existem campos obrigatorios não preenchidos!");
+    }
+    
   }
 
 }
