@@ -160,10 +160,10 @@ export class NovoRiscosComponent implements OnInit {
 
   public SolucaoEnvolveEletricaOuFluidos(){
     if(this.envolveEletricaOuFluidos){
-      this.displayCatPLr = 'inline';
+      document.getElementById('divCatPlr').removeAttribute('class');
     }
     else{
-      this.displayCatPLr = 'none';
+      document.getElementById('divCatPlr').setAttribute('class', 'ocultar');
     }
   }
 
