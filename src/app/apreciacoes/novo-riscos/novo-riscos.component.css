@@ -54,3 +54,10 @@ span{
     width: 100%; 
     margin-top: 20px; 
 }
+
+.figure{
+    display: inline-block;
+    align-items: flex-start;
+    vertical-align: middle;
+    margin-left: 0px;
+}
