@@ -242,6 +242,19 @@
             <p-divider align="center" type="dashed" class="divisor">
                 <h2 style="width: 100%;">Medidas de Proteção Sugeridas</h2>
             </p-divider>
+            <div>
+                <span>Medidas de Proteção Sugeridas</span>
+                <br>
+                <textarea 
+                    id="medidasProtecaoSugeridas"
+                    formControlName="medidasProtecaoSugeridas"
+                    [rows]="3" 
+                    [cols]="124" 
+                    pInputTextarea 
+                    [autoResize]="true"
+                    [(ngModel)]="novoRisco.medidaProtecaoSugerida"
+                ></textarea>
+            </div>
         </div>
     </fieldset>
 </div>

@@ -54,7 +54,8 @@ export class NovoRiscosComponent implements OnInit {
       feHrnAntes: [this.hrnAntes.frequenciaExposicao, Validators.required],
       npHrnAntes: [this.hrnAntes.numeroPessoas, Validators.required],
       valorHrnAtual: [this.hrnAntes.valorCalculado, Validators.required],
-      faixaHrnAtual: [this.faixaHRN.descricao, Validators.required]
+      faixaHrnAtual: [this.faixaHRN.descricao, Validators.required],
+      medidasProtecaoSugeridas: [this.novoRisco.medidaProtecaoSugerida, Validators.required]
     });
   }
 
