@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa, TipoGrupoPerigo, Dano, RiscoABNT12100, GrauPossivelLesao, PossibilidadeEvitarPerigo, FrequenciaExposicao, NumeroPessoas } from '.';
+import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa, TipoGrupoPerigo, Dano, RiscoABNT12100, GrauPossivelLesao, PossibilidadeEvitarPerigo, FrequenciaExposicao, NumeroPessoas, HRNAntes } from '.';
 import { Empresa, Pessoa } from 'src/app/login/shared';
 import { TipoEquipamento } from './tipoEquipamento.model';
+import { ReturnStatement } from '@angular/compiler';
 
 const baseURL = 'https://localhost:44392'
 
@@ -56,6 +57,10 @@ export class ApreciacaoService {
 
   atualizarApreciacaoRisco(data: ApreciacaoRisco) : Observable<ApreciacaoRisco> {
     return this.httpClient.post<ApreciacaoRisco>(`${baseURL}/AtualizarApreciacaoRisco`, data);
+  }
+
+  calcularHrnAntes(data: HRNAntes) : Observable<HRNAntes> {
+    return this.httpClient.post<HRNAntes>(`${baseURL}/CalcularHrnAntes`, data);
   }
 
   public async buscarCiclosVida() : Promise<CicloVida[]> {
