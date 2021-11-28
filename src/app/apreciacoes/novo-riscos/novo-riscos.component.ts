@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApreciacaoService, CicloVida, Dano, FrequenciaExposicao, GrauPossivelLesao, HRNAntes, NumeroPessoas, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, Tarefa, TipoGrupoPerigo } from '..';
+import { ApreciacaoService, CicloVida, Dano, FaixaHRN, FrequenciaExposicao, GrauPossivelLesao, HRNAntes, NumeroPessoas, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, Tarefa, TipoGrupoPerigo } from '..';
 
 @Component({
   selector: 'app-riscos',
@@ -20,6 +20,7 @@ export class NovoRiscosComponent implements OnInit {
   public listaFE: FrequenciaExposicao[];
   public listaNP: NumeroPessoas[];
   public hrnAntes = new HRNAntes();
+  public faixaHRN = new FaixaHRN();
   public novoRisco = new Risco();
 
   constructor(
@@ -51,7 +52,9 @@ export class NovoRiscosComponent implements OnInit {
       glpHrnAntes: [this.hrnAntes.grauPossivelLesao, Validators.required],
       poHrnAntes: [this.hrnAntes.possibilidadeOcorrencia, Validators.required],
       feHrnAntes: [this.hrnAntes.frequenciaExposicao, Validators.required],
-      npHrnAntes: [this.hrnAntes.numeroPessoas, Validators.required]
+      npHrnAntes: [this.hrnAntes.numeroPessoas, Validators.required],
+      valorHrnAtual: [this.hrnAntes.valorCalculado, Validators.required],
+      faixaHrnAtual: [this.faixaHRN.descricao, Validators.required]
     });
   }
 

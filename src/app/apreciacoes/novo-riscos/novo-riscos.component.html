@@ -216,6 +216,28 @@
                     class="p-button-sm button-calcularHRN"
                     (click)="calcularHRN()"
                 ></button>
+                <span>Valor HRN Atual Calculado</span>
+                <br>
+                <input
+                    id="hrnAtual" 
+                    type="text" 
+                    formControlName="valorHrnAtual"
+                    pInputText 
+                    readonly="true"
+                    class="valorHrnCalculado"
+                    [(ngModel)]="hrnAntes.valorCalculado"
+                >
+                <span>Faixa HRN Atual Calculado</span>
+                <br>
+                <input
+                    id="hrnAtual" 
+                    type="text" 
+                    formControlName="faixaHrnAtual"
+                    pInputText 
+                    readonly="true"
+                    class="valorHrnCalculado"
+                    [(ngModel)]="faixaHRN.descricao"
+                >
             </div>
         </div>
     </fieldset>
