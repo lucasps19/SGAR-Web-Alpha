@@ -109,4 +109,11 @@ export class NovoRiscosComponent implements OnInit {
     })
   }
 
+  public calcularHRN(){
+    console.log(this.hrnAntes.grauPossivelLesao.valor);
+    console.log(this.hrnAntes.frequenciaExposicao.valor);
+    console.log(this.hrnAntes.possibilidadeOcorrencia.valor);
+    console.log(this.hrnAntes.numeroPessoas.valor);
+  }
+
 }
