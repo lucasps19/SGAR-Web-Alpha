@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Equipamento, ApreciacaoRisco, ApreciacaoService, NovoEquipamentoComponent, Risco } from '..';
 import { Pessoa } from 'src/app/login/shared';
 import { DialogService } from 'primeng/dynamicdialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-editar-apreciacoes',
@@ -26,7 +26,8 @@ export class EditarApreciacoesComponent implements OnInit {
     protected apreciacaoService: ApreciacaoService,
     protected formBuilder: FormBuilder,
     public dialogService: DialogService,
-    protected _route: ActivatedRoute
+    protected _route: ActivatedRoute,
+    protected _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -96,6 +97,10 @@ export class EditarApreciacoesComponent implements OnInit {
     ref.onClose.subscribe(function(){
       location.reload();
     });
+  }
+
+  public novoRisco(){
+    this._router.navigate(['novoRisco', this.idApreciacao]);
   }
 
   public atualizarApreciacaoRisco(){

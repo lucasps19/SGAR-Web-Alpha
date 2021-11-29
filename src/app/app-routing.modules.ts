@@ -33,7 +33,7 @@ const routes: Routes = [
         component: EditarApreciacoesComponent
     },
     {
-        path: 'novoRisco',
+        path: 'novoRisco/:idApreciacao',
         component: NovoRiscosComponent
     }
 ];

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApreciacaoService, CategoriaPerformanceLevelRequerido, CategoriaRisco, CicloVida, Dano, DescricaoCategoria, DescricaoPerformanceLevel, FaixaHRN, FrequenciaExposicao, FrequenciaExposicaoPerigo, GrauPossivelLesao, HRNAntes, NumeroPessoas, PerformanceLevelRequerido, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, SeveridadeFerimento, Tarefa, TipoGrupoPerigo } from '..';
 
 @Component({
@@ -36,15 +37,19 @@ export class NovoRiscosComponent implements OnInit {
   public performanceLevelRisco = new PerformanceLevelRequerido();
   public categoriaPerformanceLevelRequerido = new CategoriaPerformanceLevelRequerido();
   public novoRisco = new Risco();
+  public idApreciacao: string;
   
 
   constructor(
     protected apreciacaoService: ApreciacaoService,
-    protected formBuilder: FormBuilder
+    protected formBuilder: FormBuilder,
+    protected _route: ActivatedRoute,
+    protected _router: Router
   ) { }
 
   ngOnInit(): void {
     this.criarFormulario();
+    this.idApreciacao = (this._route.snapshot.paramMap.get('idApreciacao'));
     this.buscarCiclosVida();
     this.buscarTipoGrupoPerigo();
     this.buscarRiscosABNT12100();
@@ -205,6 +210,10 @@ export class NovoRiscosComponent implements OnInit {
     else{
       alert("Existem campos obrigatorios não preenchidos!");
     }
+  }
+
+  public cancelar(){
+    this._router.navigate(['editarApreciacao', this.idApreciacao]);
   }
 
 }
