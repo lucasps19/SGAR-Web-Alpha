@@ -216,4 +216,15 @@ export class NovoRiscosComponent implements OnInit {
     this._router.navigate(['editarApreciacao', this.idApreciacao]);
   }
 
+  public salvarNovoRisco(){
+    if (this.formularioNovoRisco.valid) {
+      console.log("Funcionou!");
+    }else{
+      Object.keys(this.formularioNovoRisco.controls).forEach(campo => {
+        const controle = this.formularioNovoRisco.get(campo);
+        controle.markAsDirty();
+      });
+    }
+  }
+
 }
