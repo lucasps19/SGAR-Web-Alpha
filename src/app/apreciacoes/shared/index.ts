@@ -23,3 +23,4 @@ export * from './categoriaRisco.model';
 export * from './descricaoPerformanceLevel.model';
 export * from './performanceLevelRequerido.model';
 export * from './risco.model';
+export * from './CategoriaPerformanceLevelRequerido.model';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApreciacaoService, CategoriaRisco, CicloVida, Dano, DescricaoCategoria, DescricaoPerformanceLevel, FaixaHRN, FrequenciaExposicao, FrequenciaExposicaoPerigo, GrauPossivelLesao, HRNAntes, NumeroPessoas, PerformanceLevelRequerido, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, SeveridadeFerimento, Tarefa, TipoGrupoPerigo } from '..';
+import { ApreciacaoService, CategoriaPerformanceLevelRequerido, CategoriaRisco, CicloVida, Dano, DescricaoCategoria, DescricaoPerformanceLevel, FaixaHRN, FrequenciaExposicao, FrequenciaExposicaoPerigo, GrauPossivelLesao, HRNAntes, NumeroPessoas, PerformanceLevelRequerido, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, SeveridadeFerimento, Tarefa, TipoGrupoPerigo } from '..';
 
 @Component({
   selector: 'app-riscos',
@@ -32,8 +32,9 @@ export class NovoRiscosComponent implements OnInit {
   public severidadeFerimento = new SeveridadeFerimento();
   public frequenciaExposicaoPerigo = new FrequenciaExposicaoPerigo();
   public possibilidadeEvitarPerigo = new PossibilidadeEvitarPerigo();
-  // public categoriaRisco = new CategoriaRisco();
-  // public performanceLevelRisco = new PerformanceLevelRequerido();
+  public categoriaRisco = new CategoriaRisco();
+  public performanceLevelRisco = new PerformanceLevelRequerido();
+  public categoriaPerformanceLevelRequerido = new CategoriaPerformanceLevelRequerido();
   public novoRisco = new Risco();
   
 
@@ -174,6 +175,35 @@ export class NovoRiscosComponent implements OnInit {
     }
     else{
       document.getElementById('divCatPlr').setAttribute('class', 'ocultar');
+    }
+  }
+
+  public calcularCategoriaPLr(){
+    if(this.severidadeFerimento.id != null && this.frequenciaExposicaoPerigo.id != null && this.possibilidadeEvitarPerigo.id != null){
+
+      this.categoriaRisco.severidadeFerimento = this.severidadeFerimento;
+      this.categoriaRisco.frequenciaExposicaoPerigo = this.frequenciaExposicaoPerigo;
+      this.categoriaRisco.possibilidadeEvitarPerigo = this.possibilidadeEvitarPerigo;
+
+      this.performanceLevelRisco.severidadeFerimento = this.severidadeFerimento;
+      this.performanceLevelRisco.frequenciaExposicaoPerigo = this.frequenciaExposicaoPerigo;
+      this.performanceLevelRisco.possibilidadeEvitarPerigo = this.possibilidadeEvitarPerigo;
+
+      this.categoriaPerformanceLevelRequerido.categoriaRisco = this.categoriaRisco;
+      this.categoriaPerformanceLevelRequerido.performanceLevelRequerido = this.performanceLevelRisco;
+
+      this.apreciacaoService.calcularCategoriaPLr(this.categoriaPerformanceLevelRequerido).subscribe(dados => {
+        this.categoriaPerformanceLevelRequerido = dados;
+
+        this.categoriaRisco = dados.categoriaRisco;
+        this.performanceLevelRisco = dados.performanceLevelRequerido;
+
+        this.descricaoCategoria = dados.categoriaRisco.descricaoCategoria;
+        this.descricaoPerformanceLevel = dados.performanceLevelRequerido.descricaoPerformanceLevel;
+      })
+    }
+    else{
+      alert("Existem campos obrigatorios não preenchidos!");
     }
   }
 
