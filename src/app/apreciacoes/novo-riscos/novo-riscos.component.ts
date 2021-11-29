@@ -147,8 +147,14 @@ export class NovoRiscosComponent implements OnInit {
     if(this.hrnAntes.grauPossivelLesao != null && this.hrnAntes.possibilidadeOcorrencia != null && this.hrnAntes.frequenciaExposicao != null && this.hrnAntes.numeroPessoas != null){
       this.apreciacaoService.calcularHrnAntes(this.hrnAntes).subscribe(dados => {
         this.hrnAntes = dados;
-  
+
         this.faixaHRN = this.hrnAntes.faixaHRN;
+        
+        this.hrnAntes.idFaixaHRN = this.faixaHRN.id;
+        this.hrnAntes.idGrauPossivelLesao = this.hrnAntes.grauPossivelLesao.id;
+        this.hrnAntes.idFrequenciaExposicao = this.hrnAntes.frequenciaExposicao.id;
+        this.hrnAntes.idPossibilidadeOcorrencia = this.hrnAntes.possibilidadeOcorrencia.id;
+        this.hrnAntes.idNumeroPessoas = this.hrnAntes.numeroPessoas.id;
       })
     }
     else{
@@ -187,12 +193,18 @@ export class NovoRiscosComponent implements OnInit {
     if(this.severidadeFerimento.id != null && this.frequenciaExposicaoPerigo.id != null && this.possibilidadeEvitarPerigo.id != null){
 
       this.categoriaRisco.severidadeFerimento = this.severidadeFerimento;
+      this.categoriaRisco.idSeveridadeFerimento = this.severidadeFerimento.id;
       this.categoriaRisco.frequenciaExposicaoPerigo = this.frequenciaExposicaoPerigo;
+      this.categoriaRisco.idFrequenciaExposicaoPerigo = this.frequenciaExposicaoPerigo.id;
       this.categoriaRisco.possibilidadeEvitarPerigo = this.possibilidadeEvitarPerigo;
-
+      this.categoriaRisco.idPossibilidadeEvitarPerigo = this.possibilidadeEvitarPerigo.id;
+      
       this.performanceLevelRisco.severidadeFerimento = this.severidadeFerimento;
+      this.performanceLevelRisco.idSeveridadeFerimento = this.severidadeFerimento.id;
       this.performanceLevelRisco.frequenciaExposicaoPerigo = this.frequenciaExposicaoPerigo;
+      this.performanceLevelRisco.idFrequenciaExposicaoPerigo = this.frequenciaExposicaoPerigo.id;
       this.performanceLevelRisco.possibilidadeEvitarPerigo = this.possibilidadeEvitarPerigo;
+      this.performanceLevelRisco.idPossibilidadeEvitarPerigo = this.possibilidadeEvitarPerigo.id;
 
       this.categoriaPerformanceLevelRequerido.categoriaRisco = this.categoriaRisco;
       this.categoriaPerformanceLevelRequerido.performanceLevelRequerido = this.performanceLevelRisco;
@@ -218,7 +230,25 @@ export class NovoRiscosComponent implements OnInit {
 
   public salvarNovoRisco(){
     if (this.formularioNovoRisco.valid) {
-      console.log("Funcionou!");
+
+      this.novoRisco.idAPreciacaoRisco = parseInt(this.idApreciacao);
+
+      this.novoRisco.idCicloVida = this.novoRisco.cicloVida.id;
+      this.novoRisco.idTarefa = this.novoRisco.tarefa.id;
+      this.novoRisco.idTipoGrupoPerigo = this.novoRisco.tipoGrupoPerigo.id;
+      this.novoRisco.idRiscoABNT12100 = this.novoRisco.riscoABNT12100.id;
+      this.novoRisco.idDano = this.novoRisco.dano.id;
+
+      this.novoRisco.hrnAntes = this.hrnAntes;
+      //this.novoRisco.idHRNAntes = this.hrnAntes.id;
+
+      this.novoRisco.categoriaRisco = this.categoriaRisco;
+      //this.novoRisco.idCategoriaRisco = this.categoriaRisco.id;
+
+      this.novoRisco.performanceLevelRequerido = this.performanceLevelRisco;
+      //this.novoRisco.idPerformanceLevelRequerido = this.performanceLevelRisco.id;
+
+      console.log(this.novoRisco);
     }else{
       Object.keys(this.formularioNovoRisco.controls).forEach(campo => {
         const controle = this.formularioNovoRisco.get(campo);
