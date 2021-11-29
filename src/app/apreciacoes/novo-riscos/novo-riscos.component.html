@@ -279,11 +279,13 @@
                         optionLabel="descricao"
                         autoWidth="false" 
                         [style]="{'width':'100%'}"
+                        formControlName="severidadeFerimento"
                         placeholder="Selecione a Severidade do Ferimento"
                         [virtualScroll]="true"
                         [filter]="true" 
                         filterBy="descricao"
                         [options]="listaSeveridadesFerimento"
+                        [(ngModel)]="severidadeFerimento"
                     ></p-dropdown>
                 </div>
                 <div style="width: 100%; margin-top: 20px;">
@@ -294,11 +296,13 @@
                         optionLabel="descricao"
                         autoWidth="false" 
                         [style]="{'width':'100%'}"
+                        formControlName="frequenciaExposicaoPerigo"
                         placeholder="Selecione a Frequência de Exposição"
                         [virtualScroll]="true"
                         [filter]="true" 
                         filterBy="descricao"
                         [options]="listaFrequenciaExposicaoPerigo"
+                        [(ngModel)]="frequenciaExposicaoPerigo"
                     ></p-dropdown>
                 </div>
                 <div style="width: 100%; margin-top: 20px;">
@@ -309,11 +313,13 @@
                         optionLabel="descricao"
                         autoWidth="false" 
                         [style]="{'width':'100%'}"
+                        formControlName="possibilidadeEvitarPerigo"
                         placeholder="Selecione a Possibilidade Evitar o Perigo"
                         [virtualScroll]="true"
                         [filter]="true" 
                         filterBy="descricao"
                         [options]="listaPossibilidadesEvitarPerigo"
+                        [(ngModel)]="possibilidadeEvitarPerigo"
                     ></p-dropdown>
                 </div>
                 <div style="width: 35%; margin-top: 20px;">

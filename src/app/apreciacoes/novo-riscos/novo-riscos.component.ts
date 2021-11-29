@@ -29,6 +29,9 @@ export class NovoRiscosComponent implements OnInit {
   public faixaHRN = new FaixaHRN();
   public descricaoCategoria = new DescricaoCategoria();
   public descricaoPerformanceLevel = new DescricaoPerformanceLevel();
+  public severidadeFerimento = new SeveridadeFerimento();
+  public frequenciaExposicaoPerigo = new FrequenciaExposicaoPerigo();
+  public possibilidadeEvitarPerigo = new PossibilidadeEvitarPerigo();
   // public categoriaRisco = new CategoriaRisco();
   // public performanceLevelRisco = new PerformanceLevelRequerido();
   public novoRisco = new Risco();
@@ -72,6 +75,9 @@ export class NovoRiscosComponent implements OnInit {
       faixaHrnAtual: [this.faixaHRN.descricao, Validators.required],
       medidasProtecaoSugeridas: [this.novoRisco.medidaProtecaoSugerida, Validators.required],
       envolveEletricaOuFluidos: [this.envolveEletricaOuFluidos, Validators.required],
+      severidadeFerimento: [this.severidadeFerimento],
+      frequenciaExposicaoPerigo: [this.frequenciaExposicaoPerigo],
+      possibilidadeEvitarPerigo: [this.possibilidadeEvitarPerigo],
       categoriaRisco: [this.descricaoCategoria.descricao],
       performanceLevelRisco: [this.descricaoPerformanceLevel.descricao]
     });
