@@ -104,3 +104,12 @@ span{
     margin-bottom: 20px;
     float: right;
 }
+
+.button-cancelar{
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    float: right;
+}
