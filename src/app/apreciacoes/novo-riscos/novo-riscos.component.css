@@ -87,3 +87,11 @@ span{
 .ocultar{
     display: none;
 }
+
+.button-calcularCatPLr{
+    width: 100%;
+    height: 65px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    float: left;
+}

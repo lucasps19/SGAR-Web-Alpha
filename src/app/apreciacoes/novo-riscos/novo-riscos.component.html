@@ -270,7 +270,7 @@
                     (onChange)="SolucaoEnvolveEletricaOuFluidos()"
                 ></p-selectButton>
             </div>
-            <div id="divCatPlr" style="width: 100%;" class="ocultar">
+            <div id="divCatPlr" style="width: 100%;">
                 <div style="width: 100%; margin-top: 20px;">
                     <span>Severidade Ferimento</span>
                     <br>
@@ -315,6 +315,41 @@
                         filterBy="descricao"
                         [options]="listaPossibilidadesEvitarPerigo"
                     ></p-dropdown>
+                </div>
+                <div style="width: 35%; margin-top: 20px;">
+                    <button 
+                        pButton 
+                        pRipple 
+                        type="button" 
+                        label="Calcular Categoria e PLr do Risco" 
+                        class="p-button-sm button-calcularCatPLr"
+                    ></button>
+                </div>
+                <div style="width: 35%; padding-left: 20px; padding-right: 20px; display: inline-block;">
+                    <span>Categoria</span>
+                    <br>
+                    <input
+                        id="categoria" 
+                        type="text" 
+                        formControlName="categoriaRisco"
+                        pInputText 
+                        readonly="true"
+                        class="valorHrnCalculado"
+                        [(ngModel)]="descricaoCategoria.descricao"
+                    >
+                </div>
+                <div style="width: 30%; display: inline-block;">
+                    <span>PLr</span>
+                    <br>
+                    <input
+                        id="hrnAtual" 
+                        type="text" 
+                        formControlName="performanceLevelRisco"
+                        pInputText 
+                        readonly="true"
+                        class="valorHrnCalculado"
+                        [(ngModel)]="descricaoPerformanceLevel.descricao"
+                    >
                 </div>
             </div>
         </div>

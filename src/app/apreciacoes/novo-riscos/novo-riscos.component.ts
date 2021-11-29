@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApreciacaoService, CicloVida, Dano, FaixaHRN, FrequenciaExposicao, FrequenciaExposicaoPerigo, GrauPossivelLesao, HRNAntes, NumeroPessoas, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, SeveridadeFerimento, Tarefa, TipoGrupoPerigo } from '..';
+import { ApreciacaoService, CategoriaRisco, CicloVida, Dano, DescricaoCategoria, DescricaoPerformanceLevel, FaixaHRN, FrequenciaExposicao, FrequenciaExposicaoPerigo, GrauPossivelLesao, HRNAntes, NumeroPessoas, PerformanceLevelRequerido, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, SeveridadeFerimento, Tarefa, TipoGrupoPerigo } from '..';
 
 @Component({
   selector: 'app-riscos',
@@ -27,6 +27,10 @@ export class NovoRiscosComponent implements OnInit {
   public envolveEletricaOuFluidos: boolean;
   public hrnAntes = new HRNAntes();
   public faixaHRN = new FaixaHRN();
+  public descricaoCategoria = new DescricaoCategoria();
+  public descricaoPerformanceLevel = new DescricaoPerformanceLevel();
+  // public categoriaRisco = new CategoriaRisco();
+  // public performanceLevelRisco = new PerformanceLevelRequerido();
   public novoRisco = new Risco();
   
 
@@ -67,7 +71,9 @@ export class NovoRiscosComponent implements OnInit {
       valorHrnAtual: [this.hrnAntes.valorCalculado, Validators.required],
       faixaHrnAtual: [this.faixaHRN.descricao, Validators.required],
       medidasProtecaoSugeridas: [this.novoRisco.medidaProtecaoSugerida, Validators.required],
-      envolveEletricaOuFluidos: [this.envolveEletricaOuFluidos, Validators.required]
+      envolveEletricaOuFluidos: [this.envolveEletricaOuFluidos, Validators.required],
+      categoriaRisco: [this.descricaoCategoria.descricao],
+      performanceLevelRisco: [this.descricaoPerformanceLevel.descricao]
     });
   }
 
