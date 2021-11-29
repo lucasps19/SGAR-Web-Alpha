@@ -270,7 +270,7 @@
                     (onChange)="SolucaoEnvolveEletricaOuFluidos()"
                 ></p-selectButton>
             </div>
-            <div id="divCatPlr" style="width: 100%;">
+            <div id="divCatPlr" style="width: 100%;" class="ocultar">
                 <div style="width: 100%; margin-top: 20px;">
                     <span>Severidade Ferimento</span>
                     <br>
@@ -351,7 +351,16 @@
                         [(ngModel)]="descricaoPerformanceLevel.descricao"
                     >
                 </div>
+                <div style="width: 100%;">
+                    <figure class="figure">
+                        <img src="assets/PLr.png" width="473px">
+                        <img src="assets/Categoria.png" width="473px" style="padding-left: 20px; padding-bottom: 123px;">
+                    </figure>
+                </div>
             </div>
+            <p-divider align="center" type="dashed" class="divisor">
+                <h2 style="width: 100%;">Estimar HRN</h2>
+            </p-divider>
         </div>
     </fieldset>
 </div>
