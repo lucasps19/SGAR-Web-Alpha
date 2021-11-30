@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa, TipoGrupoPerigo, Dano, RiscoABNT12100, GrauPossivelLesao, PossibilidadeEvitarPerigo, FrequenciaExposicao, NumeroPessoas, HRNAntes, SeveridadeFerimento, FrequenciaExposicaoPerigo, CategoriaPerformanceLevelRequerido } from '.';
+import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa, TipoGrupoPerigo, Dano, RiscoABNT12100, GrauPossivelLesao, PossibilidadeEvitarPerigo, FrequenciaExposicao, NumeroPessoas, HRNAntes, SeveridadeFerimento, FrequenciaExposicaoPerigo, CategoriaPerformanceLevelRequerido, Risco, HRNDepois } from '.';
 import { Empresa, Pessoa } from 'src/app/login/shared';
 import { TipoEquipamento } from './tipoEquipamento.model';
 import { ReturnStatement } from '@angular/compiler';
@@ -63,8 +63,16 @@ export class ApreciacaoService {
     return this.httpClient.post<HRNAntes>(`${baseURL}/CalcularHrnAntes`, data);
   }
 
+  calcularHrnDepois(data: HRNDepois) : Observable<HRNDepois> {
+    return this.httpClient.post<HRNDepois>(`${baseURL}/CalcularHrnDepois`, data);
+  }
+
   calcularCategoriaPLr(data: CategoriaPerformanceLevelRequerido) : Observable<CategoriaPerformanceLevelRequerido> {
     return this.httpClient.post<CategoriaPerformanceLevelRequerido>(`${baseURL}/CalcularCategoriaPLr`, data);
+  }
+
+  inserirNovoRisco(data: Risco) : Observable<Risco> {
+    return this.httpClient.post<Risco>(`${baseURL}/InserirNovoRisco`, data);
   }
 
   public async buscarCiclosVida() : Promise<CicloVida[]> {

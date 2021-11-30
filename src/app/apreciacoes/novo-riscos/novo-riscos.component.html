@@ -365,6 +365,114 @@
                     </figure>
                 </div>
             </div>
+            <p-divider align="center" type="dashed" class="divisor">
+                <h2 style="width: 100%;">Estimativa HRN</h2>
+            </p-divider>
+            <div style="width: 100%;">
+                <span>Grau Possivel Lesão</span>
+                <br>
+                <p-dropdown 
+                    id="glp"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="glpHrnDepois"
+                    placeholder="Selecione o Grau de Possivel Lesão"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaGLP"
+                    [(ngModel)]="hrnDepois.grauPossivelLesao"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Frequência de Exposição</span>
+                <br>
+                <p-dropdown 
+                    id="fe"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="feHrnDepois"
+                    placeholder="Selecione a Frequência de Exposição"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaFE"
+                    [(ngModel)]="hrnDepois.frequenciaExposicao"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Probabilidade de Ocorrência do Dano</span>
+                <br>
+                <p-dropdown 
+                    id="po"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="poHrnDepois"
+                    placeholder="Selecione a Probabilidade de Ocorrência do Dano"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaPO"
+                    [(ngModel)]="hrnDepois.possibilidadeOcorrencia"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Numero de Pessoas Expostas</span>
+                <br>
+                <p-dropdown 
+                    id="np"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="npHrnDepois"
+                    placeholder="Selecione o Numero de Pessoas Expostas"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaNP"
+                    [(ngModel)]="hrnDepois.numeroPessoas"
+                ></p-dropdown>
+            </div>
+            <div style="width: 50%; margin-top: 20px;">
+                <figure class="figure">
+                    <img src="assets/TabelaHRN.png" width=473px; style="border-style: solid; border-color: black;">
+                </figure>
+            </div>
+            <div class="calcularHrnAntes">
+                <button 
+                    pButton 
+                    pRipple 
+                    type="button" 
+                    label="Calcular Estimativa HRN" 
+                    class="p-button-sm button-calcularHRN"
+                    (click)="calcularEstimativaHRN()"
+                ></button>
+                <span>Valor Estimativa HRN Calculado</span>
+                <br>
+                <input
+                    id="hrnEstimado" 
+                    type="text" 
+                    formControlName="valorHrnDepois"
+                    pInputText 
+                    readonly="true"
+                    class="valorHrnCalculado"
+                    [(ngModel)]="hrnDepois.valorCalculado"
+                >
+                <span>Faixa HRN Estimado Calculado</span>
+                <br>
+                <input
+                    id="faixaHrnEstimado" 
+                    type="text" 
+                    formControlName="faixaHrnDepois"
+                    pInputText 
+                    readonly="true"
+                    class="valorHrnCalculado"
+                    [(ngModel)]="faixaHRNDepois.descricao"
+                >
+            </div>
             <p-divider class="divisor"></p-divider>
             <div style="width: 100%; margin-top: 20px;">
                 <button 

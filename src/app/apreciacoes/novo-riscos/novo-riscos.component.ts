@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApreciacaoService, CategoriaPerformanceLevelRequerido, CategoriaRisco, CicloVida, Dano, DescricaoCategoria, DescricaoPerformanceLevel, FaixaHRN, FrequenciaExposicao, FrequenciaExposicaoPerigo, GrauPossivelLesao, HRNAntes, NumeroPessoas, PerformanceLevelRequerido, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, SeveridadeFerimento, Tarefa, TipoGrupoPerigo } from '..';
+import { ApreciacaoService, CategoriaPerformanceLevelRequerido, CategoriaRisco, CicloVida, Dano, DescricaoCategoria, DescricaoPerformanceLevel, FaixaHRN, FrequenciaExposicao, FrequenciaExposicaoPerigo, GrauPossivelLesao, HRNAntes, HRNDepois, NumeroPessoas, PerformanceLevelRequerido, PossibilidadeEvitarPerigo, Risco, RiscoABNT12100, SeveridadeFerimento, Tarefa, TipoGrupoPerigo } from '..';
 
 @Component({
   selector: 'app-riscos',
@@ -27,7 +27,9 @@ export class NovoRiscosComponent implements OnInit {
   public eletricaOuFluidos: any[];
   public envolveEletricaOuFluidos: boolean;
   public hrnAntes = new HRNAntes();
+  public hrnDepois = new HRNDepois();
   public faixaHRN = new FaixaHRN();
+  public faixaHRNDepois = new FaixaHRN();
   public descricaoCategoria = new DescricaoCategoria();
   public descricaoPerformanceLevel = new DescricaoPerformanceLevel();
   public severidadeFerimento = new SeveridadeFerimento();
@@ -79,6 +81,12 @@ export class NovoRiscosComponent implements OnInit {
       npHrnAntes: [this.hrnAntes.numeroPessoas, Validators.required],
       valorHrnAtual: [this.hrnAntes.valorCalculado, Validators.required],
       faixaHrnAtual: [this.faixaHRN.descricao, Validators.required],
+      glpHrnDepois: [this.hrnDepois.grauPossivelLesao, Validators.required],
+      poHrnDepois: [this.hrnDepois.possibilidadeOcorrencia, Validators.required],
+      feHrnDepois: [this.hrnDepois.frequenciaExposicao, Validators.required],
+      npHrnDepois: [this.hrnDepois.numeroPessoas, Validators.required],
+      valorHrnDepois: [this.hrnDepois.valorCalculado, Validators.required],
+      faixaHrnDepois: [this.faixaHRNDepois.descricao, Validators.required],
       medidasProtecaoSugeridas: [this.novoRisco.medidaProtecaoSugerida, Validators.required],
       envolveEletricaOuFluidos: [this.envolveEletricaOuFluidos, Validators.required],
       severidadeFerimento: [this.severidadeFerimento],
@@ -155,6 +163,25 @@ export class NovoRiscosComponent implements OnInit {
         this.hrnAntes.idFrequenciaExposicao = this.hrnAntes.frequenciaExposicao.id;
         this.hrnAntes.idPossibilidadeOcorrencia = this.hrnAntes.possibilidadeOcorrencia.id;
         this.hrnAntes.idNumeroPessoas = this.hrnAntes.numeroPessoas.id;
+      })
+    }
+    else{
+      alert("Existem campos obrigatorios não preenchidos!");
+    }
+  }
+
+  public calcularEstimativaHRN(){
+    if(this.hrnDepois.grauPossivelLesao != null && this.hrnDepois.possibilidadeOcorrencia != null && this.hrnDepois.frequenciaExposicao != null && this.hrnDepois.numeroPessoas != null){
+      this.apreciacaoService.calcularHrnDepois(this.hrnDepois).subscribe(dados => {
+        this.hrnDepois = dados;
+
+        this.faixaHRNDepois = this.hrnDepois.faixaHRN;
+        
+        this.hrnDepois.idFaixaHRN = this.faixaHRNDepois.id;
+        this.hrnDepois.idGrauPossivelLesao = this.hrnDepois.grauPossivelLesao.id;
+        this.hrnDepois.idFrequenciaExposicao = this.hrnDepois.frequenciaExposicao.id;
+        this.hrnDepois.idPossibilidadeOcorrencia = this.hrnDepois.possibilidadeOcorrencia.id;
+        this.hrnDepois.idNumeroPessoas = this.hrnDepois.numeroPessoas.id;
       })
     }
     else{
@@ -248,7 +275,21 @@ export class NovoRiscosComponent implements OnInit {
       this.novoRisco.performanceLevelRequerido = this.performanceLevelRisco;
       //this.novoRisco.idPerformanceLevelRequerido = this.performanceLevelRisco.id;
 
-      console.log(this.novoRisco);
+      this.novoRisco.hrnDepois = this.hrnDepois;
+      //this.novoRisco.hrnDepois = this.hrnDepois.id;
+
+      this.apreciacaoService.inserirNovoRisco(this.novoRisco).subscribe(
+        response => {
+          this.novoRisco = response;
+          alert("Risco Inserido com Sucesso");
+
+          //this._router.navigate(['editarApreciacao', this.idApreciacao]);
+        },
+        error => {
+          alert("Erro!")
+        }
+      )
+
     }else{
       Object.keys(this.formularioNovoRisco.controls).forEach(campo => {
         const controle = this.formularioNovoRisco.get(campo);
