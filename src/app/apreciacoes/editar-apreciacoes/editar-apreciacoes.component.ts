@@ -110,6 +110,10 @@ export class EditarApreciacoesComponent implements OnInit {
     this._router.navigate(['novoRisco', this.idApreciacao]);
   }
 
+  public editarRisco(idRisco){
+    this._router.navigate(['editarRisco', idRisco]);
+  }
+
   public atualizarApreciacaoRisco(){
     if (this.formularioEditarApreciacao.valid) {
       this.apreciacaoService.atualizarApreciacaoRisco(this.editarApreciacao).subscribe(
