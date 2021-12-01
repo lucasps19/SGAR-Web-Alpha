@@ -163,6 +163,10 @@ export class NovoRiscosComponent implements OnInit {
         this.hrnAntes.idFrequenciaExposicao = this.hrnAntes.frequenciaExposicao.id;
         this.hrnAntes.idPossibilidadeOcorrencia = this.hrnAntes.possibilidadeOcorrencia.id;
         this.hrnAntes.idNumeroPessoas = this.hrnAntes.numeroPessoas.id;
+
+        this.hrnDepois.grauPossivelLesao = this.hrnAntes.grauPossivelLesao;
+        this.hrnDepois.frequenciaExposicao = this.hrnAntes.frequenciaExposicao;
+        this.hrnDepois.numeroPessoas = this.hrnAntes.numeroPessoas;
       })
     }
     else{
@@ -283,7 +287,7 @@ export class NovoRiscosComponent implements OnInit {
           this.novoRisco = response;
           alert("Risco Inserido com Sucesso");
 
-          //this._router.navigate(['editarApreciacao', this.idApreciacao]);
+          this._router.navigate(['editarApreciacao', this.idApreciacao]);
         },
         error => {
           alert("Erro!")
