@@ -17,7 +17,7 @@ export class AppComponent {
           items: [
             {label: 'Nova Apreciação', icon: 'pi pi-fw pi-plus', routerLink: 'novaApreciacao'},
             {label: 'Lista de Apreciações', icon: 'pi pi-fw pi-list', routerLink: 'listarApreciacoes'},
-            {label: 'Configurações', icon: 'pi pi-fw pi-cog'},
+            // {label: 'Configurações', icon: 'pi pi-fw pi-cog'},
             {label: 'Sair', icon: 'pi pi-fw pi-sign-out', routerLink: 'login'}
           ]
       }
