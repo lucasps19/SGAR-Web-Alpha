@@ -36,6 +36,7 @@ export class EditarApreciacoesComponent implements OnInit {
     this.buscarPessoasPorEmpresa();
     this.idApreciacao = (this._route.snapshot.paramMap.get('idApreciacao'));
     this.buscarApreciacao();
+    this.buscarListaRiscos();
 
     this.colunas = [
       { field: 'id', header: 'Código'},
@@ -85,6 +86,13 @@ export class EditarApreciacoesComponent implements OnInit {
     this.apreciacaoService.buscarApreciacao(this.idApreciacao).then(dados => {
       this.editarApreciacao = dados;
       this.editarApreciacao.dataApreciacao = new Date(dados.dataApreciacao);
+    })
+  }
+
+  protected buscarListaRiscos(){
+    this.apreciacaoService.buscarListaRiscos(parseInt(this.idApreciacao)).then(dados => {
+      debugger;
+      this.listaRiscos = dados;
     })
   }
 

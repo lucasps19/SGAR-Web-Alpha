@@ -51,6 +51,10 @@ export class ApreciacaoService {
     return await this.httpClient.get<ApreciacaoRisco>(`${baseURL}/BuscarApreciacaoRisco?idApreciacao=${idApreciacao}`).toPromise();
   }
 
+  public async buscarListaRiscos(idApreciacao: number): Promise<Risco[]> {
+    return await this.httpClient.get<Risco[]>(`${baseURL}/BuscarListaRiscos?idApreciacao=${idApreciacao}`).toPromise();
+  }
+
   public async buscarApreciacoesUsuarioLogado(idUsuarioLogado: string) : Promise<ApreciacaoRisco[]>{
     return await this.httpClient.get<ApreciacaoRisco[]>(`${baseURL}/BuscarApreciacoes?idUsuarioLogado=${idUsuarioLogado}`).toPromise();
   }
