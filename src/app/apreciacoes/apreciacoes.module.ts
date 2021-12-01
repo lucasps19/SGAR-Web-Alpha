@@ -11,6 +11,7 @@ import { NovoEquipamentoComponent } from './novo-equipamento';
 import { NovoTipoEquipamentoComponent } from './novo-tipo-equipamento';
 import { EditarApreciacoesComponent } from './editar-apreciacoes';
 import { NovoRiscosComponent } from './novo-riscos';
+import { EditarRiscoComponent } from './editar-risco';
 
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
@@ -30,7 +31,8 @@ import {SelectButtonModule} from 'primeng/selectbutton';
     NovoEquipamentoComponent,
     NovoTipoEquipamentoComponent,
     EditarApreciacoesComponent,
-    NovoRiscosComponent
+    NovoRiscosComponent,
+    EditarRiscoComponent
   ],
   imports: [
     CommonModule,

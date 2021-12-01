@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EditarApreciacoesComponent, NovaApreciacaoComponent, NovoEquipamentoComponent, NovoRiscosComponent } from './apreciacoes';
+import { EditarRiscoComponent } from './apreciacoes/editar-risco';
 import { ListarApreciacoesComponent } from './apreciacoes/listar-apreciacoes';
 import { CadastrarUsuarioComponent } from './login/cadastrar';
 
@@ -35,6 +36,10 @@ const routes: Routes = [
     {
         path: 'novoRisco/:idApreciacao',
         component: NovoRiscosComponent
+    },
+    {
+        path: 'editarRisco/:idRisco',
+        component: EditarRiscoComponent
     }
 ];
 
