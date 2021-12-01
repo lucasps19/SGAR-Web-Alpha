@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Equipamento, ApreciacaoRisco, ApreciacaoService, NovoEquipamentoComponent, Risco } from '..';
+import { Equipamento, ApreciacaoRisco, ApreciacaoService, NovoEquipamentoComponent, Risco, TabelaRiscos } from '..';
 import { Pessoa } from 'src/app/login/shared';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,7 +18,7 @@ export class EditarApreciacoesComponent implements OnInit {
   public idApreciacao: string;
   public listaEquipamentos: Equipamento[];
   public listaPessoasPorEmpresa: Pessoa[];
-  public listaRiscos: Risco[];
+  public listaRiscos: TabelaRiscos[];
   public colunas: any[];
   public _colunasSelecionadas: any[];
 
@@ -39,20 +39,20 @@ export class EditarApreciacoesComponent implements OnInit {
     this.buscarListaRiscos();
 
     this.colunas = [
-      { field: 'id', header: 'Código'},
-      { field: 'cicloVida.descricao', header: 'Ciclo de Vida '},
-      { field: 'tarefa.descricao', header: 'Tarefa'},
+      { field: 'cicloVida', header: 'Ciclo de Vida '},
+      { field: 'tarefa', header: 'Tarefa'},
       { field: 'atividade', header: 'Atividade'},
-      { field: 'tipoGrupoPerigo.descricao', header: 'Tipo Grupo/Perigo'},
-      { field: 'dano.descricao', header: 'Dano'},
+      { field: 'tipoGrupoPerigo', header: 'Tipo Grupo/Perigo'},
+      { field: 'dano', header: 'Dano'},
       { field: 'onde', header: 'Onde'},
-      { field: 'riscoABNT12100.descricao', header: 'Risco'},
-      { field: 'hrnAntes.valorCalculado', header: 'HRN'},
-      { field: 'hrnAntes.faixaHRN.descricao', header: 'Faixa HRN'},
-      { field: 'categoriaRisco.descricaoCategoria.descricao', header: 'Categoria'},
-      { field: 'performanceLevelRequerido.descricaoPerformanceLevel.descricao', header: 'PLr'},
+      { field: 'riscoABNT12100', header: 'Risco'},
+      { field: 'valorCalculadoHRNAntes', header: 'HRN'},
+      { field: 'faixaHRNAntes', header: 'Faixa HRN'},
+      { field: 'categoria', header: 'Categoria'},
+      { field: 'performanceLevelRequerido', header: 'PLr'},
       { field: 'medidaProtecaoSugerida', header: 'Medidas de Proteção Sugeridas'},
-      { field: 'hrnDepois.valorCalculado', header: 'Estimativa HRN'}
+      { field: 'valorCalculadoHRNDepois', header: 'Estimativa HRN'},
+      { field: 'faixaHRNDepois', header: 'Faixa Estimada HRN'}
     ]
 
     this._colunasSelecionadas = this.colunas;
@@ -91,7 +91,6 @@ export class EditarApreciacoesComponent implements OnInit {
 
   protected buscarListaRiscos(){
     this.apreciacaoService.buscarListaRiscos(parseInt(this.idApreciacao)).then(dados => {
-      debugger;
       this.listaRiscos = dados;
     })
   }

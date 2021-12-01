@@ -151,6 +151,9 @@
         </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>
+                <th class="cabecalhoTabela">
+                    Código
+                </th>
                 <th *ngFor="let col of columns" class="cabecalhoTabela"> 
                     {{col.header}}
                 </th>
@@ -159,8 +162,11 @@
                 </th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="colunas">
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
             <tr>
+                <td>
+                    {{rowData.id}}
+                </td>
                 <td *ngFor="let col of columns">
                     {{rowData[col.field]}}
                 </td>

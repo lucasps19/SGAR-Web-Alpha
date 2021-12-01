@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa, TipoGrupoPerigo, Dano, RiscoABNT12100, GrauPossivelLesao, PossibilidadeEvitarPerigo, FrequenciaExposicao, NumeroPessoas, HRNAntes, SeveridadeFerimento, FrequenciaExposicaoPerigo, CategoriaPerformanceLevelRequerido, Risco, HRNDepois } from '.';
+import { Equipamento, ApreciacaoRisco, CicloVida, Tarefa, TipoGrupoPerigo, Dano, RiscoABNT12100, GrauPossivelLesao, PossibilidadeEvitarPerigo, FrequenciaExposicao, NumeroPessoas, HRNAntes, SeveridadeFerimento, FrequenciaExposicaoPerigo, CategoriaPerformanceLevelRequerido, Risco, HRNDepois, TabelaRiscos } from '.';
 import { Empresa, Pessoa } from 'src/app/login/shared';
 import { TipoEquipamento } from './tipoEquipamento.model';
 import { ReturnStatement } from '@angular/compiler';
@@ -51,8 +51,8 @@ export class ApreciacaoService {
     return await this.httpClient.get<ApreciacaoRisco>(`${baseURL}/BuscarApreciacaoRisco?idApreciacao=${idApreciacao}`).toPromise();
   }
 
-  public async buscarListaRiscos(idApreciacao: number): Promise<Risco[]> {
-    return await this.httpClient.get<Risco[]>(`${baseURL}/BuscarListaRiscos?idApreciacao=${idApreciacao}`).toPromise();
+  public async buscarListaRiscos(idApreciacao: number): Promise<TabelaRiscos[]> {
+    return await this.httpClient.get<TabelaRiscos[]>(`${baseURL}/BuscarListaRiscos?idApreciacao=${idApreciacao}`).toPromise();
   }
 
   public async buscarApreciacoesUsuarioLogado(idUsuarioLogado: string) : Promise<ApreciacaoRisco[]>{
