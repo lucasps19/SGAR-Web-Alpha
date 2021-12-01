@@ -126,5 +126,21 @@ export class ApreciacaoService {
   public async buscarPossibilidadesEvitarPerigo() : Promise<PossibilidadeEvitarPerigo[]> {
     return await this.httpClient.get<PossibilidadeEvitarPerigo[]>(`${baseURL}/BuscarPossibilidadesEvitarPerigo`).toPromise();
   }
+
+  public async buscarRisco(idRisco: number) : Promise<Risco> {
+    return await this.httpClient.get<Risco>(`${baseURL}/BuscarRisco?idRisco=${idRisco}`).toPromise();
+  }
+
+  public async buscarHRNAntes(idHrnAntes: number) : Promise<HRNAntes> {
+    return await this.httpClient.get<HRNAntes>(`${baseURL}/BuscarHRNAntes?idHrnAntes=${idHrnAntes}`).toPromise();
+  }
+
+  public async buscarHRNDepois(idHrnDepois: number) : Promise<HRNDepois> {
+    return await this.httpClient.get<HRNDepois>(`${baseURL}/BuscarHRNDepois?idHrnDepois=${idHrnDepois}`).toPromise();
+  }
+
+  public async buscarCategoriaPerformanceLevelRequerido(idCategoria: number, idPlr: number) : Promise<CategoriaPerformanceLevelRequerido> {
+    return await this.httpClient.get<CategoriaPerformanceLevelRequerido>(`${baseURL}/BuscarCatPLr?idCategoria=${idCategoria}&idPlr=${idPlr}`).toPromise();
+  }
   
 }

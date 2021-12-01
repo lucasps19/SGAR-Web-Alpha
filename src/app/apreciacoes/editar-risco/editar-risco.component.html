@@ -1,1 +1,497 @@
-<p>editar-risco works!</p>
+<div class="boxEditarRisco">
+    <fieldset class="fieldsetEditarRisco">
+        <h1>Editar Risco</h1>
+        <div class="formulario" [formGroup]="formularioNovoRisco">
+            <div class="codigo">
+                <span>Código</span>
+                <br>
+                <input
+                    id="id" 
+                    type="text" 
+                    pInputText 
+                    formControlName="id"
+                    readonly="true"
+                    class="inputIdRisco"
+                    [(ngModel)]="novoRisco.id"
+                >
+            </div>
+            <p-divider align="center" type="dashed" class="divisor">
+                <h2 style="width: 100%;">Informações ABNT NBR ISO 12100</h2>
+            </p-divider>
+            <div style="width: 100%;">
+                <span>Ciclo de Vida</span>
+                <br>
+                <p-dropdown 
+                    id="cicloVida"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="cicloVida"
+                    placeholder="Selecione o Ciclo de Vida"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaCicloVida"
+                    [(ngModel)]="novoRisco.cicloVida" 
+                    (onChange)="buscarTarefas(novoRisco.cicloVida.id)"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Tarefa</span>
+                <br>
+                <p-dropdown 
+                    id="tarefa"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="tarefa"
+                    placeholder="Selecione a Tarefa"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaTarefa "
+                    [(ngModel)]="novoRisco.tarefa" 
+                ></p-dropdown>
+            </div>
+            <div style="margin-top: 20px;">
+                <span>Atividade</span>
+                <br>
+                <textarea 
+                    id="atividade"
+                    formControlName="atividade"
+                    [rows]="3" 
+                    [cols]="124" 
+                    pInputTextarea 
+                    [autoResize]="true"
+                    [(ngModel)]="novoRisco.atividade"
+                ></textarea>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Tipo/Grupo Perigo</span>
+                <br>
+                <p-dropdown 
+                    id="tipoGrupoPerigo"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="tipoGrupoPerigo"
+                    placeholder="Selecione o Tipo/Grupo Perigo"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaTipoGrupoPerigo "
+                    [(ngModel)]="novoRisco.tipoGrupoPerigo" 
+                    (onChange)="buscarDanos(novoRisco.tipoGrupoPerigo.id)"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Dano</span>
+                <br>
+                <p-dropdown 
+                    id="dano"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="dano"
+                    placeholder="Selecione o Dano"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaDano"
+                    [(ngModel)]="novoRisco.dano" 
+                ></p-dropdown>
+            </div>
+            <div style="margin-top: 20px;">
+                <span>Onde</span>
+                <br>
+                <textarea 
+                    id="onde"
+                    formControlName="onde"
+                    [rows]="3" 
+                    [cols]="124" 
+                    pInputTextarea 
+                    [autoResize]="true"
+                    [(ngModel)]="novoRisco.onde"
+                ></textarea>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Risco</span>
+                <br>
+                <p-dropdown 
+                    id="riscoABNT12100"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="riscoABNT12100"
+                    placeholder="Selecione o Risco"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaRiscosABNT12100"
+                    [(ngModel)]="novoRisco.riscoABNT12100" 
+                ></p-dropdown>
+            </div>
+            <p-divider align="center" type="dashed" class="divisor">
+                <h2 style="width: 100%;">Cálculo HRN Atual</h2>
+            </p-divider>
+            <div style="width: 100%;">
+                <span>Grau Possivel Lesão</span>
+                <br>
+                <p-dropdown 
+                    id="glp"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="glpHrnAntes"
+                    placeholder="Selecione o Grau de Possivel Lesão"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaGLP"
+                    [(ngModel)]="hrnAntes.grauPossivelLesao"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Frequência de Exposição</span>
+                <br>
+                <p-dropdown 
+                    id="fe"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="feHrnAntes"
+                    placeholder="Selecione a Frequência de Exposição"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaFE"
+                    [(ngModel)]="hrnAntes.frequenciaExposicao"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Probabilidade de Ocorrência do Dano</span>
+                <br>
+                <p-dropdown 
+                    id="po"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="poHrnAntes"
+                    placeholder="Selecione a Probabilidade de Ocorrência do Dano"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaPO"
+                    [(ngModel)]="hrnAntes.possibilidadeOcorrencia"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Numero de Pessoas Expostas</span>
+                <br>
+                <p-dropdown 
+                    id="np"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="npHrnAntes"
+                    placeholder="Selecione o Numero de Pessoas Expostas"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaNP"
+                    [(ngModel)]="hrnAntes.numeroPessoas"
+                ></p-dropdown>
+            </div>
+            <div style="width: 50%; margin-top: 20px;">
+                <figure class="figure">
+                    <img src="assets/TabelaHRN.png" width=473px; style="border-style: solid; border-color: black;">
+                </figure>
+            </div>
+            <div class="calcularHrnAntes">
+                <button 
+                    pButton 
+                    pRipple 
+                    type="button" 
+                    label="Calcular HRN Atual" 
+                    class="p-button-sm button-calcularHRN"
+                    (click)="calcularHRN()"
+                ></button>
+                <span>Valor HRN Atual Calculado</span>
+                <br>
+                <input
+                    id="hrnAtual" 
+                    type="text" 
+                    formControlName="valorHrnAtual"
+                    pInputText 
+                    readonly="true"
+                    class="valorHrnCalculado"
+                    [(ngModel)]="hrnAntes.valorCalculado"
+                >
+                <span>Faixa HRN Atual Calculado</span>
+                <br>
+                <input
+                    id="hrnAtual" 
+                    type="text" 
+                    formControlName="faixaHrnAtual"
+                    pInputText 
+                    readonly="true"
+                    class="valorHrnCalculado"
+                    [(ngModel)]="faixaHRN.descricao"
+                >
+            </div>
+            <p-divider align="center" type="dashed" class="divisor">
+                <h2 style="width: 100%;">Medidas de Proteção Sugeridas</h2>
+            </p-divider>
+            <div>
+                <span>Medidas de Proteção Sugeridas</span>
+                <br>
+                <textarea 
+                    id="medidasProtecaoSugeridas"
+                    formControlName="medidasProtecaoSugeridas"
+                    [rows]="3" 
+                    [cols]="124" 
+                    pInputTextarea 
+                    [autoResize]="true"
+                    [(ngModel)]="novoRisco.medidaProtecaoSugerida"
+                ></textarea>
+            </div>
+            <p-divider align="center" type="dashed" class="divisor">
+                <h2 style="width: 100%;">Cálcular Categoria e PLr</h2>
+            </p-divider>
+            <div style="width: 100%;">
+                <span>A Solução Proposta Envolve Elétrica ou Fluídos?</span>
+                <br>
+                <p-selectButton 
+                    [options]="eletricaOuFluidos"
+                    formControlName="envolveEletricaOuFluidos" 
+                    optionLabel="label" 
+                    optionValue="value"
+                    [(ngModel)]="envolveEletricaOuFluidos"
+                    (onChange)="SolucaoEnvolveEletricaOuFluidos()"
+                ></p-selectButton>
+            </div>
+            <div id="divCatPlr" style="width: 100%;">
+                <div style="width: 100%; margin-top: 20px;">
+                    <span>Severidade Ferimento</span>
+                    <br>
+                    <p-dropdown 
+                        id="severidadeFerimento"
+                        optionLabel="descricao"
+                        autoWidth="false" 
+                        [style]="{'width':'100%'}"
+                        formControlName="severidadeFerimento"
+                        placeholder="Selecione a Severidade do Ferimento"
+                        [virtualScroll]="true"
+                        [filter]="true" 
+                        filterBy="descricao"
+                        [options]="listaSeveridadesFerimento"
+                        [(ngModel)]="severidadeFerimento"
+                    ></p-dropdown>
+                </div>
+                <div style="width: 100%; margin-top: 20px;">
+                    <span>Frequência de Exposição</span>
+                    <br>
+                    <p-dropdown 
+                        id="frequenciaExposicaoPerigo"
+                        optionLabel="descricao"
+                        autoWidth="false" 
+                        [style]="{'width':'100%'}"
+                        formControlName="frequenciaExposicaoPerigo"
+                        placeholder="Selecione a Frequência de Exposição"
+                        [virtualScroll]="true"
+                        [filter]="true" 
+                        filterBy="descricao"
+                        [options]="listaFrequenciaExposicaoPerigo"
+                        [(ngModel)]="frequenciaExposicaoPerigo"
+                    ></p-dropdown>
+                </div>
+                <div style="width: 100%; margin-top: 20px;">
+                    <span>Possibilidade Evitar o Perigo</span>
+                    <br>
+                    <p-dropdown 
+                        id="possibilidadeEvitarPerigo"
+                        optionLabel="descricao"
+                        autoWidth="false" 
+                        [style]="{'width':'100%'}"
+                        formControlName="possibilidadeEvitarPerigo"
+                        placeholder="Selecione a Possibilidade Evitar o Perigo"
+                        [virtualScroll]="true"
+                        [filter]="true" 
+                        filterBy="descricao"
+                        [options]="listaPossibilidadesEvitarPerigo"
+                        [(ngModel)]="possibilidadeEvitarPerigo"
+                    ></p-dropdown>
+                </div>
+                <div style="width: 35%; margin-top: 20px;">
+                    <button 
+                        pButton 
+                        pRipple 
+                        type="button" 
+                        label="Calcular Categoria e PLr do Risco" 
+                        class="p-button-sm button-calcularCatPLr"
+                        (click)="calcularCategoriaPLr()"
+                    ></button>
+                </div>
+                <div style="width: 35%; padding-left: 20px; padding-right: 20px; display: inline-block;">
+                    <span>Categoria</span>
+                    <br>
+                    <input
+                        id="categoria" 
+                        type="text" 
+                        formControlName="categoriaRisco"
+                        pInputText 
+                        readonly="true"
+                        class="valorHrnCalculado"
+                        [(ngModel)]="descricaoCategoria.descricao"
+                    >
+                </div>
+                <div style="width: 30%; display: inline-block;">
+                    <span>PLr</span>
+                    <br>
+                    <input
+                        id="hrnAtual" 
+                        type="text" 
+                        formControlName="performanceLevelRisco"
+                        pInputText 
+                        readonly="true"
+                        class="valorHrnCalculado"
+                        [(ngModel)]="descricaoPerformanceLevel.descricao"
+                    >
+                </div>
+                <div style="width: 100%;">
+                    <figure class="figure">
+                        <img src="assets/PLr.png" width="473px">
+                        <img src="assets/Categoria.png" width="473px" style="padding-left: 20px; padding-bottom: 123px;">
+                    </figure>
+                </div>
+            </div>
+            <p-divider align="center" type="dashed" class="divisor">
+                <h2 style="width: 100%;">Estimativa HRN</h2>
+            </p-divider>
+            <div style="width: 100%;">
+                <span>Grau Possivel Lesão</span>
+                <br>
+                <p-dropdown 
+                    id="glp"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="glpHrnDepois"
+                    placeholder="Selecione o Grau de Possivel Lesão"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaGLP"
+                    [(ngModel)]="hrnDepois.grauPossivelLesao"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Frequência de Exposição</span>
+                <br>
+                <p-dropdown 
+                    id="fe"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="feHrnDepois"
+                    placeholder="Selecione a Frequência de Exposição"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaFE"
+                    [(ngModel)]="hrnDepois.frequenciaExposicao"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Probabilidade de Ocorrência do Dano</span>
+                <br>
+                <p-dropdown 
+                    id="po"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="poHrnDepois"
+                    placeholder="Selecione a Probabilidade de Ocorrência do Dano"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaPO"
+                    [(ngModel)]="hrnDepois.possibilidadeOcorrencia"
+                ></p-dropdown>
+            </div>
+            <div style="width: 100%; margin-top: 20px;">
+                <span>Numero de Pessoas Expostas</span>
+                <br>
+                <p-dropdown 
+                    id="np"
+                    optionLabel="descricao"
+                    autoWidth="false" 
+                    [style]="{'width':'100%'}"
+                    formControlName="npHrnDepois"
+                    placeholder="Selecione o Numero de Pessoas Expostas"
+                    [virtualScroll]="true"
+                    [filter]="true" 
+                    filterBy="descricao"
+                    [options]="listaNP"
+                    [(ngModel)]="hrnDepois.numeroPessoas"
+                ></p-dropdown>
+            </div>
+            <div style="width: 50%; margin-top: 20px;">
+                <figure class="figure">
+                    <img src="assets/TabelaHRN.png" width=473px; style="border-style: solid; border-color: black;">
+                </figure>
+            </div>
+            <div class="calcularHrnAntes">
+                <button 
+                    pButton 
+                    pRipple 
+                    type="button" 
+                    label="Calcular Estimativa HRN" 
+                    class="p-button-sm button-calcularHRN"
+                    (click)="calcularEstimativaHRN()"
+                ></button>
+                <span>Valor Estimativa HRN Calculado</span>
+                <br>
+                <input
+                    id="hrnEstimado" 
+                    type="text" 
+                    formControlName="valorHrnDepois"
+                    pInputText 
+                    readonly="true"
+                    class="valorHrnCalculado"
+                    [(ngModel)]="hrnDepois.valorCalculado"
+                >
+                <span>Faixa HRN Estimado Calculado</span>
+                <br>
+                <input
+                    id="faixaHrnEstimado" 
+                    type="text" 
+                    formControlName="faixaHrnDepois"
+                    pInputText 
+                    readonly="true"
+                    class="valorHrnCalculado"
+                    [(ngModel)]="faixaHRNDepois.descricao"
+                >
+            </div>
+            <p-divider class="divisor"></p-divider>
+            <div style="width: 100%; margin-top: 20px;">
+                <button 
+                    pButton 
+                    pRipple 
+                    type="button" 
+                    label="Salvar Risco" 
+                    class="p-button-sm button-salvar"
+                    (click)="salvarNovoRisco()"
+                ></button>
+                <button 
+                    pButton 
+                    pRipple 
+                    type="button" 
+                    label="Cancelar" 
+                    class="p-button-sm button-cancelar"
+                    (click)="cancelar()"
+                ></button>
+            </div>
+        </div>
+    </fieldset>
+</div>
